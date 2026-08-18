@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Better Future (ISCA) — Peta Bakat 19-Faktor & Solusi Bebas Kecemasan Sosial Ortu</title>
+    <meta name="description" content="Persiapkan arah kuliah & jurusan anak sebelum kumpul keluarga/Lebaran. Pemetaan Bakat 19-Faktor Ilmiah supervisi Psikolog HIMPSI.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #FAF8F5;
+            --bg-card: #FFFFFF;
+            --bg-dark: #0F172A;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --text-light: #F8FAFC;
+            --accent-gold: #D97706;
+            --accent-gold-light: #FEF3C7;
+            --accent-green: #059669;
+            --accent-green-hover: #047857;
+            --danger-red: #DC2626;
+            --border-color: #E2E8F0;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-pill: 999px;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.08);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+            --font-accent: 'Caveat', cursive;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR PERSISTEN */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 248, 245, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-brand {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--bg-dark);
+            text-decoration: none;
+        }
+
+        .logo-brand span {
+            color: var(--accent-gold);
+        }
+
+        .btn-nav-cta {
+            background: var(--accent-green);
+            color: #FFF;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-nav-cta:hover {
+            background: var(--accent-green-hover);
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            padding-top: 110px;
+            padding-bottom: 50px;
+            text-align: center;
+        }
+
+        .eyebrow-badge {
+            display: inline-block;
+            background: var(--accent-gold-light);
+            color: var(--accent-gold);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 5vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--bg-dark);
+            margin-bottom: 16px;
+        }
+
+        .hero-title span {
+            color: var(--danger-red);
+            background: linear-gradient(120deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0) 100%);
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .btn-primary-cta {
+            width: 100%;
+            max-width: 440px;
+            background: var(--accent-green);
+            color: #FFF;
+            padding: 16px 24px;
+            border-radius: var(--radius-lg);
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.25);
+            transition: transform 0.2s ease, background 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-primary-cta:hover {
+            transform: translateY(-2px);
+            background: var(--accent-green-hover);
+        }
+
+        .trust-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* SECTION PAIN POINTS (4 SKENARIO HOROR ORTU) */
+        .section-padding {
+            padding: 50px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .section-tag {
+            color: var(--accent-gold);
+            font-family: var(--font-accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--bg-dark);
+            line-height: 1.3;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--shadow-lg);
+        }
+
+        .pain-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .pain-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+            margin-bottom: 8px;
+        }
+
+        .pain-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* AGITATION SECTION */
+        .agitation-box {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: var(--text-light);
+            border-radius: var(--radius-lg);
+            padding: 36px 24px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .agitation-title {
+            font-family: var(--font-heading);
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #FCD34D;
+            margin-bottom: 16px;
+        }
+
+        .agitation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            text-align: left;
+        }
+
+        .agitation-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 16px;
+            border-radius: var(--radius-md);
+        }
+
+        .agitation-card strong {
+            color: #F87171;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* SOLUTION SECTION */
+        .solution-card {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            box-shadow: var(--shadow-lg);
+            margin-top: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+
+        .feature-icon {
+            background: var(--accent-gold-light);
+            color: var(--accent-gold);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        /* WHATSAPP MOCKUP */
+        .wa-mockup {
+            background: #075E54;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            color: #FFF;
+            margin: 30px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .wa-header {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 8px;
+        }
+
+        .wa-bubble-left {
+            background: #FFFFFF;
+            color: #111;
+            padding: 10px 14px;
+            border-radius: 0 12px 12px 12px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            max-width: 85%;
+        }
+
+        .wa-bubble-right {
+            background: #DCF8C6;
+            color: #111;
+            padding: 10px 14px;
+            border-radius: 12px 0 12px 12px;
+            font-size: 0.85rem;
+            margin-left: auto;
+            max-width: 85%;
+            margin-bottom: 10px;
+        }
+
+        /* TESTIMONIALS */
+        .testi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testi-text {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .testi-author {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+        }
+
+        /* PRICING CARD */
+        .pricing-box {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-green);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            margin-top: 30px;
+        }
+
+        .price-strike {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .price-final {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin: 8px 0;
+        }
+
+        /* GUARANTEE BOX */
+        .guarantee-box {
+            border: 1.5px dashed var(--accent-gold);
+            background: var(--accent-gold-light);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .guarantee-title {
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+        }
+
+        /* FAQ ACCORDION */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .faq-q {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--bg-dark);
+            margin-bottom: 6px;
+        }
+
+        .faq-a {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 40px 0 20px;
+            text-align: center;
+            font-size: 0.82rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR PERSISTEN -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo-brand">better<span>future</span></a>
+            <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20konsultasi%20tes%20bakat%20anak" class="btn-nav-cta">
+                Tes Gratis 20 Menit →
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+        <div class="container">
+            <span class="eyebrow-badge">🚨 PERSIAPKAN SEBELUM KUMPUL KELUARGA & LEBARAN TIBAT</span>
+            <h1 class="hero-title">
+                Saat Kumpul Keluarga Nanti, Siapkah Anda Menjawab Pertanyaan: <span>"Anakmu Kuliah di Mana & Jurusan Apa?"</span>
+            </h1>
+            <p class="hero-subtitle">
+                Jangan biarkan anak bingung mati gaya dan jadi bahan bisik-bisik tetangga akibat salah pilih jurusan. Petakan 19 potensi otak & arah karir ilmiah anak dalam 20 menit dari HP, agar Anda dan anak mantap melangkah!
+            </p>
+            <div class="cta-container">
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20bakat%20anak%20sekarang" class="btn-primary-cta">
+                    Mulai Tes Bakat Anak Sekarang (20 Menit) 🚀
+                </a>
+                <div class="trust-pills">
+                    <span>🛡️ Supervisi Psikolog HIMPSI</span>
+                    <span>⏱️ 100% Online via HP</span>
+                    <span>🤝 Garansi 14 Hari Kedamaian Diskusi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: 4 SKENARIO HOROR ORTU -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kecemasan Sosial Orang Tua</span>
+                <h2 class="section-title">Pernahkah Anda Membayangkan Skenario Canggung Ini Terjadi?</h2>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">😱</div>
+                    <h3 class="pain-card-title">Mati Gaya saat Kumpul Keluarga</h3>
+                    <p class="pain-card-desc">Saat kerabat asyik memamerkan jurusan anak mereka, anak Anda cuma bisa menunduk dan nyengir bingung karena belum punya tujuan kuliah pasti.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🤫</div>
+                    <h3 class="pain-card-title">Jadi Bahan Bisik-Bisik Tetangga</h3>
+                    <p class="pain-card-desc">Mendengar cerita anak tetangga yang drop out di semester 3 karena salah jurusan. Uang ratusan juta lenyap, dan orang tuanya malu keluar rumah.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🥊</div>
+                    <h3 class="pain-card-title">Perang Dingin Gengsi vs Bakat</h3>
+                    <p class="pain-card-desc">Anda ingin anak masuk Kedokteran/Hukum demi gengsi keluarga, tapi anak mogok belajar karena merasa tidak cocok dengan cara kerja otaknya.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">🎓</div>
+                    <h3 class="pain-card-title">Gelar Sarjana Tapi Nganggur</h3>
+                    <p class="pain-card-desc">Kuliah 4 tahun habis biaya mahal, tapi pas lulus bingung mau kerja apa karena jurusan tidak sesuai bakat bawaan & kebutuhan industri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGITATION SECTION -->
+    <section class="container">
+        <div class="agitation-box">
+            <h2 class="agitation-title">Kerugian Salah Jurusan Bukan Cuma Soal Uang... Tapi Soal Harga Diri Keluarga!</h2>
+            <p style="font-size: 0.95rem; opacity: 0.9;">Membiarkan anak memilih jurusan secara ikut-ikutan atau tebak-tebakan memiliki dampak berantai yang sangat mahal:</p>
+            <div class="agitation-grid">
+                <div class="agitation-card">
+                    <strong>💸 Kerugian Rp 100 Juta+</strong>
+                    <span style="font-size: 0.85rem; opacity: 0.85;">Biaya UKT, pangkal, dan hidup 4 tahun hangus sia-sia jika mengulang dari nol.</span>
+                </div>
+                <div class="agitation-card">
+                    <strong>⏳ Rugi 2-4 Tahun Masa Emas</strong>
+                    <span style="font-size: 0.85rem; opacity: 0.85;">Anak stres & depresi akademik menempuh mata kuliah yang dibencinya.</span>
+                </div>
+                <div class="agitation-card">
+                    <strong>💔 Konflik Rumah Tangga</strong>
+                    <span style="font-size: 0.85rem; opacity: 0.85;">Perdebatan harian ortu vs anak yang merusak kedamaian keluarga.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSFORMATION SECTION -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Solusi Ilmiah Better Future (ISCA)</span>
+                <h2 class="section-title">Ubah Cemas Jadi Kebanggaan. Berikan Anak "Peta Karir Ilmiah 19-Faktor"!</h2>
+            </div>
+            
+            <div class="solution-card">
+                <p style="font-size: 0.95rem; color: var(--text-muted); text-align: center; margin-bottom: 20px;">
+                    Dengan 5 metodologi psikologi terintegrasi (RIASEC, MBTI, DISC, 16PF, VAK) di bawah supervisi <strong>Dr. Teguh Lesmana, M.Psi., Psi.</strong>, anak Anda tidak lagi menebak-nebak.
+                </p>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <div class="feature-icon">1</div>
+                        <div><strong>Laporan Analisis 19 Halaman Siap Cetak:</strong> Pemetaan komprehensif kepribadian, gaya belajar VAK, dan Top 5 Rekomendasi Jurusan yang paling pas dengan potensi otak anak.</div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">2</div>
+                        <div><strong>Draf Panduan Diplomasi Ortu-Anak:</strong> Naskah komunikasi agar orang tua dan anak bisa berdiskusi secara damai, rasional, dan ilmiah tanpa debat emosi.</div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon">3</div>
+                        <div><strong>Jawaban Pede saat Kumpul Keluarga:</strong> Anak dan orang tua punya pegangan data objektif untuk menjawab setiap pertanyaan kerabat dengan mantap.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP MOCKUP / AI COUNSELOR -->
+    <section class="container">
+        <div class="wa-mockup">
+            <div class="wa-header">
+                🤖 AI Career Counselor 24/7 Better Future
+            </div>
+            <div class="wa-bubble-left">
+                Bunda, hasil tes bakat Ananda menunjukkan tipe kognitif Analytical-Investigative dengan akurasi 94%. Top 3 jurusannya: Data Science, Software Engineering, & Cyber Security.
+            </div>
+            <div class="wa-bubble-right">
+                Wah lega banget! Pas kumpul keluarga kemarin sepupu sempat nanya-nanya, sekarang kami punya laporan ilmiahnya. Makasih Better Future!
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kisah Kehormatan Keluarga</span>
+                <h2 class="section-title">Kini Mereka Pede & Tenang Menjawab Keluarga</h2>
+            </div>
+            <div class="testi-card">
+                <p class="testi-text">"Kemarin pas kumpul keluarga Lebaran, saudara-saudara pada nanya anakku mau kuliah di mana. Berkat Laporan Better Future, anakku bisa jelaskan Peta Bakat 19-Faktornya dengan sangat pede. Sepupu-sepupunya malah takjub!"</p>
+                <div class="testi-author">— Bunda Murni (Surabaya, Ortu Siswa Kelas 12)</div>
+            </div>
+            <div class="testi-card">
+                <p class="testi-text">"Anak tetangga saya drop out semester 3 karena salah jurusan, habis Rp 85 Juta dan ibunya malu banget. Beruntung saya dapat tes Better Future sebelum pendaftaran SNBT. Sekarang anak saya fokus & tenang."</p>
+                <div class="testi-author">— Pak Hendra (Jakarta Selatan, Ortu Siswa Kelas 11)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING PACKAGE -->
+    <section class="container">
+        <div class="pricing-box">
+            <span class="eyebrow-badge">PENAWARAN SPESIAL PENYELAMAT MASA DEPAN</span>
+            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 8px;">Paket Pemetaan Bakat 19-Faktor Lengkap</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">(Tes 20 Menit + Laporan PDF 19 Halaman + Draf Diplomasi + 24/7 AI Counselor)</p>
+            
+            <div class="price-strike">Total Real Value: Rp 1.100.000</div>
+            <div class="price-final">Rp 149.000</div>
+            <p style="font-size: 0.82rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 20px;">*Sekali bayar untuk kepastian masa depan anak seumur hidup</p>
+
+            <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20mau%20ambil%20Paket%20Pemetaan%20Bakat%20Rp149ribu" class="btn-primary-cta" style="margin: 0 auto; display: inline-block;">
+                Amankan Paket Penyelamat Rp 149.000 Sekarang 🚀
+            </a>
+        </div>
+
+        <div class="guarantee-box">
+            <div class="guarantee-title">🛡️ 100% GARANSI KEDAMAIAN DISKUSI KELUARGA (14 HARI)</div>
+            <p style="font-size: 0.88rem; color: var(--text-main);">
+                Jika dalam 14 hari laporan ini tidak memberikan kepastian jurusan dan kedamaian diskusi antara Anda dan anak Anda, kami kembalikan uang Anda 100% tanpa pertanyaan.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pertanyaan Sering Diajukan Orang Tua</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Apakah tes ini bisa dipercaya secara ilmiah?</div>
+                <div class="faq-a">Sangat bisa. Tes disupervisi langsung oleh psikolog lisensi HIMPSI (Dr. Teguh Lesmana, M.Psi., Psi.) menggabungkan 5 metodologi teruji (RIASEC, MBTI, DISC, 16PF, VAK) dengan garansi akurasi 92.7%.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Bagaimana jika anak saya susah diajak tes atau ngambek?</div>
+                <div class="faq-a">Tes Better Future dirancang interaktif & menyenangkan di browser HP seperti kuis kepribadian modern. Hanya butuh 20 menit tanpa pusing.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Apakah laporan ini bisa dipakai untuk meyakinkan keluarga besar/suami?</div>
+                <div class="faq-a">Tentu! Kami menyediakan Draf Diplomasi Ortu-Anak & Resume Ringkas yang siap ditunjukkan ke keluarga besar sebagai bukti pilihan jurusan ilmiah berbasis data.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p><strong>Better Future (ISCA)</strong> — Pemetaan Bakat & Minat 19-Faktor Terpadu di Indonesia</p>
+            <p style="margin-top: 8px; font-size: 0.78rem;">© 2026 Better Future. All rights reserved. Supervisi Lisensi HIMPSI.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
