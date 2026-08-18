@@ -181,24 +181,96 @@
         </div>
     </section>
 
-    <!-- SUB-HERO DETAILS & TRUST BADGES SECTION (MOVED FROM HERO FOR MAXIMUM IMPACT) -->
-    <section class="hero-subdetails-section" style="padding: 36px 0 20px; background: var(--bg-surface); border-bottom: 1px solid var(--border-hairline); text-align: center;">
-        <div class="container" style="max-width: 850px; margin: 0 auto;">
+    <!-- SUB-HERO DETAILS & TRUST BADGES SECTION (ENHANCED WITH PROGRESS BAR & PARENT BENEFITS) -->
+    <section class="hero-subdetails-section" style="padding: 40px 0 30px; background: var(--bg-surface); border-bottom: 1px solid var(--border-hairline); text-align: center;">
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
             <!-- Sub-Headline Target Audience Description -->
-            <p class="hero-subtitle-clean" style="font-size: clamp(0.98rem, 2.4vw, 1.12rem); line-height: 1.65; color: var(--text-body); margin-bottom: 18px;">
+            <p class="hero-subtitle-clean" style="font-size: clamp(0.98rem, 2.4vw, 1.15rem); line-height: 1.65; color: var(--text-body); margin-bottom: 24px;">
                 Cukup 20 Menit dari HP. Pemetaan Bakat 19-Faktor Berbasis Psikologi Ilmiah Bantu Anak <strong>Kelas 8 & 9 (SMP)</strong> serta <strong>Kelas 10, 11, & 12 (SMA/SMK)</strong> Menemukan Penjurusan IPA/IPS, Kampus & Karir Terbaik Tanpa Debat Ortu vs Anak.
             </p>
             
-            <!-- Bonus Urgency Pill Badge -->
-            <div style="font-size: 0.8rem; font-weight: 700; color: #FACC15; background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.3); padding: 8px 18px; border-radius: 99px; display: inline-block; margin-bottom: 20px;">
-                Bonus Akses AI Counselor 24/7 & Draf Diplomasi (Sisa Kuota: 12 Slot)
+            <!-- BOLD PROGRESS BAR BADGE UNTUK SISA KUOTA BONUS -->
+            <div style="background: rgba(250, 204, 21, 0.08); border: 1px solid rgba(250, 204, 21, 0.3); border-radius: 16px; padding: 16px 20px; max-width: 620px; margin: 0 auto 28px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.88rem; font-weight: 700; flex-wrap: wrap; gap: 6px;">
+                    <span style="color: #FACC15; display: flex; align-items: center; gap: 8px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FACC15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <strong>Bonus Akses AI Counselor 24/7 & Draf Diplomasi</strong>
+                    </span>
+                    <span style="color: #FFFFFF; background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 99px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.3px;">
+                        🔥 Sisa Kuota: 12 Slot
+                    </span>
+                </div>
+                <!-- Visual Progress Bar -->
+                <div style="background: rgba(255,255,255,0.12); height: 10px; border-radius: 99px; overflow: hidden; position: relative; margin: 10px 0 6px;">
+                    <div style="background: linear-gradient(90deg, #F59E0B 0%, #EF4444 100%); width: 88%; height: 100%; border-radius: 99px;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #94A3B8; font-weight: 500;">
+                    <span>Kapasitas Kuota Hari Ini: 100 Slot</span>
+                    <span style="color: #FACC15; font-weight: 700;">88% Terisi — Segera Klaim Slot Anak Anda</span>
+                </div>
             </div>
 
-            <!-- 3 Ringkas Trust Badges -->
-            <div class="trust-badge-trio" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px;">
-                <div class="trust-badge-item" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 8px 16px; border-radius: 99px; font-size: 0.82rem;">Garansi Akurasi 92,7% (Supervisi Psikolog HIMPIS)</div>
-                <div class="trust-badge-item" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 8px 16px; border-radius: 99px; font-size: 0.82rem;">100% Online via Smartphone (Tanpa App)</div>
-                <div class="trust-badge-item" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 8px 16px; border-radius: 99px; font-size: 0.82rem;">Termasuk PDF 19 Halaman & Draf Diskusi</div>
+            <!-- PARENT BENEFIT LIST WITH MINIMALIST ICONS & CHECKMARKS -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; text-align: left; margin-top: 10px;">
+                <!-- Benefit 1 -->
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 12px;">
+                    <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.4); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; flex-shrink: 0;">✓</span>
+                    <div>
+                        <div style="font-size: 0.88rem; font-weight: 700; color: #F8FAFC; display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            Garansi Akurasi 92,7%
+                        </div>
+                        <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 2px;">Di bawah supervisi langsung psikolog HIMPIS</div>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 12px;">
+                    <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.4); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; flex-shrink: 0;">✓</span>
+                    <div>
+                        <div style="font-size: 0.88rem; font-weight: 700; color: #F8FAFC; display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            100% Online via Smartphone
+                        </div>
+                        <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 2px;">Cukup 20 menit dari HP, tanpa perlu install app</div>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 12px;">
+                    <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.4); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; flex-shrink: 0;">✓</span>
+                    <div>
+                        <div style="font-size: 0.88rem; font-weight: 700; color: #F8FAFC; display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A7F3D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            Laporan Lengkap PDF 19 Halaman
+                        </div>
+                        <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 2px;">Terbaca jelas & mudah dipahami orang tua</div>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 (Added Parent Benefit) -->
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 12px;">
+                    <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.4); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; flex-shrink: 0;">✓</span>
+                    <div>
+                        <div style="font-size: 0.88rem; font-weight: 700; color: #F8FAFC; display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            Penjurusan Tanpa Debat Ortu vs Anak
+                        </div>
+                        <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 2px;">Disertai draf panduan diplomasi keluarga</div>
+                    </div>
+                </div>
+
+                <!-- Benefit 5 (Added Parent Benefit) -->
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; grid-column: 1 / -1;">
+                    <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.4); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; flex-shrink: 0;">✓</span>
+                    <div>
+                        <div style="font-size: 0.88rem; font-weight: 700; color: #F8FAFC; display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                            Rekomendasi Penjurusan IPA/IPS, Kampus & Karir Masa Depan
+                        </div>
+                        <div style="font-size: 0.76rem; color: #94A3B8; margin-top: 2px;">Pemetaan 19-faktor potensi alami agar anak berkembang di bidang yang tepat</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
