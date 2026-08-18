@@ -84,10 +84,9 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION WITH EMBEDDED VIDEO BACKGROUND (headache_woman.mp4) -->
-    <section class="hero-video-section">
-        <!-- Video Background -->
-        <video class="hero-video-bg" autoplay loop muted playsinline poster="happy_hijab_mother_child.jpg">
+    <!-- 1. HERO SECTION (STRICT 100VH 1-SCREEN VIEW - CONTENT RAISED 40PX TOTAL) -->
+    <section class="hero-light-section" style="height: 100vh; height: 100dvh; max-height: 100vh; min-height: 100vh; padding-top: 80px; padding-bottom: clamp(60px, 9vh, 85px); display: flex; flex-direction: column; justify-content: flex-end; box-sizing: border-box; overflow: hidden;">
+        <video class="hero-video-bg" autoplay loop muted playsinline poster="happy_hijab_mother_child.jpg" style="object-position: center 20%;">
             <source src="headache_woman.mp4" type="video/mp4">
             Browser Anda tidak mendukung video background.
         </video>
@@ -95,42 +94,49 @@
         <!-- Dark Overlay for Video Contrast -->
         <div class="hero-light-overlay"></div>
 
-        <div class="container hero-content-relative">
-            <div>
+        <div class="container hero-content-relative" style="position: relative; z-index: 3; width: 100%;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; transform: translateY(-30px);">
                 <!-- Brand Motto -->
-                <div style="color: #FCD34D; font-family: var(--font-handwritten); font-size: 1.6rem; font-weight: 700; margin-bottom: 6px;">
+                <div style="color: #FCD34D; font-family: var(--font-handwritten); font-size: clamp(1.2rem, 3.5vw, 1.5rem); font-weight: 700; margin-bottom: 8px;">
                     "Mapping today, Shaping Tomorrow."
                 </div>
 
                 <!-- Massive Stacked Loss-Aversion Headline -->
-                <h1 class="hero-title-massive" style="font-size: clamp(2.1rem, 7vw, 3.5rem); margin-bottom: 14px;">
+                <h1 class="hero-title-massive" style="font-size: clamp(1.75rem, 5.5vw, 3rem); line-height: 1.22; margin-bottom: 18px; text-shadow: 0 4px 16px rgba(0,0,0,0.9);">
                     Yakin Siap Kehilangan Rp 100 Juta Hanya Karena Anak Salah Jurusan?
                 </h1>
                 
-                <!-- Sub-Headline Target Audience (Broadened to SMP Kelas 8-9 & SMA Kelas 10-12) -->
-                <p class="hero-subtitle-clean" style="font-size: clamp(0.95rem, 2.4vw, 1.1rem); margin-bottom: 22px;">
-                    Cukup 20 Menit dari HP. Pemetaan Bakat 19-Faktor Berbasis Psikologi Ilmiah Bantu Anak <strong>Kelas 8 & 9 (SMP)</strong> serta <strong>Kelas 10, 11, & 12 (SMA/SMK)</strong> Menemukan Penjurusan IPA/IPS, Kampus & Karir Terbaik Tanpa Debat Ortu vs Anak.
-                </p>
-                
                 <!-- Main CTA Button -->
-                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20dapatkan%20akses%20tes%20gratis%20untuk%20anak%20saya" class="btn-yellow-pill">
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20dapatkan%20akses%20tes%20gratis%20untuk%20anak%20saya" class="btn-yellow-pill" style="display: inline-block; padding: 14px 28px; font-size: clamp(0.9rem, 2.5vw, 1.05rem);">
                     Dapatkan Akses Tes Gratis untuk Anak →
                 </a>
 
-                <!-- Operational Micro-copy & Realistic Urgency -->
-                <div class="cta-operational-microcopy" style="margin-top: 10px; color: #E2E8F0; font-size: 0.8rem;">
+                <!-- Operational Micro-copy -->
+                <div class="cta-operational-microcopy" style="margin-top: 10px; color: #E2E8F0; font-size: clamp(0.75rem, 2vw, 0.85rem); text-shadow: 0 2px 8px rgba(0,0,0,0.9);">
                     Link kuis otomatis dikirimkan langsung ke nomor WhatsApp anak.
                 </div>
-                <div style="font-size: 0.76rem; font-weight: 700; color: #FCD34D; background: rgba(252, 211, 77, 0.15); border: 1px solid rgba(252, 211, 77, 0.3); padding: 5px 14px; border-radius: 999px; display: inline-block; margin-top: 8px;">
-                    Bonus Akses AI Counselor 24/7 & Draf Diplomasi (Sisa Kuota: 12 Slot)
-                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- 3 Ringkas Trust Badges -->
-                <div class="trust-badge-trio">
-                    <div class="trust-badge-item">Garansi Akurasi 92,7% (Supervisi Psikolog HIMPIS)</div>
-                    <div class="trust-badge-item">100% Online via Smartphone (Tanpa App)</div>
-                    <div class="trust-badge-item">Termasuk PDF 19 Halaman & Draf Diskusi</div>
-                </div>
+    <!-- SUB-HERO DETAILS & TRUST BADGES SECTION (LIGHT THEME) -->
+    <section class="hero-subdetails-section" style="padding: 36px 0 20px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; text-align: center;">
+        <div class="container" style="max-width: 850px; margin: 0 auto;">
+            <!-- Sub-Headline Target Audience Description -->
+            <p class="hero-subtitle-clean" style="font-size: clamp(0.98rem, 2.4vw, 1.12rem); line-height: 1.65; color: #334155; margin-bottom: 18px;">
+                Cukup 20 Menit dari HP. Pemetaan Bakat 19-Faktor Berbasis Psikologi Ilmiah Bantu Anak <strong>Kelas 8 & 9 (SMP)</strong> serta <strong>Kelas 10, 11, & 12 (SMA/SMK)</strong> Menemukan Penjurusan IPA/IPS, Kampus & Karir Terbaik Tanpa Debat Ortu vs Anak.
+            </p>
+            
+            <!-- Bonus Urgency Pill Badge -->
+            <div style="font-size: 0.8rem; font-weight: 700; color: #D97706; background: rgba(217, 119, 6, 0.08); border: 1px solid rgba(217, 119, 6, 0.25); padding: 8px 18px; border-radius: 99px; display: inline-block; margin-bottom: 20px;">
+                Bonus Akses AI Counselor 24/7 & Draf Diplomasi (Sisa Kuota: 12 Slot)
+            </div>
+
+            <!-- 3 Ringkas Trust Badges -->
+            <div class="trust-badge-trio" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px;">
+                <div class="trust-badge-item" style="background: #F8FAFC; border: 1px solid #E2E8F0; color: #475569; padding: 8px 16px; border-radius: 99px; font-size: 0.82rem; font-weight: 600;">Garansi Akurasi 92,7% (Supervisi Psikolog HIMPIS)</div>
+                <div class="trust-badge-item" style="background: #F8FAFC; border: 1px solid #E2E8F0; color: #475569; padding: 8px 16px; border-radius: 99px; font-size: 0.82rem; font-weight: 600;">100% Online via Smartphone (Tanpa App)</div>
+                <div class="trust-badge-item" style="background: #F8FAFC; border: 1px solid #E2E8F0; color: #475569; padding: 8px 16px; border-radius: 99px; font-size: 0.82rem; font-weight: 600;">Termasuk PDF 19 Halaman & Draf Diskusi</div>
             </div>
         </div>
     </section>
