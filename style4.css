@@ -1,0 +1,951 @@
+/* ==========================================================================
+   BETTER FUTURE (ISCA) — INDEX 4 DESIGN SYSTEM
+   THEME: KOREAN EDUTAINMENT SUNSHINE YELLOW & PASTEL CLEAN BENTO CARDS
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Korean Edutainment Sunshine Palette */
+  --sun-yellow: #FFC800;
+  --sun-yellow-light: #FFF8DF;
+  --mint-grid-bg: #EAF8F6;
+  --page-bg: #F8FAF9;
+  --card-white: #FFFFFF;
+  
+  /* Accent Colors */
+  --pastel-coral: #FF5252;
+  --pastel-emerald: #00A86B;
+  --pastel-cobalt: #1856F7;
+  --dark-charcoal: #111827;
+
+  /* Text Tokens */
+  --text-main: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --accent-gold: #D97706;
+
+  /* Borders & Shadows */
+  --border-card: 2px solid #F1F5F9;
+  --border-dark: 2px solid #111827;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 10px rgba(0, 0, 0, 0.03);
+  --shadow-yellow: 0 12px 30px rgba(255, 200, 0, 0.35);
+  
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: all 0.25s ease;
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--sun-yellow);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: var(--sun-yellow);
+  line-height: 1.6;
+}
+
+/* Utility Containers */
+.container {
+  width: 100%;
+  max-width: 540px; /* Mobile First Centered View */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   1. KOREAN CLEAN NAVBAR
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid #E2E8F0;
+  padding: 12px 0;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.35rem;
+  color: var(--dark-charcoal);
+  letter-spacing: -0.5px;
+}
+
+.logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-logo span {
+  color: var(--accent-gold);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-nav-small {
+  background: var(--dark-charcoal);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.btn-nav-small:hover {
+  background: #000000;
+  transform: translateY(-2px);
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 22px;
+  background: transparent;
+  padding: 2px;
+  z-index: 1002;
+}
+
+.hamburger-btn span {
+  width: 100%;
+  height: 3px;
+  background: var(--dark-charcoal);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background: var(--pastel-coral);
+}
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background: var(--pastel-coral);
+}
+
+/* Mobile Menu Drawer Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  background: #FFFFFF;
+  border-left: 3px solid var(--sun-yellow);
+  z-index: 1001;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+}
+
+.menu-drawer.active {
+  right: 0;
+}
+
+.drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.drawer-link {
+  color: var(--dark-charcoal);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+  display: block;
+}
+
+.drawer-link:hover {
+  color: var(--accent-gold);
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   2. HERO SECTION — KOREAN MINT GRID & SUNSHINE BANNER
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  background: var(--mint-grid-bg);
+  background-image: linear-gradient(rgba(0, 168, 107, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 168, 107, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding: 30px 0 40px;
+  overflow: hidden;
+  border-bottom: 3px solid #E2E8F0;
+}
+
+/* Top Urgency Bento Badge */
+.hero-top-badge-container {
+  margin-bottom: 20px;
+}
+
+.hero-bento-badge {
+  background: #FFFFFF;
+  border: 2px solid var(--dark-charcoal);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-text-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--dark-charcoal);
+  font-weight: 800;
+}
+
+.urgency-progress-track {
+  width: 100%;
+  height: 8px;
+  background: #F1F5F9;
+  border-radius: 99px;
+  overflow: hidden;
+  border: 1px solid #CBD5E1;
+}
+
+.urgency-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pastel-coral), var(--sun-yellow));
+  border-radius: 99px;
+}
+
+/* Handwritten Motto Token */
+.brand-motto-handwritten {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-charcoal);
+  letter-spacing: 0.5px;
+}
+
+.hero-title-massive {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--dark-charcoal);
+  text-transform: lowercase;
+  margin-bottom: 14px;
+  letter-spacing: -0.8px;
+}
+
+@media (min-width: 768px) {
+  .hero-title-massive {
+    font-size: 3.2rem;
+  }
+}
+
+.hero-subtitle-clean {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  margin-bottom: 22px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* Full Width Yellow CTA Button */
+.btn-yellow-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--sun-yellow);
+  color: var(--dark-charcoal);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  padding: 16px 28px;
+  border-radius: var(--radius-pill);
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: 0 8px 20px rgba(255, 200, 0, 0.4);
+  transition: var(--transition-fast);
+  text-transform: capitalize;
+}
+
+.btn-yellow-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 200, 0, 0.5);
+  background: #FFD600;
+}
+
+/* Running Text Marquee Ticker */
+.hero-marquee-wrapper {
+  margin-top: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  background: #FFFFFF;
+  border: 2px solid var(--dark-charcoal);
+  border-radius: var(--radius-pill);
+  padding: 10px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.hero-marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  animation: marqueeLoop 55s linear infinite;
+}
+
+@keyframes marqueeLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--dark-charcoal);
+}
+
+.marquee-dot {
+  color: var(--pastel-coral);
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   3. INTERACTIVE RISK CALCULATOR (SECTION 2)
+   ========================================================================== */
+.section-padding {
+  padding: 42px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--dark-charcoal);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--dark-charcoal);
+  line-height: 1.2;
+}
+
+.section-title-serif {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--pastel-coral);
+}
+
+.calc-card {
+  background: #FFFFFF;
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-xl);
+  padding: 24px 18px;
+}
+
+.calc-grid-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 14px 0 16px;
+}
+
+.btn-univ {
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  color: var(--text-body);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 10px 4px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.btn-univ.active, .btn-univ:hover {
+  background: var(--sun-yellow);
+  color: var(--dark-charcoal);
+  border-color: var(--dark-charcoal);
+  box-shadow: 0 4px 10px rgba(255, 200, 0, 0.3);
+}
+
+/* Red Bento Result Box */
+.calc-result-box {
+  background: linear-gradient(135deg, #FF4D4D 0%, #DC2626 100%);
+  border: 2px solid var(--dark-charcoal);
+  border-radius: var(--radius-lg);
+  padding: 18px 14px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+}
+
+.calc-result-title {
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  opacity: 0.95;
+  margin-bottom: 4px;
+}
+
+.calc-result-amount {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.calc-breakdown-list {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.bd-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.bd-val {
+  font-weight: 900;
+  color: var(--sun-yellow);
+}
+
+/* Green Comparison Banner */
+.calc-comparison-banner {
+  background: #F0FDF4;
+  border: 2px solid #10B981;
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.banner-text-row {
+  font-size: 0.85rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.banner-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.price-strikethrough-group {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.price-new {
+  color: #10B981;
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.btn-calc-to-pricing {
+  background: var(--dark-charcoal);
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-fast);
+}
+
+.btn-calc-to-pricing:hover {
+  background: #000000;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. 3 RISIKO NYATA (SECTION 3) — KOREAN STICKER CARDS
+   ========================================================================== */
+.fear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.fear-card {
+  background: #FFFFFF;
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-fast);
+}
+
+.fear-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+}
+
+.fear-icon-subtle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  color: var(--dark-charcoal);
+  opacity: 0.12;
+  transition: var(--transition-fast);
+}
+
+.fear-card:hover .fear-icon-subtle {
+  opacity: 0.25;
+  transform: scale(1.1);
+}
+
+.fear-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--pastel-coral);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.fear-card h3 {
+  font-size: 1.15rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.fear-card p {
+  color: var(--text-body);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. RADAR CHART & METODOLOGI 19-FAKTOR (SECTION 4)
+   ========================================================================== */
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .method-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.radar-visual-box {
+  background: #FFFFFF;
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-xl);
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.svg-radar {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+/* ==========================================================================
+   6. PROFIL PAKAR DR. TEGUH (SECTION 5)
+   ========================================================================== */
+.expert-card {
+  background: #FFFFFF;
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-xl);
+  padding: 28px 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .expert-card {
+    grid-template-columns: 220px 1fr;
+  }
+}
+
+.expert-img-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.expert-img-wrapper img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--sun-yellow);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.expert-badge {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #10B981;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--dark-charcoal);
+  white-space: nowrap;
+}
+
+.expert-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--dark-charcoal);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--sun-yellow);
+  padding-left: 14px;
+}
+
+/* ==========================================================================
+   7. SLIDER TESTIMONI & DYNAMIC FILTERING (SECTION 7)
+   ========================================================================== */
+.testimonial-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  background: #FFFFFF;
+  border: 2px solid #CBD5E1;
+  color: var(--text-body);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 800;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background: var(--dark-charcoal);
+  color: #FFFFFF;
+  border-color: var(--dark-charcoal);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 4px 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonial-card {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  background: #FFFFFF;
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  transition: var(--transition-fast);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sun-yellow);
+  color: var(--dark-charcoal);
+  border: 2px solid var(--dark-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   8. PRICING TABLE & FAQ (SECTION 8 & 10)
+   ========================================================================== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: #FFFFFF;
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-xl);
+  padding: 32px 24px;
+  position: relative;
+}
+
+.price-card.featured {
+  border: 3px solid var(--dark-charcoal);
+  box-shadow: var(--shadow-yellow);
+}
+
+.price-badge-top {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--sun-yellow);
+  color: var(--dark-charcoal);
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--dark-charcoal);
+  text-transform: uppercase;
+}
+
+.price-amount {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--dark-charcoal);
+}
+
+.faq-list {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 2px solid #CBD5E1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 18px 20px;
+  text-align: left;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--dark-charcoal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.faq-arrow {
+  transition: transform 0.25s ease;
+  color: var(--accent-gold);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 20px 18px;
+  color: var(--text-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  display: none;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* ==========================================================================
+   9. STICKY BOTTOM BAR (MOBILE ONLY)
+   ========================================================================== */
+.sticky-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-top: 2px solid #E2E8F0;
+  padding: 12px 16px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sticky-bottom-bar.visible {
+  transform: translateY(0);
+}
+
+.btn-sticky-yellow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--sun-yellow);
+  color: var(--dark-charcoal);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  padding: 14px 20px;
+  border-radius: var(--radius-pill);
+  border: 2.5px solid var(--dark-charcoal);
+  box-shadow: 0 4px 16px rgba(255, 200, 0, 0.4);
+}
+
+@media (max-width: 600px) {
+  .btn-nav-small {
+    display: none;
+  }
+}

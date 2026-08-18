@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Better Future (ISCA) — Pemetaan Bakat 19-Faktor Berbasis Psikologi Ilmiah</title>
+    <meta name="description" content="Cukup 20 Menit dari HP. Bantu Anak Kelas 10, 11, & 12 Menemukan Kampus & Jurusan Terbaik Tanpa Debat Orang Tua vs Anak.">
+    
+    <!-- Google Fonts: Outfit, Plus Jakarta Sans, Playfair Display & Caveat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Specific Styles for Wireframe Layout Optimization */
+        .trust-badge-trio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .trust-badge-item {
+            background: rgba(11, 14, 20, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pdf-mockup-card {
+            background: var(--bg-surface);
+            border: var(--border-hairline);
+            border-radius: var(--radius-xl);
+            padding: 28px 20px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .pdf-preview-img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            margin: 16px auto;
+        }
+
+        .btn-download-sample {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 204, 0, 0.12);
+            color: var(--accent-yellow);
+            border: 1.5px solid var(--accent-yellow);
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            font-weight: 800;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+            margin-top: 12px;
+        }
+
+        .btn-download-sample:hover {
+            background: var(--accent-yellow);
+            color: var(--text-dark);
+        }
+
+        .wa-chat-card {
+            background: #075E54;
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            color: #FFF;
+            margin-top: 16px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .wa-bubble-right {
+            background: #E2F7CB;
+            color: #111;
+            padding: 10px 14px;
+            border-radius: 12px 0 12px 12px;
+            font-size: 0.85rem;
+            margin-left: auto;
+            max-width: 85%;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. STICKY TOP NAVBAR WITH LOGO & HAMBURGER MENU -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <img src="UIDIGITAL LOGO (16).png" alt="Better Future Logo" class="logo-img">
+                better<span>future</span>
+            </a>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20minat%20bakat%20gratis%20untuk%20anak%20saya" class="btn-nav-small">Tes Gratis</a>
+                
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Buka Menu Navigasi">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU DRAWER OVERLAY -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+    <nav class="menu-drawer" id="menuDrawer">
+        <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 15px; border-bottom: var(--border-hairline);">
+                <div class="nav-logo" style="font-size: 1.1rem;">
+                    <img src="UIDIGITAL LOGO (16).png" alt="Better Future Logo" class="logo-img" style="height: 26px;">
+                    better<span>future</span>
+                </div>
+                <button onclick="closeMenu()" style="color: var(--text-muted); font-size: 1.4rem; font-weight: 600; padding: 4px;">✕</button>
+            </div>
+
+            <ul class="drawer-links">
+                <li><a href="#kalkulator" class="drawer-link" onclick="closeMenu()">Kalkulator & Roadmap Kelas</a></li>
+                <li><a href="#preview" class="drawer-link" onclick="closeMenu()">Visual Mockup PDF 19 Halaman</a></li>
+                <li><a href="#psikolog" class="drawer-link" onclick="closeMenu()">Profil Pakar Dr. Teguh Lesmana</a></li>
+                <li><a href="#testimoni" class="drawer-link" onclick="closeMenu()">Ulasan Orang Tua & WA Proof</a></li>
+                <li><a href="#harga" class="drawer-link" onclick="closeMenu()">Paket & Garansi Akurasi 92,7%</a></li>
+                <li><a href="#faq" class="drawer-link" onclick="closeMenu()">FAQ Pertanyaan Orang Tua</a></li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 24px;">
+            <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20minat%20bakat%20gratis" class="btn-yellow-pill" onclick="closeMenu()">
+                Mulai Test Gratis
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION (WITH HEADACHE_WOMAN.MP4 VIDEO BACKGROUND) -->
+    <section class="hero-section" style="min-height: 92vh; padding-top: 90px;">
+        <video class="hero-bg-media" autoplay loop muted playsinline poster="stressed_parent_college.jpg">
+            <source src="headache_woman.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <!-- Brand Handwritten Motto -->
+                <div class="brand-motto-handwritten" style="margin-bottom: 12px; font-size: 1.5rem;">"Mapping today, Shaping Tomorrow."</div>
+
+                <!-- Massive Stacked White Loss-Aversion Headline -->
+                <h1 class="hero-title-massive" style="font-size: clamp(2.1rem, 7vw, 3.5rem); margin-bottom: 14px;">
+                    Yakin Siap Kehilangan Rp 100 Juta Hanya Karena Anak Salah Jurusan?
+                </h1>
+                
+                <!-- Sub-Headline Target Audience (Broadened to SMP Kelas 8-9 & SMA Kelas 10-12) -->
+                <p class="hero-subtitle-clean" style="font-size: clamp(0.95rem, 2.4vw, 1.1rem); margin-bottom: 22px;">
+                    Cukup 20 Menit dari HP. Pemetaan Bakat 19-Faktor Berbasis Psikologi Ilmiah Bantu Anak <strong>Kelas 8 & 9 (SMP)</strong> serta <strong>Kelas 10, 11, & 12 (SMA/SMK)</strong> Menemukan Penjurusan IPA/IPS, Kampus & Karir Terbaik Tanpa Debat Ortu vs Anak.
+                </p>
+                
+                <!-- Main CTA Button -->
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20dapatkan%20akses%20tes%20gratis%20untuk%20anak%20saya" class="btn-yellow-pill">
+                    Dapatkan Akses Tes Gratis untuk Anak →
+                </a>
+
+                <!-- Operational Micro-copy & Realistic Urgency (Clean typography, no tacky emojis) -->
+                <div class="cta-operational-microcopy" style="margin-top: 10px; color: var(--text-muted); font-size: 0.8rem;">
+                    Link kuis otomatis dikirimkan langsung ke nomor WhatsApp anak.
+                </div>
+                <div style="font-size: 0.76rem; font-weight: 700; color: #FACC15; background: rgba(250, 204, 21, 0.08); border: 1px solid rgba(250, 204, 21, 0.25); padding: 5px 14px; border-radius: 99px; display: inline-block; margin-top: 8px;">
+                    Bonus Akses AI Counselor 24/7 & Draf Diplomasi (Sisa Kuota: 12 Slot)
+                </div>
+
+                <!-- 3 Ringkas Trust Badges (Clean minimalist text badges) -->
+                <div class="trust-badge-trio">
+                    <div class="trust-badge-item">Garansi Akurasi 92,7% (Supervisi Psikolog HIMPIS)</div>
+                    <div class="trust-badge-item">100% Online via Smartphone (Tanpa App)</div>
+                    <div class="trust-badge-item">Termasuk PDF 19 Halaman & Draf Diskusi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. INTERACTIVE LOSS CALCULATOR & ROADMAP KELAS 10, 11, 12 -->
+    <section id="kalkulator" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kalkulator Risiko Uang Kuliah</span>
+                <h2 class="section-title">Hitung Potensi Kerugian Dana <span class="section-title-serif">Akibat Salah Jurusan</span></h2>
+            </div>
+
+            <div class="calc-card">
+                <p style="font-size: 0.95rem; color: var(--text-muted); text-align: center;">
+                    Pilih kampus pilihan untuk melihat risiko biaya:
+                </p>
+                
+                <div class="calc-grid-buttons" id="univPresetGrid">
+                    <button class="btn-univ active" onclick="setUniv(this, 'UI')">UI</button>
+                    <button class="btn-univ" onclick="setUniv(this, 'ITB')">ITB</button>
+                    <button class="btn-univ" onclick="setUniv(this, 'UGM')">UGM</button>
+                    <button class="btn-univ" onclick="setUniv(this, 'IPB')">IPB</button>
+                    <button class="btn-univ" onclick="setUniv(this, 'UPH')">UPH</button>
+                    <button class="btn-univ" onclick="setUniv(this, 'BINUS')">BINUS</button>
+                    <button class="btn-univ" onclick="setUniv(this, 'UMY')">UMY</button>
+                    <button class="btn-univ" onclick="setUniv(this, 'UII')">UII</button>
+                </div>
+
+                <div class="calc-result-box">
+                    <div class="calc-result-title">ESTIMASI KERUGIAN</div>
+                    <div class="calc-result-amount" id="calcDisplay">Rp 124,5 Jt</div>
+                    
+                    <div class="calc-breakdown-list">
+                        <div class="breakdown-row">
+                            <span class="bd-label">Uang Pangkal & Gedung</span>
+                            <span class="bd-val" id="bdPangkal">Rp 55 Jt</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="bd-label">SPP & UKT (3 Semester)</span>
+                            <span class="bd-val" id="bdSpp">Rp 43,5 Jt</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="bd-label">Kost & Biaya Hidup (1,5 Thn)</span>
+                            <span class="bd-val" id="bdHidup">Rp 26 Jt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-comparison-banner">
+                    <div class="banner-text-row">
+                        Asesmen Better Future: Cuma <span id="ratioDisplay" style="font-weight: 800; color: #34D399;">0,001</span> bagian dari risiko di atas
+                    </div>
+                    <div class="banner-action-row">
+                        <div class="price-strikethrough-group">
+                            <span class="price-old">Rp 500.000</span>
+                            <span class="price-new">Rp 149.000</span>
+                        </div>
+                        <a href="#harga" class="btn-calc-to-pricing">Lihat Paket →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROADMAP KELAS 8-9 SMP & KELAS 10-12 SMA/SMK -->
+            <div style="margin-top: 40px;">
+                <div class="section-header">
+                    <span class="section-tag">Solusi Spesifik Target</span>
+                    <h2 class="section-title">Roadmap Pemetaan Jurusan <span class="section-title-serif">Sesuai Jenjang Anak</span></h2>
+                </div>
+
+                <!-- INTERACTIVE CLASS SELECTOR TAB BAR (STRICT 1-ROW FIT) -->
+                <div class="class-selector-bar">
+                    <span class="selector-label">Pilih Jenjang Sekolah Anak Anda:</span>
+                    <div class="selector-track">
+                        <button class="btn-select-class" onclick="selectClassCard(this, 'smp')">Kelas 8 & 9</button>
+                        <button class="btn-select-class" onclick="selectClassCard(this, 'k10')">Kelas 10</button>
+                        <button class="btn-select-class active" onclick="selectClassCard(this, 'k11')">Kelas 11</button>
+                        <button class="btn-select-class" onclick="selectClassCard(this, 'k12')">Kelas 12</button>
+                    </div>
+                </div>
+
+                <div class="class-segment-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                    <!-- Kelas 8 & 9 SMP Card -->
+                    <div class="class-segment-card" data-class="smp">
+                        <div class="class-badge" style="background: rgba(59, 130, 246, 0.15); color: #60A5FA;">KELAS 8 & 9 SMP</div>
+                        <h3>Fase Penjurusan IPA/IPS & SMA/SMK</h3>
+                        <ul class="class-benefit-list">
+                            <li>✓ Pemetaan Bakat Alami & Potensi Kognitif Dasar</li>
+                            <li>✓ Penentuan Arah Penjurusan IPA vs IPS / SMA vs SMK</li>
+                            <li>✓ Pencegahan awal salah jurusan sejak bangku SMP</li>
+                        </ul>
+                        <div class="class-outcome-tag" style="color: #60A5FA; background: rgba(59, 130, 246, 0.1);">Goal: Penjurusan SMA/SMK Tepat</div>
+                    </div>
+
+                    <!-- Kelas 10 Card -->
+                    <div class="class-segment-card" data-class="k10">
+                        <div class="class-badge">KELAS 10 SMA</div>
+                        <h3>Fase Eksplorasi & Gaya Belajar</h3>
+                        <ul class="class-benefit-list">
+                            <li>✓ Pemetaan Gaya Belajar Alami VAK (Visual, Auditori, Kinestetik)</li>
+                            <li>✓ Pemilihan mata pelajaran pendukung Kurikulum Merdeka</li>
+                            <li>✓ Persiapan awal tanpa stres akademik sejak dini</li>
+                        </ul>
+                        <div class="class-outcome-tag">Goal: Belajar Efektif & Bebas Stres</div>
+                    </div>
+
+                    <!-- Kelas 11 Card -->
+                    <div class="class-segment-card featured" data-class="k11">
+                        <div class="class-badge highlight">KELAS 11 SMA</div>
+                        <h3>Fase Saringan & UTBK-SNBT</h3>
+                        <ul class="class-benefit-list">
+                            <li>✓ Eliminasi jurusan bertolak belakang dengan bakat</li>
+                            <li>✓ Penyaringan 3 Jurusan & PTN/PTS Pilihan Utama</li>
+                            <li>✓ Penyusunan strategi belajar SNBT 2 tahun ke depan</li>
+                        </ul>
+                        <div class="class-outcome-tag highlight">Goal: Target Jurusan Terkunci Jelas</div>
+                    </div>
+
+                    <!-- Kelas 12 Card -->
+                    <div class="class-segment-card" data-class="k12">
+                        <div class="class-badge">KELAS 12 SMA</div>
+                        <h3>Fase Keputusan Final & Pengaman</h3>
+                        <ul class="class-benefit-list">
+                            <li>✓ Keputusan rasional final untuk SNBP, SNBT & PTS</li>
+                            <li>✓ Draf Laporan Diplomasi Diskusi Damai Ortu & Anak</li>
+                            <li>✓ Pengaman Uang Pangkal Rp 100 Jt+ dari Risiko Salah Jurusan</li>
+                        </ul>
+                        <div class="class-outcome-tag">Goal: Pendaftaran Bebas Penyesalan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. VISUAL PRODUCT PREVIEW & ALUR KERJA (SECTION 3) -->
+    <section id="preview" class="section-padding" style="background: var(--bg-surface);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Visual Product Preview</span>
+                <h2 class="section-title">Infografis 3 Langkah Praktis <span class="section-title-serif">& Preview Dokumen PDF</span></h2>
+            </div>
+
+            <!-- Infografis 3 Langkah Praktis -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 30px;">
+                <div style="background: rgba(255,255,255,0.03); border: var(--border-hairline); border-radius: var(--radius-lg); padding: 20px;">
+                    <div style="font-size: 2.2rem; font-weight: 900; color: var(--accent-gold); margin-bottom: 6px;">01</div>
+                    <h3 style="font-size: 1rem; color: #FFF; font-weight: 800; margin-bottom: 4px;">Orang Tua Mendaftar (1 Menit)</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Cukup masukkan nomor WhatsApp. Link kuis dikirim otomatis ke HP anak.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.03); border: var(--border-hairline); border-radius: var(--radius-lg); padding: 20px;">
+                    <div style="font-size: 2.2rem; font-weight: 900; color: var(--accent-yellow); margin-bottom: 6px;">02</div>
+                    <h3 style="font-size: 1rem; color: #FFF; font-weight: 800; margin-bottom: 4px;">Anak Mengerjakan Tes (20 Menit)</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Format kuis interaktif santai di HP. ✓ 98% Anak menikmati tes tanpa beban.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.03); border: var(--border-hairline); border-radius: var(--radius-lg); padding: 20px;">
+                    <div style="font-size: 2.2rem; font-weight: 900; color: #34D399; margin-bottom: 6px;">03</div>
+                    <h3 style="font-size: 1rem; color: #FFF; font-weight: 800; margin-bottom: 4px;">Hasil Diskusi Keluarga (Damai)</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Laporan PDF 19 Halaman diterima & draf diskusi keluarga siap pakai.</p>
+                </div>
+            </div>
+
+            <!-- Mockup Laporan PDF 19 Halaman Card -->
+            <div class="pdf-mockup-card">
+                <span class="section-tag" style="background: rgba(255,204,0,0.15); color: var(--accent-yellow);">Bocoran Wujud Dokumen</span>
+                <h3 style="font-size: 1.35rem; color: #FFF; margin-top: 8px; font-weight: 800;">Laporan PDF 19-Halaman Hasil Asesmen</h3>
+                <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 550px; margin: 8px auto;">
+                    Dilengkapi grafik radar 19-faktor karakter alami, pemetaan gaya belajar VAK, draf diplomasi diskusi ortu-anak, dan rekomendasi spesifik kampus target.
+                </p>
+
+                <!-- Responsive Radar Mockup Display -->
+                <div style="background: #0B0E14; border-radius: 16px; padding: 20px; margin: 18px 0; border: 1px solid rgba(255,255,255,0.1);">
+                    <svg class="svg-radar" viewBox="0 0 300 300" style="max-width: 250px;">
+                        <polygon points="150,30 250,90 220,230 80,230 50,90" fill="none" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5"/>
+                        <polygon points="150,70 210,110 190,200 110,200 90,110" fill="none" stroke="rgba(212, 175, 55, 0.2)" stroke-width="1"/>
+                        <polygon points="150,45 235,98 205,215 95,210 65,100" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="2.5"/>
+                        <circle cx="150" cy="45" r="5" fill="#10B981"/>
+                        <circle cx="235" cy="98" r="5" fill="#10B981"/>
+                        <circle cx="205" cy="215" r="5" fill="#10B981"/>
+                        <circle cx="95" cy="210" r="5" fill="#10B981"/>
+                        <circle cx="65" cy="100" r="5" fill="#10B981"/>
+                        <text x="150" y="18" fill="#F8FAFC" font-size="12" font-weight="800" text-anchor="middle">RIASEC</text>
+                        <text x="256" y="92" fill="#F8FAFC" font-size="12" font-weight="800" text-anchor="start">MBTI</text>
+                        <text x="225" y="248" fill="#F8FAFC" font-size="12" font-weight="800" text-anchor="start">DISC</text>
+                        <text x="75" y="248" fill="#F8FAFC" font-size="12" font-weight="800" text-anchor="end">16PF</text>
+                        <text x="44" y="92" fill="#F8FAFC" font-size="12" font-weight="800" text-anchor="end">VAK</text>
+                    </svg>
+                </div>
+
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20lihat%20contoh%20sampel%20laporan%20PDF%2019%20halaman" class="btn-download-sample">
+                    📄 Unduh Contoh Sampel Laporan PDF 19-Halaman (Gratis)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KREDIBILITAS PAKAR & SOCIAL PROOF RINGKAS -->
+    <section id="psikolog" class="section-padding">
+        <div class="container">
+            <!-- Profil Ringkas Psikolog -->
+            <div class="expert-card" style="margin-bottom: 30px;">
+                <div class="expert-img-wrapper">
+                    <img src="dr_teguh_profile.png" alt="Dr. Teguh Lesmana, M.Psi., Psi.">
+                    <div class="expert-badge">✓ Verified Psychologist</div>
+                </div>
+
+                <div>
+                    <div class="section-tag">Otoritas & Supervisi Pakar</div>
+                    <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 12px;">
+                        Dr. Teguh Lesmana, <span class="section-title-serif">M.Psi., Psi.</span>
+                    </h2>
+                    <blockquote class="expert-quote" style="font-size: 0.95rem;">
+                        "Setiap anak lahir dengan bakat unik. Tugas kita sebagai orang tua dan pendidik bukan memaksakan kehendak, melainkan membantu mereka menemukan kompas hidupnya sejak awal."
+                    </blockquote>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">
+                        Doktor dan Magister Psikologi Pendidikan • Lisensi HIMPIS • 15+ Tahun Pengalaman Konseling Keluarga & Sekolah.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Social Proof Ringkas (3 Ulasan Terbaik + WA Chat Proof) -->
+            <div class="section-header" id="testimoni">
+                <span class="section-tag">Ulasan Pengguna</span>
+                <h2 class="section-title">Hasil Diplomasi Ortu & Anak <span class="section-title-serif">Tanpa Debat</span></h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                <!-- Ulasan 1 Ortu -->
+                <div class="testimonial-card">
+                    <div class="user-info">
+                        <div class="user-avatar">BD</div>
+                        <div>
+                            <h4 style="color: #FFF; font-size: 0.9rem; font-weight: 800;">Bunda Dian</h4>
+                            <span style="font-size: 0.75rem; color: var(--accent-gold);">Orang Tua Murid • Jakarta</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-body); font-style: italic; line-height: 1.6;">
+                        "Ternyata memaksakan kehendak ortu itu cuma bikin anak stres. Pemetaan bakat ini bener-bener membuka pikiran kami. Anak sekarang nyaman belajar di jurusan pilihan alaminya tanpa beban lagi."
+                    </p>
+                </div>
+
+                <!-- Ulasan 2 Ortu -->
+                <div class="testimonial-card">
+                    <div class="user-info">
+                        <div class="user-avatar">AB</div>
+                        <div>
+                            <h4 style="color: #FFF; font-size: 0.9rem; font-weight: 800;">Ayah Budi</h4>
+                            <span style="font-size: 0.75rem; color: var(--accent-gold);">Orang Tua Murid • Surabaya</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-body); font-style: italic; line-height: 1.6;">
+                        "Awalnya ragu milih jurusan anak karena beda pendapat sekeluarga. Setelah baca Laporan 19 Halaman dari Dr. Teguh, kami jadi paham karakter anak dan akhirnya dapat jalan tengah yang disepakati bersama tanpa debat lagi."
+                    </p>
+                </div>
+
+                <!-- WA Chat Screenshot Testimonial Image (Light Authentic Chat) -->
+                <div class="wa-chat-img-wrapper" style="text-align: center; margin-top: 10px;">
+                    <img src="BF resources/bunda_dian_terang.png" alt="Bukti Chat WhatsApp Bunda Dian (Terang) - Better Future" style="width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); display: inline-block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PRICING TABLE & GARANSI BEBAS RISIKO -->
+    <section id="harga" class="section-padding" style="background: var(--bg-surface);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Investasi Pengaman</span>
+                <h2 class="section-title">Amankan Masa Depan Anak <span class="section-title-serif">Sebelum Terlambat</span></h2>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Basic Free Card -->
+                <div class="price-card">
+                    <h3 style="color: #FFF; font-size: 1.1rem; font-weight: 800;">Laporan Dasar</h3>
+                    <p style="color: var(--text-muted); font-size: 0.82rem;">Pemetaan Awal Gratis</p>
+                    <div class="price-amount" style="font-size: 2rem; font-weight: 900;">Rp 0</div>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 0.85rem; line-height: 2; margin-bottom: 20px;">
+                        <li>✓ Tes Kuis 20 Menit Online</li>
+                        <li>✓ Radar Chart Minat Dasar</li>
+                        <li>✓ Rekomendasi 3 Jurusan Umum</li>
+                        <li style="opacity: 0.35;">— Laporan Detail 19 Halaman PDF</li>
+                        <li style="opacity: 0.35;">— Draf Diplomasi Ortu-Anak</li>
+                        <li style="opacity: 0.35;">— Akses AI Counselor 24/7</li>
+                    </ul>
+                    <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20gratis" class="btn-yellow-pill" style="background: rgba(255,255,255,0.06); color: #FFF; font-size: 0.9rem; padding: 12px; border: var(--border-hairline);">
+                        Coba Gratis
+                    </a>
+                </div>
+
+                <!-- Featured Premium Bundle Card (Hormozi Grand Slam Value Stacking) -->
+                <div class="price-card featured">
+                    <div class="price-badge-top">Hemat 85% Hari Ini</div>
+                    <h3 style="color: #FFF; font-size: 1.15rem; font-weight: 800;">Bundle Lengkap 19-Faktor</h3>
+                    <p style="color: var(--text-muted); font-size: 0.82rem;">Perlindungan Maksimal Keputusan Pendidikan</p>
+                    
+                    <div style="display: flex; align-items: baseline; gap: 10px; margin: 10px 0 14px;">
+                        <div class="price-amount" style="line-height: 1;">Rp 149.000</div>
+                        <div style="text-decoration: line-through; color: var(--text-muted); font-size: 0.95rem; font-weight: 600;">Total Nilai Rp 1.100.000</div>
+                    </div>
+
+                    <!-- Hormozi Value Stacking Breakdown (Clean Pill Badge Alignment) -->
+                    <ul class="value-stack-list">
+                        <li class="value-stack-item">
+                            <span class="item-name">✓ Asesmen Bakat 19-Faktor & Radar</span>
+                            <span class="item-val-badge">Nilai: Rp 350rb</span>
+                        </li>
+                        <li class="value-stack-item">
+                            <span class="item-name">✓ Laporan PDF 19 Halaman Lengkap</span>
+                            <span class="item-val-badge">Nilai: Rp 250rb</span>
+                        </li>
+                        <li class="value-stack-item">
+                            <span class="item-name">✓ Draf Panduan Diplomasi Ortu-Anak</span>
+                            <span class="item-val-badge">Nilai: Rp 200rb</span>
+                        </li>
+                        <li class="value-stack-item">
+                            <span class="item-name">✓ Akses AI Counselor 24/7</span>
+                            <span class="item-val-badge">Nilai: Rp 150rb</span>
+                        </li>
+                        <li class="value-stack-item">
+                            <span class="item-name">✓ Voucher 1-on-1 Konsultasi Dr. Teguh</span>
+                            <span class="item-val-badge">Nilai: Rp 100rb</span>
+                        </li>
+                        <li class="value-stack-item">
+                            <span class="item-name">✓ Voucher English Placement Test</span>
+                            <span class="item-val-badge">Nilai: Rp 50rb</span>
+                        </li>
+                        <li class="value-stack-total">
+                            <span>TOTAL REAL VALUE</span>
+                            <span class="total-val-badge">Rp 1.100.000</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/628123456789?text=Halo%20Admin,%20saya%20ingin%20membeli%20Paket%20Bundle%20Lengkap%20Better%20Future" class="btn-yellow-pill">
+                        Ambil Bundle Lengkap →
+                    </a>
+                    <div style="font-size: 0.74rem; font-weight: 700; color: #FACC15; text-align: center; margin-top: 8px;">
+                        Sisa 12 Slot Bonus AI Counselor & Draf Diplomasi Hari Ini
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOLD & FEARLESS RISK REVERSAL BOX (HORMOZI GUARANTEE - OPTION 1: KEDAMAIAN DISKUSI KELUARGA) -->
+            <div style="background: rgba(16, 185, 129, 0.06); border: 1.5px solid #10B981; border-radius: 18px; padding: 22px 20px; text-align: center; margin-top: 28px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h4 style="color: #34D399; font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.01em;">
+                    Garansi 100% Kedamaian Diskusi Keluarga
+                </h4>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; max-width: 620px; margin: 0 auto;">
+                    Jika dalam 14 hari Laporan PDF 19 Halaman & Draf Diplomasi kami tidak berhasil membantu Anda dan anak menemukan arah jurusan yang disepakati bersama, cukup hubungi WhatsApp kami. <strong>Uang Anda kami kembalikan UTUH 100% tanpa pertanyaan.</strong> Kami menanggung seluruh risikonya.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ACCORDION FAQ LENGKAP (8 PERTANYAAN ORANG TUA) & FOOTER -->
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">8 Pertanyaan yang Sering <span class="section-title-serif">Diajukan Orang Tua</span></h2>
+            </div>
+
+            <div class="faq-list" style="max-width: 750px; margin: 0 auto;">
+                <!-- FAQ 1 -->
+                <div class="faq-item open">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>1. Apakah tes online 20 menit di HP ini benar-benar akurat (92,7%)?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Sangat akurat! Tes ini menyatukan 5 metodologi psikotes standar internasional (RIASEC, MBTI, DISC, 16PF, dan VAK) di bawah supervisi langsung Dr. Teguh Lesmana, M.Psi., Psi. (Psikolog Lisensi HIMPIS). Bahkan, kami memberikan Garansi 100% Kedamaian Diskusi Keluarga dalam 14 hari—jika laporan kami tidak berhasil menjadi jembatan kesepakatan jurusan antara Anda dan anak, investasi Anda kami kembalikan utuh tanpa pertanyaan.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>2. Apakah anak saya harus mengunduh aplikasi atau mengantri ke kantor psikolog?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Sama sekali tidak. Pengerjaan 100% online langsung melalui smartphone di rumah tanpa perlu mengunduh aplikasi apapun. Cukup alokasikan waktu 20 menit santai di mana saja.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>3. Apakah kuis ini membosankan bagi anak atau membuat anak stres?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Tidak sama sekali. Tes dirancang dengan format kuis Gen-Z yang interaktif & santai selama 20 menit dari HP. Data kami mencatat 98% anak menikmati tes tanpa merasa terbebani atau merasa sedang diuji.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>4. Bagaimana jika pilihan jurusan anak berbeda dengan keinginan saya sebagai orang tua?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Ini keunggulan utama Better Future! Paket kami menyertakan draf laporan "Diplomasi Ortu-Anak" berbasis data kognitif ilmiah, sehingga diskusi keluarga menjadi sejuk tanpa debat emosional sepihak.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>5. Kapan laporan hasil tes dan analisis jurusan bisa kami terima?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Hasil analisis grafik radar utama keluar seketika (instant) setelah kuis selesai. Laporan PDF interaktif 19 halaman lengkap beserta akses AI Counselor 24/7 dapat Anda unduh dan akses dalam hitungan menit melalui WhatsApp.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>6. Kapan momen terbaik bagi anak SMP/SMA untuk mengambil tes pemetaan ini?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Bagi anak <strong>Kelas 8 & 9 SMP</strong>, ini adalah momen krusial menentukan arah penjurusan IPA/IPS dan pilihan SMA/SMK agar tidak salah melangkah sejak dini. Bagi <strong>Kelas 10-11 SMA</strong>, ini memetakan gaya belajar (VAK) agar persiapan UTBK bebas burnout. Sedangkan bagi <strong>Kelas 12 SMA</strong>, ini adalah benteng pertahanan terakhir sebelum menyerahkan Rp 100 Juta+ uang pangkal perguruan tinggi.
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>7. Mengapa investasi Rp 149.000 ini sangat krusial dibandingkan tes gratisan biasa?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Tes gratisan di internet umumnya hanya menguji kesukaan dangkal (bias 1-faktor). Better Future memetakan 19-faktor karakter alami anak dengan investasi Rp 149.000—hanya 0,001 dari risiko kerugian Rp 120-200 Juta akibat anak drop-out atau pindah jurusan di semester 3.
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>8. Apakah ada pendampingan setelah laporan PDF diterima, dan bagaimana keamanan datanya?</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Ya! Anda mendapatkan Akses AI Counselor 24/7 khusus untuk tanya-jawab prospek karir kapan saja. Seluruh data asesmen dienkripsi 100% aman di bawah kode etik Kerahasiaan Psikologi HIMPIS.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 40px 0 110px; background: #07090E; border-top: var(--border-hairline); font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 6px;">
+                <img src="UIDIGITAL LOGO (16).png" alt="Better Future Logo" style="height: 24px; width: auto;">
+                <span style="font-weight: 800; color: #FFF;">better<span style="color: var(--accent-gold);">future</span></span>
+            </div>
+            <div class="brand-motto-handwritten" style="font-size: 1.25rem; margin-bottom: 12px;">"Mapping today, Shaping Tomorrow."</div>
+            <p>© 2026 Better Future (ISCA). Hak Cipta Dilindungi.</p>
+            <p style="margin-top: 8px;">
+                <a href="https://wa.me/628123456789" style="color: var(--accent-yellow); font-weight: 700;">Layanan Customer Service WhatsApp</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- STICKY BOTTOM BAR (MOBILE ONLY) -->
+    <div class="sticky-bottom-bar" id="stickyBottomBar">
+        <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20minat%20bakat%20gratis" class="btn-sticky-yellow">
+            Ambil Akses Tes Gratis untuk Anak →
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function toggleMenu() {
+            const btn = document.getElementById('hamburgerBtn');
+            const drawer = document.getElementById('menuDrawer');
+            const overlay = document.getElementById('menuOverlay');
+            btn.classList.toggle('active');
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('hamburgerBtn').classList.remove('active');
+            document.getElementById('menuDrawer').classList.remove('active');
+            document.getElementById('menuOverlay').classList.remove('active');
+        }
+
+        const univDataMap = {
+            'UI': { total: 'Rp 124,5 Jt', pangkal: 'Rp 55 Jt', spp: 'Rp 43,5 Jt', hidup: 'Rp 26 Jt', ratio: '0,001' },
+            'ITB': { total: 'Rp 135 Jt', pangkal: 'Rp 60 Jt', spp: 'Rp 48 Jt', hidup: 'Rp 27 Jt', ratio: '0,001' },
+            'UGM': { total: 'Rp 118 Jt', pangkal: 'Rp 50 Jt', spp: 'Rp 44 Jt', hidup: 'Rp 24 Jt', ratio: '0,001' },
+            'IPB': { total: 'Rp 112 Jt', pangkal: 'Rp 48 Jt', spp: 'Rp 40 Jt', hidup: 'Rp 24 Jt', ratio: '0,001' },
+            'UPH': { total: 'Rp 215 Jt', pangkal: 'Rp 95 Jt', spp: 'Rp 75 Jt', hidup: 'Rp 45 Jt', ratio: '0,0007' },
+            'BINUS': { total: 'Rp 185 Jt', pangkal: 'Rp 80 Jt', spp: 'Rp 65 Jt', hidup: 'Rp 40 Jt', ratio: '0,0008' },
+            'UMY': { total: 'Rp 140 Jt', pangkal: 'Rp 62 Jt', spp: 'Rp 50 Jt', hidup: 'Rp 28 Jt', ratio: '0,001' },
+            'UII': { total: 'Rp 138 Jt', pangkal: 'Rp 60 Jt', spp: 'Rp 50 Jt', hidup: 'Rp 28 Jt', ratio: '0,001' }
+        };
+
+        function setUniv(element, code) {
+            document.querySelectorAll('.btn-univ').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            const data = univDataMap[code];
+            if (data) {
+                document.getElementById('calcDisplay').innerText = data.total;
+                document.getElementById('bdPangkal').innerText = data.pangkal;
+                document.getElementById('bdSpp').innerText = data.spp;
+                document.getElementById('bdHidup').innerText = data.hidup;
+                document.getElementById('ratioDisplay').innerText = data.ratio;
+            }
+        }
+
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            item.classList.toggle('open');
+        }
+
+        function selectClassCard(btn, classId) {
+            const container = btn.parentElement;
+            container.querySelectorAll('.btn-select-class').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const section = btn.closest('section') || document;
+            const cards = section.querySelectorAll('.class-segment-card');
+
+            cards.forEach(card => {
+                if (classId === 'all') {
+                    card.style.display = 'flex';
+                    card.classList.remove('dimmed');
+                    card.classList.remove('highlight-selected');
+                } else if (card.dataset.class === classId) {
+                    card.style.display = 'flex';
+                    card.classList.remove('dimmed');
+                    card.classList.add('highlight-selected');
+                    if (window.innerWidth < 768) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                } else {
+                    if (window.innerWidth < 768) {
+                        card.style.display = 'none';
+                    } else {
+                        card.style.display = 'flex';
+                        card.classList.add('dimmed');
+                        card.classList.remove('highlight-selected');
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', function() {
+            const stickyBar = document.getElementById('stickyBottomBar');
+            if (window.scrollY > 450) {
+                stickyBar.classList.add('visible');
+            } else {
+                stickyBar.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

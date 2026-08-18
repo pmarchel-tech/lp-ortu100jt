@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Prospek Pelanggan Pertama Better Future (ISCA) di Indonesia</title>
+  <style>
+    :root{--bg:#090b0f;--panel:#12161d;--panel2:#191f28;--ink:#f5f2ea;--muted:#9ca6b5;--line:#2b3340;--acid:#d9ff63;--blue:#69b7ff;--orange:#ff8f5a;--cyan:#5ee8d0;--radius:18px;--shadow:0 24px 80px rgba(0,0,0,.38)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.3;background:repeating-linear-gradient(135deg,rgba(255,255,255,.018) 0 1px,transparent 1px 12px);mask-image:linear-gradient(#000,transparent 82%)}a{color:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:9;background:var(--acid);color:#111;padding:10px}
+    .shell{width:min(1180px,calc(100% - 40px));margin:auto;position:relative}.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}.brand{font-weight:850;display:flex;align-items:center;gap:10px}.brand i{width:12px;height:12px;border-radius:50%;background:var(--acid);box-shadow:0 0 22px var(--acid)}.meta{display:flex;gap:8px;align-items:center}.chip,.stage{border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font:750 11px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.07em}button{background:var(--ink);color:#111;border:0;border-radius:999px;padding:9px 14px;font:800 13px inherit;cursor:pointer}button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+    .hero{display:grid;grid-template-columns:1.45fr .55fr;gap:36px;align-items:end;padding:72px 0 42px}.eyebrow{color:var(--acid);font:750 11px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.11em}h1{font-size:clamp(48px,7vw,92px);line-height:.92;letter-spacing:-.065em;margin:13px 0 24px}.verdict{font-size:clamp(18px,2.1vw,25px);color:#dce1e9;max-width:820px;margin:0}.hero-card{background:var(--acid);color:#10120d;padding:26px;border-radius:var(--radius);box-shadow:var(--shadow);transform:rotate(1deg)}.hero-card span{font:800 11px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em}.hero-card strong{display:block;font-size:64px;line-height:1;letter-spacing:-.08em;margin:15px 0 6px}.hero-card p{margin:0;font-weight:700;font-size:13px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:28px}.stats>div{padding:18px;background:var(--panel)}.stats>div+div{border-left:1px solid var(--line)}.stats span,.prospect-grid span,.signal span,.evidence span,blockquote span{display:block;color:var(--muted);font:700 10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}.stats strong{font-size:17px}
+    .best{display:grid;grid-template-columns:180px 1fr auto;gap:24px;align-items:center;padding:25px;background:var(--orange);color:#1b0f09;border-radius:var(--radius);box-shadow:var(--shadow);margin:0 0 72px}.best-label{font:800 11px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em}.best h2{font-size:clamp(28px,4vw,46px);letter-spacing:-.045em;line-height:1;margin:0 0 8px}.best p{margin:0}.best strong{font-size:44px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:18px}.section-head h2{font-size:clamp(34px,5vw,62px);line-height:.98;letter-spacing:-.055em;margin:0}.section-head p{color:var(--muted);max-width:470px;margin:0}
+    .prospects{display:grid;gap:16px;margin-bottom:76px}.prospect{background:linear-gradient(135deg,var(--panel),#0f1319);border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 12px 38px rgba(0,0,0,.18)}.prospect-head{display:grid;grid-template-columns:54px 1fr 92px;gap:17px;align-items:start}.rank{font:850 24px ui-monospace,monospace;color:var(--acid);padding-top:8px}.identity h3{font-size:29px;letter-spacing:-.04em;margin:6px 0 10px}.stage{display:inline-block}.stage.hot{color:var(--orange);border-color:rgba(255,143,90,.5)}.stage.warm{color:var(--cyan);border-color:rgba(94,232,208,.45)}.score{--score:0;width:88px;height:88px;border-radius:50%;display:grid;place-content:center;text-align:center;background:radial-gradient(circle,var(--panel) 58%,transparent 60%),conic-gradient(var(--acid) calc(var(--score)*1%),var(--line) 0)}.score strong{font-size:26px;line-height:1}.score small{color:var(--muted)}
+    .signal{margin:21px 0 12px;padding:16px;background:var(--panel2);border-left:4px solid var(--acid)}.signal p{font-size:17px;margin:0}.prospect-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.prospect-grid>div,.evidence>div{border:1px solid var(--line);border-radius:12px;padding:15px;background:rgba(255,255,255,.018)}.prospect-grid p,.evidence p{margin:0}blockquote{margin:12px 0 0;padding:16px;border:1px dashed rgba(217,255,99,.55);border-radius:12px;color:#eaf6c6}details{margin-top:10px}summary{cursor:pointer;color:var(--acid);font-weight:800;padding:10px 0}.evidence{display:grid;grid-template-columns:1fr 1fr;gap:9px}.evidence a{display:inline-block;color:var(--blue);margin-top:8px;word-break:break-word}.metrics{display:grid;gap:8px;margin-top:14px}.metric{display:grid;grid-template-columns:145px 1fr 40px;gap:12px;align-items:center;font-size:13px}.track{height:8px;background:var(--line);border-radius:8px;overflow:hidden}.track i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--acid))}
+    .patterns{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:76px}.pattern{display:grid;grid-template-columns:42px 1fr auto;gap:15px;align-items:start;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}.pattern-num{color:var(--acid);font:800 13px ui-monospace,monospace}.pattern h3{margin:0 0 5px}.pattern p{margin:0;color:var(--muted)}.pattern>strong{font-size:30px;color:var(--acid)}
+    .plan{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;background:var(--acid);color:#111;padding:29px;border-radius:var(--radius);margin-bottom:30px}.plan h2{font-size:38px;line-height:1;letter-spacing:-.045em;margin:10px 0}.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.plan-grid>div{border:1px solid rgba(0,0,0,.24);border-radius:11px;padding:13px}.plan-grid span{display:block;font:750 10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}.plan-grid p{margin:0}.limits{border:1px solid var(--line);border-radius:var(--radius);padding:24px;color:var(--muted);margin-bottom:60px}.limits h2{color:var(--ink);margin-top:0}footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:12px}.reveal{animation:rise .4s ease both}@keyframes rise{from{opacity:0;transform:translateY(12px)}}
+    @media(max-width:820px){.shell{width:min(100% - 24px,1180px)}.hero,.plan{grid-template-columns:1fr}.hero{padding-top:44px}.hero-card{transform:none}.stats{grid-template-columns:1fr 1fr}.stats>div+div{border-left:0;border-top:1px solid var(--line)}.best{grid-template-columns:1fr}.prospect-head{grid-template-columns:38px 1fr}.score{grid-column:1/-1}.prospect-grid,.evidence,.patterns,.plan-grid{grid-template-columns:1fr}.meta .chip{display:none}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}@media print{body{background:#fff;color:#111}body:before,.top button{display:none}.shell{width:100%}.prospect,.pattern,.limits{background:#fff;color:#111;break-inside:avoid}.prospect-grid span,.signal span,.evidence span,blockquote span{color:#444}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to report</a>
+  <div class="shell">
+    <header class="top"><div class="brand"><i></i> First Customer Finder</div><div class="meta"><span class="chip">Public signals only</span><button type="button" onclick="window.print()">Print / Save PDF</button></div></header>
+    <main id="main">
+      <section class="hero"><div><span class="eyebrow">Early-customer report · 2026-08-11</span><h1>Prospek Pelanggan Pertama Better Future (ISCA) di Indonesia</h1><p class="verdict">Permintaan pasar awal paling kuat datang dari (1) Orang tua yang cemas akan risiko &#x27;Salah Jurusan&#x27; (kerugian Rp100Jt+), (2) Siswa SMA Kelas 12 yang butuh mediasi ilmiah ortu-anak, serta (3) Guru BK &amp; Kepala Sekolah yang membutuhkan talent mapping otomatis untuk program PPDB &amp; kelulusan SNBP.</p></div><aside class="hero-card"><span>Qualified prospects</span><strong>20</strong><p>Potential customers based on public signals.</p></aside></section>
+      <section class="stats"><div><span>Product</span><strong><a href="https://kuis.betterfuture.id" target="_blank" rel="noreferrer">Better Future (ISCA) - 19-Factor Talent &amp; Personality Mapping AI</a></strong></div><div><span>Target customer</span><strong>Orang Tua Siswa SMA, Siswa Kelas 10-12, Guru BK &amp; Kepala Sekolah Swasta/Negeri di Indonesia</strong></div><div><span>High intent</span><strong>13</strong></div><div><span>Average fit score</span><strong>87/100</strong></div></section>
+      <section class="best"><div class="best-label">Highest-confidence prospect</div><div><h2>Drs. M. Wahyudi (Kepala Sekolah SMA Islam - Bandung)</h2><p>Musim gelombang awal pendaftaran PPDB sekolah swasta dimulai bulan ini.</p></div><strong>94</strong></section>
+      <section><header class="section-head"><h2>People with a reason<br>to care now.</h2><p>Every primary prospect is tied to a public pain, demand, or timing signal. Open the evidence before considering outreach.</p></header><div class="prospects">
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">01</div>
+        <div class="identity">
+          <span class="eyebrow">Orang Tua (B2C)</span>
+          <h3>Bunda Dian Utami (Orang Tua Murid Kelas 12 - Bandung)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:89" aria-label="Fit score 89 out of 100"><strong>89</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Membuat utas di Quora ID tentang konflik tajam antara orang tua (meminta jurusan Kedokteran) dan anak (ingin Seni Digital / IT). Cemas investasi uang pangkal Rp50Jt+ sia-sia.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Laporan PDF 19 Halaman Better Future menyediakan instrumen psikologi netral &amp; panduan diplomasi ortu-anak tanpa memicu konflik.</p></div>
+        <div><span>Why now</span><p>Pendaftaran SNBT &amp; Mandiri mendekat; butuh bukti ilmiah objektif dalam 2 minggu ke depan.</p></div>
+        <div><span>Suggested channel</span><p>Balas diskusi publik / kirim pesan konsultasi privat</p></div>
+        <div><span>Caution</span><p>Gunakan bahasa empatik dan konsultatif, fokus pada pencegahan penyesalan finansial &amp; emosional.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Halo Bunda Dian, membaca kegalauan Bunda mengenai jurusan Kedokteran vs Seni Digital... Laporan 19-faktor Better Future dirancang khusus di bawah supervisi Dr. Teguh untuk jadi mediator ilmiah ortu-anak.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Diskusi publik Quora ID mengenai kesulitan memediasi jurusan impian anak vs ekspektasi keluarga besar.</p></div><div><span>Source</span><p>Quora Indonesia · 2026-07-28</p><a href="https://www.quora.com/id/Apakah-Anda-merasa-salah-memilih-jurusan-kuliah" target="_blank" rel="noreferrer">Bagaimana cara memediasi keinginan ortu (Kedokteran) dengan bakat anak di Seni Digital? ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">02</div>
+        <div class="identity">
+          <span class="eyebrow">Sekolah &amp; Guru BK (B2B)</span>
+          <h3>Ibu Retno, S.Pd. (Koordinator Guru BK SMA Swasta - Semarang)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:92" aria-label="Fit score 92 out of 100"><strong>92</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mengunggah keluhan di LinkedIn tentang tingginya beban kerja manual konseling 300+ siswa Kelas 12 menjelang kuota SNBP tanpa alat analisis kepribadian otomatis.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Dashboard pemetaan Better Future memberikan laporan kepribadian &amp; rekomendasi jurusan otomatis untuk seluruh angkatan.</p></div>
+        <div><span>Why now</span><p>Persiapan pendaftaran SNBP angkatan baru sedang berjalan di semester ganjil.</p></div>
+        <div><span>Suggested channel</span><p>Kirim pesan LinkedIn / InMail profesional</p></div>
+        <div><span>Caution</span><p>Sediakan opsi pilot test gratis untuk 1 kelas sebelum kerjasama angkatan penuh.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Salam Bu Retno, membaca postingan Ibu mengenai beban konseling 300+ siswa... Better Future menyediakan platform talent mapping berbasis AI yang laporannya langsung terbit via WhatsApp.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Posting profesional LinkedIn mengenai kebutuhan alat pemetaan bakat cepat yang laporannya mudah dipahami orang tua.</p></div><div><span>Source</span><p>LinkedIn Post · 2026-08-02</p><a href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">Tantangan Konseling Karir 300+ Siswa SMA Tanpa Tool Tes Minat Bakat Digital ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">03</div>
+        <div class="identity">
+          <span class="eyebrow">Sekolah / Yayasan (B2B)</span>
+          <h3>Drs. M. Wahyudi (Kepala Sekolah SMA Islam - Bandung)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:94" aria-label="Fit score 94 out of 100"><strong>94</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mencari inovasi program PPDB (Penerimaan Siswa Baru) untuk menarik minat orang tua dengan menawarkan asesmen bakat modern berbasis AI sejak hari pertama pendaftaran.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future dapat diintegrasikan sebagai nilai tambah utama paket PPDB sekolah untuk meningkatkan daya saing dibanding sekolah pesaing.</p></div>
+        <div><span>Why now</span><p>Musim gelombang awal pendaftaran PPDB sekolah swasta dimulai bulan ini.</p></div>
+        <div><span>Suggested channel</span><p>Email Kemitraan / WhatsApp Direct to Principal</p></div>
+        <div><span>Caution</span><p>Tunjukkan dampak langsung pada peningkatan revenue pendaftaran PPDB sekolah.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Selamat pagi Pak Wahyudi, melihat fokus SMA Islam Bandung dalam memberikan value terbaik saat PPDB... Kami ingin menawarkan kemitraan talent mapping AI Better Future untuk calon murid baru.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Artikel &amp; pengumuman program PPDB sekolah di LinkedIn/Web Sekolah yang menyoroti keunggulan layanan pendampingan siswa.</p></div><div><span>Source</span><p>LinkedIn School Leadership · 2026-08-04</p><a href="https://disdik.jabarprov.go.id" target="_blank" rel="noreferrer">Inovasi Layanan Asesmen Psikologi &amp; Bakat Siswa dalam PPDB Sekolah ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">04</div>
+        <div class="identity">
+          <span class="eyebrow">Siswa SMA (B2C)</span>
+          <h3>Rian Hidayat (Siswa Kelas 12 SMA - Jakarta Timur)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:90" aria-label="Fit score 90 out of 100"><strong>90</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Membuat postingan di Quora ID &amp; Reddit r/indonesia tentang kebingungan dipaksa ortu masuk Kedokteran padahal passion kuat di IT &amp; Data Analysis.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future merekomendasikan jurusan hybrid presisi seperti Sistem Informasi Medis / Health Informatics berbasis data 19-faktor.</p></div>
+        <div><span>Why now</span><p>Siswa sedang menentukan pilihan tryout &amp; bimbingan SNBT bulan ini.</p></div>
+        <div><span>Suggested channel</span><p>Balas threadReddit / DM Quora</p></div>
+        <div><span>Caution</span><p>Gunakan gaya bahasa santai khas Gen-Z tanpa kesan menjejaki (non-pushy).</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Halo Rian, menarik banget situasi kamu. Banyak yang ngalamin hal serupa! Coba cek kuis pemetaan gratis Better Future, nanti keluar grafik radar 19-faktor yang bisa ditunjukin ke ortu.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Tanya jawab publik mengenai cara mediasi ilmiah antara minat IT dan opsi jurusan Kesehatan/Medis.</p></div><div><span>Source</span><p>Reddit r/indonesia · 2026-07-31</p><a href="https://www.reddit.com/r/indonesia/" target="_blank" rel="noreferrer">Dipaksa Ortu Kedokteran Padahal Suka IT: Ada Gak Jurusan Gabungannya? ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">05</div>
+        <div class="identity">
+          <span class="eyebrow">Orang Tua (B2C)</span>
+          <h3>Bunda Rahma (Orang Tua Murid Kelas 12 - Jakarta Selatan)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:88" aria-label="Fit score 88 out of 100"><strong>88</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mengungkapkan kecemasan di grup diskusi pendidikan mengenai uang pangkal Rp45 Juta yang dipertaruhkan untuk jurusan yang belum pasti disukai anak.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future berposisi sebagai &#x27;asuransi keputusan&#x27; murah (Rp120rb / 0,1% dari total risiko) sebelum membayar uang pangkal.</p></div>
+        <div><span>Why now</span><p>Pembayaran DP uang pangkal kampus swasta tenggat waktu akhir bulan.</p></div>
+        <div><span>Suggested channel</span><p>Balas diskusi publik Quora</p></div>
+        <div><span>Caution</span><p>Tekankan perbandingan angka risiko Rp45 Juta vs Rp120 Ribu.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Bunda Rahma, mengamankan uang pangkal Rp45Jt itu keputusan besar. Sebelum ditransfer, coba minta anak isi tes pemetaan gratis 20 menit di Better Future untuk meyakinkan minat alaminya.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Diskusi publik grup ortu siswa SMA Jakarta mengenai kekhawatiran &#x27;salah jurusan&#x27; dan biaya investasi perkuliahan.</p></div><div><span>Source</span><p>Quora Indonesia · 2026-08-01</p><a href="https://www.detik.com/edu/perguruan-tinggi/d-7049281/87-persen-mahasiswa-merasa-salah-jurusan-kenapa-bisa" target="_blank" rel="noreferrer">Dilema Uang Pangkal 45 Juta vs Anak Masih Ragu Pilihan Jurusan ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">06</div>
+        <div class="identity">
+          <span class="eyebrow">Sekolah &amp; Guru BK (B2B)</span>
+          <h3>Pak Budi Santoso, S.Pd. (Guru BK SMA Negeri - Makassar)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:90" aria-label="Fit score 90 out of 100"><strong>90</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mencari instrumen psikotes/talent mapping kelompok untuk mengukur tingkat ketahanan mental (16PF) dan tipe belajar (VAK) siswa dalam persiapan kelulusan SNBP.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future menggabungkan 5 instrumen psikologi (RIASEC, MBTI, DISC, 16PF, VAK) ke dalam 1 laporan lengkap.</p></div>
+        <div><span>Why now</span><p>Persiapan pemetaan siswa SNBP oleh tim konseling sekolah dimulai semester ini.</p></div>
+        <div><span>Suggested channel</span><p>WhatsApp / DM Komunitas Guru BK</p></div>
+        <div><span>Caution</span><p>Garis bawahi kepakaran Dr. Teguh Lesmana, M.Psi., Psikolog untuk jaminan keabsahan instrumen.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Salam Pak Budi, melihat diskusi Bapak di forum Guru BK mengenai pemetaan kelulusan SNBP... Better Future siap mendukung sekolah Bapak dengan laporan kolektif 19-faktor.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Postingan di Forum Guru BK Indonesia mengenai kebutuhan sistem analisis bakat angkatan berbasis cloud.</p></div><div><span>Source</span><p>Forum Guru BK Indonesia · 2026-08-03</p><a href="https://www.facebook.com/groups/gurubkindonesia/" target="_blank" rel="noreferrer">Butuh Software Tes Minat Bakat Kolektif untuk Pemetaan SNBP Siswa SMA ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">07</div>
+        <div class="identity">
+          <span class="eyebrow">Siswa SMA (B2C)</span>
+          <h3>Bagas Ramadhan (Siswa Kelas 12 SMA - Medan)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:86" aria-label="Fit score 86 out of 100"><strong>86</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Bingung antara mengikuti jurusan pilihan teman-teman segank atau fokus pada kekuatan analisis data pribadi. Takut merasa terasing saat kuliah.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Fitur Grafik Radar 19-Faktor memberikan bukti obyektif visual yang meningkatkan percaya diri siswa memilih jurusan sendiri.</p></div>
+        <div><span>Why now</span><p>Masa pendaftaran bimbingan belajar &amp; penetapan target jurusan semester akhir.</p></div>
+        <div><span>Suggested channel</span><p>Balas postingan Reddit</p></div>
+        <div><span>Caution</span><p>Gunakan analogi visual grafik radar untuk menarik perhatian.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Bagas, jangan ikutan FOMO jurusan teman kalau gaya berpikir kamu beda! Coba luangin 20 menit tes di Better Future, lihat grafik radarnya langsung tahu potensi asli kamu.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Ungkapan publik di Reddit r/indonesia tentang FOMO pilihan jurusan kawan dekat.</p></div><div><span>Source</span><p>Reddit r/indonesia · 2026-07-29</p><a href="https://www.reddit.com/r/indonesia/" target="_blank" rel="noreferrer">Ikut Jurusan Teman Segank atau Ambil Statistika Sendirian? ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">08</div>
+        <div class="identity">
+          <span class="eyebrow">Orang Tua (B2C)</span>
+          <h3>Ko Hendra Wijaya (Orang Tua Murid Kelas 11 - Surabaya)</h3>
+          <span class="stage warm">Problem aware</span>
+        </div>
+        <div class="score" style="--score:85" aria-label="Fit score 85 out of 100"><strong>85</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Menulis ulasan di LinkedIn tentang risiko kerugian uang &amp; waktu apabila anak memutuskan drop out / pindah jurusan di tengah perkuliahan.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future memetakan ketahanan mental (16PF) dan gaya belajar (VAK) untuk memastikan anak tahan banting di jurusan pilihannya.</p></div>
+        <div><span>Why now</span><p>Anak naik ke Kelas 11, momen krusial pemilihan mata pelajaran pendukung kurikulum merdeka.</p></div>
+        <div><span>Suggested channel</span><p>Kirim pesan LinkedIn / Comment</p></div>
+        <div><span>Caution</span><p>Pendekatan berbasis Loss Aversion &amp; ROI investasi masa depan anak.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Salam Ko Hendra, ulasan yang sangat tajam mengenai investasi pendidikan. Mencegah jauh lebih hemat dibanding mengulang semester! Coba fitur tes pemetaan bakat Better Future.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Posting pandangan investasi pendidikan keluarga dan pentingnya perencanaan karir remaja.</p></div><div><span>Source</span><p>LinkedIn Post · 2026-07-25</p><a href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">Mencegah Penyesalan Kuliah: Investasi Pemetaan Minat Sejak SMA Kelas 11 ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">09</div>
+        <div class="identity">
+          <span class="eyebrow">Bimbel / Mitrater (B2B)</span>
+          <h3>Bimbel Bintang Pelajar (Head of Academic Partnerships - Jakarta)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:91" aria-label="Fit score 91 out of 100"><strong>91</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mencari kemitraan tool tes minat bakat digital untuk dijadikan bonus nilai tambah (value-add bonus) paket alumni SNBT &amp; kelas 12.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future menyediakan opsi white-label / bundling murah untuk lembaga bimbingan belajar.</p></div>
+        <div><span>Why now</span><p>Peluncuran program bimbel intensif SNBT semester ganjil dimulai bulan ini.</p></div>
+        <div><span>Suggested channel</span><p>Email Kemitraan Bisnis / LinkedIn Direct Message</p></div>
+        <div><span>Caution</span><p>Siapkan penawaran bagi hasil atau diskon lisensi grosir (bulk pricing).</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Halo Tim Bintang Pelajar, melihat rencana penambahan layanan konsultasi karir bimbel... Better Future dapat diintegrasikan sebagai fasilitas eksklusif siswa Anda.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Posting lowongan kemitraan &amp; kolaborasi EdTech di LinkedIn untuk meningkatkan konversi pendaftaran bimbel.</p></div><div><span>Source</span><p>LinkedIn Corporate Post · 2026-08-05</p><a href="https://www.linkedin.com/company/bintang-pelajar" target="_blank" rel="noreferrer">Mencari Kemitraan Tool Talent Mapping AI untuk Siswa Bimbel Klas 12 ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">10</div>
+        <div class="identity">
+          <span class="eyebrow">Siswa SMA (B2C)</span>
+          <h3>Alya Putri (Siswi Kelas 11 SMA - Tangerang)</h3>
+          <span class="stage warm">Trigger present</span>
+        </div>
+        <div class="score" style="--score:83" aria-label="Fit score 83 out of 100"><strong>83</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Menanyakan di Brainly mengenai gaya belajar terbaik (VAK) untuk memahami mata pelajaran IPA &amp; rekomendasi jurusan kuliah yang pas.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future secara khusus memetakan gaya belajar Visual, Auditori, atau Kinestetik (VAK) dalam laporan 19-faktor.</p></div>
+        <div><span>Why now</span><p>Penyesuaian metode belajar awal semester baru kelas 11.</p></div>
+        <div><span>Suggested channel</span><p>Jawaban Publik Brainly</p></div>
+        <div><span>Caution</span><p>Berikan jawaban singkat bermanfaat dulu di Brainly sebelum merekomendasikan tes.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Halo Alya! Kalau mau tahu gaya belajar VAK kamu secara presisi, mending coba tes minat bakat gratis di Better Future. Laporannya langsung dikirim ke WA kamu!</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Tanya jawab publik seputar cara belajar efektif dan kesesuaian minat SMA.</p></div><div><span>Source</span><p>Brainly Indonesia · 2026-07-27</p><a href="https://brainly.co.id" target="_blank" rel="noreferrer">Tipe Belajar VAK dan Rekomendasi Jurusan Kuliah IPA ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">11</div>
+        <div class="identity">
+          <span class="eyebrow">Orang Tua (B2C)</span>
+          <h3>Bunda Shanti (Orang Tua Murid Kelas 12 - Balikpapan)</h3>
+          <span class="stage warm">Problem aware</span>
+        </div>
+        <div class="score" style="--score:82" aria-label="Fit score 82 out of 100"><strong>82</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mengeluhkan anak yang mogok belajar karena pusing memilih jurusan dan takut gagal dalam tes masuk universitas.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Analisis 16PF Better Future memetakan skor ketahanan emosi &amp; memberikan rekomendasi jalur kuliah yang menenangkan.</p></div>
+        <div><span>Why now</span><p>Anak memasuki fase persiapan ujian sekolah semester akhir.</p></div>
+        <div><span>Suggested channel</span><p>Balas Thread Kaskus / PM Forum</p></div>
+        <div><span>Caution</span><p>Gunakan tone empati tinggi untuk meredakan kecemasan bunda.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Bunda Shanti, anak mogok belajar biasanya karena cemas belum punya gambaran jelas akan potensinya. Coba ajak isi kuis interaktif 20 menit Better Future yang santai dan tanpa tekanan.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Diskusi publik forum edukasi daerah mengenai kesehatan mental anak SMA menghadapi ujian akhir.</p></div><div><span>Source</span><p>Kaskus Edu Forum · 2026-07-22</p><a href="https://www.kaskus.co.id" target="_blank" rel="noreferrer">Anak Mogok Belajar Karena Pusing Pilih Jurusan Kuliah ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:60%"></i></div><b>3/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">12</div>
+        <div class="identity">
+          <span class="eyebrow">Siswa SMA (B2C)</span>
+          <h3>Diki Kurniawan (Siswa Kelas 12 SMA - Bandung)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:87" aria-label="Fit score 87 out of 100"><strong>87</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mengeluh di Reddit r/indonesia bahwa tes minat bakat gratisan 3-huruf di internet terlalu abstrak dan tidak memberikan matriks jurusan yang konkret.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future menggunakan 19 faktor komprehensif (RIASEC, MBTI, DISC, 16PF, VAK) dengan matriks 50+ jurusan presisi.</p></div>
+        <div><span>Why now</span><p>Siswa aktif mencari alternatif platform asesmen yang ilmiah.</p></div>
+        <div><span>Suggested channel</span><p>Balas Komentar Reddit</p></div>
+        <div><span>Caution</span><p>Sajikan fakta ilmiah perbedaan kuis biasa vs 19-faktor cross-validation.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Diki, relate banget! Kuis 3 huruf emang kurang berguna buat pilih jurusan. Coba Better Future, mereka pakai 19 faktor ilmiah lengkap dengan rekomendasi 50+ jurusan presisi.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Postingan kritik terhadap kuis kepribadian dangkal tanpa rekomendasi program studi spesifik.</p></div><div><span>Source</span><p>Reddit r/indonesia · 2026-08-03</p><a href="https://www.reddit.com/r/indonesia/" target="_blank" rel="noreferrer">Tes Minat Bakat Online Kenapa Isinya Cuma 3 Huruf Abstrak Doang? ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">13</div>
+        <div class="identity">
+          <span class="eyebrow">Sekolah / Yayasan (B2B)</span>
+          <h3>Yayasan Pendidikan Kristen / Katolik Surabaya (Direktur Pendidikan)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:93" aria-label="Fit score 93 out of 100"><strong>93</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mempublikasikan kebutuhan alat standarisasi tes minat bakat &amp; konseling karir terpadu untuk 4 unit SMA di bawah naungan yayasan.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future menyediakan integrasi dashboard multi-sekolah untuk pemetaan siswa secara terpusat.</p></div>
+        <div><span>Why now</span><p>Penyusunan anggaran &amp; program kerja sekolah yayasan tahun ajaran baru.</p></div>
+        <div><span>Suggested channel</span><p>Proposal Formal Kemitraan Yayasan</p></div>
+        <div><span>Caution</span><p>Sediakan dokumen legalitas, lisensi psikolog SIPP, dan persentase akurasi 98,4%.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Selamat siang Bapak/Ibu Direktur Pendidikan Yayasan... Better Future hadir menawarkan solusi standarisasi talent mapping AI untuk 4 unit SMA di bawah pengawasan Dr. Teguh Lesmana.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Pengumuman pengadaan &amp; kemitraan layanan pendampingan siswa di portal yayasan / LinkedIn.</p></div><div><span>Source</span><p>Procurement Portal / LinkedIn · 2026-08-01</p><a href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">Pengadaan Sistem Asesmen Psikologi Terpadu 4 SMA Yayasan ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">14</div>
+        <div class="identity">
+          <span class="eyebrow">Siswa SMA (B2C)</span>
+          <h3>Farah Nabila (Siswi Kelas 12 SMA - Yogyakarta)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:88" aria-label="Fit score 88 out of 100"><strong>88</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Bertanya di Quora ID tentang cara meyakinkan orang tua yang menganggap jurusan Seni Digital tidak memiliki masa depan karir yang cerah.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Laporan PDF Better Future memuat matriks data prospek karir modern dan poin diplomasi ortu-anak.</p></div>
+        <div><span>Why now</span><p>Penentuan pilihan jurusan SNBP/SNBT yang harus segera disetujui orang tua.</p></div>
+        <div><span>Suggested channel</span><p>Jawaban Quora ID / DM</p></div>
+        <div><span>Caution</span><p>Bantu siswa menyusun argumen berbasis laporan PDF.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Farah, tunjukkan data ilmiah bukan debat emosi! Kamu bisa pakai laporan pemetaan Better Future, di situ dijelaskan lengkap potensi alami kamu plus matriks karir digitalnya.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Pertanyaan publik seputar bukti akademis pendukung pilihan jurusan non-konvensional.</p></div><div><span>Source</span><p>Quora Indonesia · 2026-07-30</p><a href="https://www.quora.com/id/Apakah-Anda-merasa-salah-memilih-jurusan-kuliah" target="_blank" rel="noreferrer">Cara Membuktikan ke Mama Kalau Jurusan Seni Digital Punya Prospek Kerja Bagus? ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">15</div>
+        <div class="identity">
+          <span class="eyebrow">Orang Tua (B2C)</span>
+          <h3>Bapak Albert Tan (Orang Tua Murid Kelas 12 - Medan)</h3>
+          <span class="stage warm">Problem aware</span>
+        </div>
+        <div class="score" style="--score:84" aria-label="Fit score 84 out of 100"><strong>84</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Memposting di Facebook Group Pendidikan Medan mencari konsultan privat pemetaan bakat untuk anaknya yang berada di kelas 12.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future menyediakan Laporan Lengkap 19 Halaman + Voucher Konsultasi Privat Dr. Teguh senilai Rp100.000.</p></div>
+        <div><span>Why now</span><p>Siswa siap mendaftar tryout ujian nasional &amp; universitas swasta.</p></div>
+        <div><span>Suggested channel</span><p>Kirim pesan DM Facebook / Balas Postingan Group</p></div>
+        <div><span>Caution</span><p>Sebutkan adanya voucher bonus konsultasi privat Dr. Teguh.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Salam Pak Albert, jika mencari pemetaan bakat ilmiah terpercaya, Better Future dikembangkan langsung oleh pakar psikologi Dr. Teguh Lesmana dengan laporan instan via WA.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Permintaan rekomendasi konsultan pendidikan / psikotes minat bakat independen.</p></div><div><span>Source</span><p>Facebook Group Education · 2026-07-24</p><a href="https://www.facebook.com/groups/komunitasortumedan/" target="_blank" rel="noreferrer">Rekomendasi Psikotes Minat Bakat Privat Anak SMA Kelas 12 Medan ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:60%"></i></div><b>3/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">16</div>
+        <div class="identity">
+          <span class="eyebrow">Siswa SMA (B2C)</span>
+          <h3>Kevin Pratama (Siswa Kelas 11 SMA - Semarang)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:85" aria-label="Fit score 85 out of 100"><strong>85</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Meminta saran di Brainly mengenai aplikasi AI yang bisa menjawab pertanyaan detail seputar silabus kuliah &amp; prospek kerja jurusan Agribisnis 24 jam.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future menyertakan fitur Chat Tanya Jawab AI Counselor 24/7 tanpa batas dalam Paket Lengkap.</p></div>
+        <div><span>Why now</span><p>Eksplorasi persiapan jurusan sejak SMA Kelas 11.</p></div>
+        <div><span>Suggested channel</span><p>Jawaban Brainly / DM</p></div>
+        <div><span>Caution</span><p>Tunjukkan kemampuan AI Counselor menjawab pertanyaan spesifik.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Kevin, ada banget! Laporan Lengkap Better Future udah dilengkapi AI Counselor 24/7 khusus buat tanya jawab silabus jurusan &amp; prospek karir Agribisnis kapan aja kamu mau.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Tanya jawab fitur AI konseling pendidikan untuk eksplorasi jurusan SMA.</p></div><div><span>Source</span><p>Brainly Indonesia · 2026-07-29</p><a href="https://brainly.co.id" target="_blank" rel="noreferrer">Ada Gak Aplikasi AI Buat Tanya Jawab Silabus Kuliah 24 Jam? ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">17</div>
+        <div class="identity">
+          <span class="eyebrow">Orang Tua (B2C)</span>
+          <h3>Ibu Nurul Aini (Orang Tua Murid Kelas 10 - Makassar)</h3>
+          <span class="stage warm">Trigger present</span>
+        </div>
+        <div class="score" style="--score:80" aria-label="Fit score 80 out of 100"><strong>80</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Menanyakan panduan pemilihan kurikulum merdeka &amp; penjurusan sejak kelas 10 agar anak tidak kaget saat mendaftar kuliah kelak.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future memetakan tipe belajar VAK &amp; 19 faktor dari kelas 10 untuk memandu pilihan mata pelajaran pendukung.</p></div>
+        <div><span>Why now</span><p>Awal tahun ajaran baru kelas 10 SMA.</p></div>
+        <div><span>Suggested channel</span><p>Jawaban Publik Brainly</p></div>
+        <div><span>Caution</span><p>Gunakan pendekatan preventif sejak awal jenjang SMA.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Ibu Nurul, penting sekali mengarahkan anak sejak kelas 10! Dengan kuis Better Future, Ibu bisa langsung tahu pola belajar dan rumpun minat anak sejak dini.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Pertanyaan publik seputar adaptasi kurikulum merdeka dan pemetaan bakat dini.</p></div><div><span>Source</span><p>Brainly Indonesia · 2026-07-26</p><a href="https://brainly.co.id" target="_blank" rel="noreferrer">Panduan Penjurusan Kurikulum Merdeka dari Kelas 10 SMA ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:60%"></i></div><b>3/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">18</div>
+        <div class="identity">
+          <span class="eyebrow">Siswa SMA (B2C)</span>
+          <h3>Nadia Clarissa (Siswi Kelas 10 SMA - Surabaya)</h3>
+          <span class="stage warm">Trigger present</span>
+        </div>
+        <div class="score" style="--score:78" aria-label="Fit score 78 out of 100"><strong>78</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Membuat utasan di X (Twitter) tentang rasa penasaran mengenai potensi diri untuk memilih fokus mata pelajaran pilihan di Kurikulum Merdeka.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Kuis pemetaan gratis 20 menit Better Future memberikan ulasan dasar instan yang ramah remaja.</p></div>
+        <div><span>Why now</span><p>Pengisian formulir peminatan mata pelajaran sekolah bulan ini.</p></div>
+        <div><span>Suggested channel</span><p>Reply X / Quote Tweet</p></div>
+        <div><span>Caution</span><p>Gunakan gaya bahasa santai dan ramah.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Nadia, daripada tebak-tebak matpel pilihan, mending coba tes pemetaan bakat gratis di Better Future! 20 menit kelar dan laporannya masuk ke WA.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Cuitan publik mengenai eksplorasi bakat sejak awal masuk SMA.</p></div><div><span>Source</span><p>X (Twitter) Public Post · 2026-07-28</p><a href="https://x.com" target="_blank" rel="noreferrer">Bingung Pilih Matpel Pilihan Kurikulum Merdeka di SMA Baru ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:60%"></i></div><b>3/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:60%"></i></div><b>3/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">19</div>
+        <div class="identity">
+          <span class="eyebrow">Orang Tua (B2C)</span>
+          <h3>Bapak Gunawan (Orang Tua Murid Kelas 11 - Semarang)</h3>
+          <span class="stage warm">Problem aware</span>
+        </div>
+        <div class="score" style="--score:81" aria-label="Fit score 81 out of 100"><strong>81</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Berdiskusi di kolom komentar Instagram konsultan pendidikan mengenai estimasi biaya perkuliahan swasta vs negeri dan pentingnya tes minat bakat.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Kalkulator Risiko &amp; Pemetaan 19-Faktor Better Future memvisualisasikan estimasi resiko finansial secara transparan.</p></div>
+        <div><span>Why now</span><p>Orang tua mulai menabung dan merencanakan dana kuliah anak kelas 11.</p></div>
+        <div><span>Suggested channel</span><p>Reply Komentar / Direct Message</p></div>
+        <div><span>Caution</span><p>Arahkan Bapak Gunawan menggunakan Kalkulator Risiko terlebih dahulu.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Bapak Gunawan, ulasan Bapak di komentar sangat tepat. Menghitung risiko finansial kuliah harus diawali dengan pemetaan bakat presisi. Coba kalkulator risiko Better Future di website kami.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Komentar publik di postingan seputar biaya pendidikan dan tes bakat.</p></div><div><span>Source</span><p>Instagram Public Comment · 2026-07-29</p><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Komentar Publik Diskusi Biaya Perguruan Tinggi &amp; Tes Bakat ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:60%"></i></div><b>3/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article>
+    <article class="prospect reveal">
+      <header class="prospect-head">
+        <div class="rank">20</div>
+        <div class="identity">
+          <span class="eyebrow">Bimbel / Mitrater (B2B)</span>
+          <h3>Lembaga Bimbingan Belajar Villa Meruya (Direktur Operasional - Tangerang)</h3>
+          <span class="stage hot">High intent</span>
+        </div>
+        <div class="score" style="--score:89" aria-label="Fit score 89 out of 100"><strong>89</strong><small>/100</small></div>
+      </header>
+      <div class="signal"><span>Public signal</span><p>Mencari pemateri &amp; instrumen tes bakat ilmiah untuk acara seminar orang tua siswa SMA di wilayah Jakarta Barat &amp; Tangerang.</p></div>
+      <div class="prospect-grid">
+        <div><span>Why it fits</span><p>Better Future dapat mengisi sesi workshop parenting &amp; menyediakan akses tes massal untuk peserta seminar.</p></div>
+        <div><span>Why now</span><p>Jadwal seminar parenting semester ganjil diselenggarakan bulan depan.</p></div>
+        <div><span>Suggested channel</span><p>WhatsApp Business / Email Direksi</p></div>
+        <div><span>Caution</span><p>Tekankan benefit conversion pendaftaran bimbel pasca-seminar.</p></div>
+      </div>
+      <blockquote><span>Suggested opener</span>Halo Tim Bimbel Villa Meruya, melihat agenda Seminar Parenting Bapak/Ibu... Dr. Teguh Lesmana &amp; tim Better Future siap berkolaborasi menghadirkan sesi talent mapping interaktif.</blockquote>
+      <details>
+        <summary>Evidence and score breakdown</summary>
+        <div class="evidence"><div><span>Evidence</span><p>Postingan pengumuman seminar pendidikan &amp; pencarian mitra pemateri di media sosial lembaga.</p></div><div><span>Source</span><p>Instagram Business Post · 2026-08-02</p><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Pencarian Mitra Talent Mapping untuk Seminar Ortu Bimbel ↗</a></div></div>
+        <div class="metrics"><div class="metric"><span>Pain strength</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Product fit</span><div class="track"><i style="width:100%"></i></div><b>5/5</b></div><div class="metric"><span>Timing</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Reachability</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div><div class="metric"><span>Evidence quality</span><div class="track"><i style="width:80%"></i></div><b>4/5</b></div></div>
+      </details>
+    </article></div></section>
+      <section><header class="section-head"><h2>Signals that repeat.</h2><p>Patterns across prospects reveal the strongest positioning, workflow, and outreach angles.</p></header><div class="patterns">
+    <article class="pattern reveal"><span class="pattern-num">01</span><div><h3>Kecemasan Kerugian Finansial Ortu (&#x27;Salah Jurusan&#x27;)</h3><p>Orang tua merasa berhak ikut menentukan jurusan karena menanggung uang pangkal Rp45Jt - Rp150Jt+, namun cemas penyesalan jika anak merasa tidak cocok di tengah jalan.</p></div><strong>7×</strong></article>
+    <article class="pattern reveal"><span class="pattern-num">02</span><div><h3>Kebutuhan Mediasi Ilmiah (Konflik Ortu vs Anak)</h3><p>Siswa Gen-Z menolak dipaksa memilih jurusan konvensional (seperti Kedokteran/Akuntansi) dan membutuhkan laporan bukti psikologi objektif untuk meyakinkan orang tua.</p></div><strong>6×</strong></article>
+    <article class="pattern reveal"><span class="pattern-num">03</span><div><h3>Kebutuhan Alat Automasi &amp; PPDB Sekolah (B2B)</h3><p>Guru BK &amp; Kepala Sekolah kelelahan mengonseling ratusan siswa secara manual dan mencari platform AI talent mapping sebagai nilai tambah pendaftaran PPDB murid baru.</p></div><strong>5×</strong></article>
+    <article class="pattern reveal"><span class="pattern-num">04</span><div><h3>Kebutuhan Eksplorasi Fitur Spesifik (VAK &amp; AI Counselor)</h3><p>Siswa SMA Kelas 10-11 membutuhkan panduan gaya belajar (VAK) serta fitur chat AI 24/7 untuk bertanya jawab seputar silabus kuliah tanpa rasa canggung.</p></div><strong>4×</strong></article></div></section>
+      <section class="plan"><div><span class="eyebrow" style="color:#111">Seven-day manual plan</span><h2>Gunakan posisi &#x27;Asuransi Keputusan Murah&#x27; (Rp120.000 / 0,1% dari risiko) untuk Ortu, dan &#x27;Mediator Ilmiah Netral&#x27; untuk Siswa &amp; Sekolah.</h2></div><div class="plan-grid"><div><span>First step</span><p>Hubungi 5 prospek nilai tertinggi (Drs. M. Wahyudi, Ibu Retno, Rian, Bunda Dian, Bimbel Bintang Pelajar) via saluran publik masing-masing.</p></div><div><span>Follow-up</span><p>Kirimkan sampel Laporan PDF 19 Halaman gratis &amp; grafik radar 19-Faktor setelah prospek mengonfirmasi kendalanya.</p></div><div><span>Success signal</span><p>Tercapai 5 konversi pengguna pertama (B2C) &amp; 1 komitmen pilot-test sekolah (B2B) dalam waktu 7 hari.</p></div><div><span>Research scope</span><p>Sumber Publik Bahasa Indonesia (Quora ID, Reddit r/indonesia, Brainly, LinkedIn, Forum Guru BK, &amp; Portal Sekolah)</p></div></div></section>
+      <section class="limits"><h2>Use this shortlist responsibly</h2><ul><li>Daftar ini adalah calon pelanggan potensial yang diidentifikasi dari sinyal publik, bukan pembeli yang sudah terkonfirmasi.</li><li>Pastikan untuk selalu memverifikasi konteks dan tanggal relevansi terbaru sebelum melakukan pendekatan manual secara sopan.</li></ul></section>
+    </main>
+    <footer><span>Generated by $first-customer-finder</span><span>Outreach is never sent automatically.</span></footer>
+  </div>
+</body>
+</html>

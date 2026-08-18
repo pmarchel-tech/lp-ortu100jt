@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Future - B2C Seminar: Mencegah Tragedi Salah Jurusan</title>
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===========================================
+           CSS CUSTOM PROPERTIES (THEME: WARM EDITORIAL)
+           =========================================== */
+        :root {
+            --bg-primary: #fbfaf7;
+            --bg-secondary: #faf8f5;
+            --text-primary: #1a1816;
+            --text-secondary: #57534e;
+            --accent: #991b1b; /* Crimson warning color */
+            --accent-glow: rgba(153, 27, 27, 0.15);
+            --border-color: #e7e2dc;
+
+            /* Typography at 1920x1080 stage */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --title-size: 76px;
+            --subtitle-size: 32px;
+            --body-size: 28px;
+            --slide-padding: 80px;
+        }
+
+        /* Lock browser viewport */
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: #111; /* Letterbox background */
+            color: var(--text-primary);
+            font-family: var(--font-body);
+        }
+
+        /* ===========================================
+           PASTED viewport-base.css STYLES (REQUIRED)
+           =========================================== */
+        .deck-viewport {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            background: #111;
+        }
+        .deck-stage {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            transform-origin: 0 0;
+            background: var(--bg-primary);
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+        }
+        .slide {
+            position: absolute;
+            inset: 0;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            background: var(--bg-primary);
+            padding: var(--slide-padding);
+            box-sizing: border-box;
+        }
+        .slide.active, .slide.visible {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 1;
+        }
+
+        /* Print formatting */
+        @media print {
+            html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+            .deck-viewport { position: static; overflow: visible; background: #fff; }
+            .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+            .slide { position: relative; display: block !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; width: 1920px; height: 1080px; break-after: page; page-break-after: always; }
+            .slide:last-child { break-after: auto; page-break-after: auto; }
+            .deck-controls, .edit-toggle, .edit-hotzone { display: none !important; }
+        }
+
+        /* ===========================================
+           SLIDE COMPONENT ANIMATIONS & REVEAL SYSTEM
+           =========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide.visible .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal.delay-1 { transition-delay: 0.1s; }
+        .reveal.delay-2 { transition-delay: 0.2s; }
+        .reveal.delay-3 { transition-delay: 0.3s; }
+        .reveal.delay-4 { transition-delay: 0.4s; }
+
+        /* ===========================================
+           LAYOUT CLASSES & TYPOGRAPHY STYLE INDEX
+           =========================================== */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+        
+        .slide-number {
+            font-size: 20px;
+            color: var(--text-secondary);
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title-huge {
+            font-family: var(--font-display);
+            font-size: var(--title-size);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .subtitle-large {
+            font-size: var(--subtitle-size);
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 1400px;
+        }
+
+        .tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* Grids & Cards */
+        .grid-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .info-card {
+            border-left: 3px solid var(--border-color);
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-card:hover {
+            border-left-color: var(--accent);
+        }
+
+        .info-card h3 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            font-size: 24px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Financial Table */
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .financial-table th, .financial-table td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 24px;
+        }
+
+        .financial-table th {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .financial-table tr.highlight td {
+            font-weight: 700;
+            color: var(--accent);
+            background-color: var(--accent-glow);
+        }
+
+        /* Controls Chrome */
+        .deck-controls {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10002;
+            display: flex;
+            gap: 16px;
+        }
+
+        .control-btn {
+            background: rgba(26, 24, 22, 0.9);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .control-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Inline Editor styles */
+        .edit-hotzone {
+            position: fixed; top: 0; left: 0;
+            width: 80px; height: 80px;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        .edit-toggle {
+            position: fixed; top: 20px; left: 20px;
+            background: #fff;
+            border: 1px solid var(--text-primary);
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 10001;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .edit-toggle.show, .edit-toggle.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        [contenteditable="true"] {
+            outline: 2px dashed var(--accent);
+            background: rgba(153, 27, 27, 0.02);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Inline Editor Chrome -->
+    <div class="edit-hotzone" title="Klik di pojok atau tekan tombol E untuk masuk mode edit"></div>
+    <button class="edit-toggle" id="editToggle" title="Toggle Edit Mode (E)">✏️</button>
+
+    <div class="deck-viewport">
+        <main class="deck-stage" id="deckStage">
+
+            <!-- Slide 1: Title (B2C) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">01 / 06</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">⚠️ SEMINAR ORANG TUA</span>
+                        <h1 class="title-huge reveal delay-1" contenteditable="true">Mencegah Tragedi Salah Jurusan</h1>
+                        <p class="subtitle-large reveal delay-2" contenteditable="true">Mengamankan Investasi Pendidikan Anak & Menghindari Kerugian Ratusan Juta Rupiah.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 2: Realita Mismatch (B2C) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">02 / 06</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">RISIKO NYATA</span>
+                        <div class="grid-columns">
+                            <div>
+                                <h2 class="title-huge reveal delay-1" style="font-size: 130px; color: var(--accent);" contenteditable="true">87%</h2>
+                                <p class="subtitle-large reveal delay-2" style="font-size: 36px; line-height: 1.3;" contenteditable="true">Mahasiswa Indonesia merasa salah memilih jurusan kuliah.</p>
+                            </div>
+                            <div class="reveal delay-3">
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Krisis Identitas</h3>
+                                    <p contenteditable="true">Mengisi waktu kuliah dengan kejenuhan, stres, dan kebingungan arah karir pasca lulus.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Ujungnya: Kerja Serabutan</h3>
+                                    <p contenteditable="true">71,7% lulusan bekerja di bidang yang sama sekali tidak sesuai dengan ijazah kuliah mereka.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Rincian Kehilangan Finansial (B2C) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">03 / 06</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">KONSEKUENSI FINANSIAL</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Denda Mahal Akibat Tebak-Tebakan Jurusan</h2>
+                        <div class="reveal delay-2">
+                            <table class="financial-table">
+                                <thead>
+                                    <tr>
+                                        <th contenteditable="true">Komponen Pengeluaran (Tahun 1 - 2)</th>
+                                        <th contenteditable="true">Universitas Swasta</th>
+                                        <th contenteditable="true">Universitas Negeri (Mandiri)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td contenteditable="true">Uang Pangkal / Pembangunan</td>
+                                        <td contenteditable="true">Rp 35.000.000</td>
+                                        <td contenteditable="true">Rp 25.000.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td contenteditable="true">UKT / Semester (4 Semester)</td>
+                                        <td contenteditable="true">Rp 40.000.000</td>
+                                        <td contenteditable="true">Rp 30.000.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td contenteditable="true">Kos & Biaya Hidup (2 Tahun)</td>
+                                        <td contenteditable="true">Rp 60.000.000</td>
+                                        <td contenteditable="true">Rp 48.000.000</td>
+                                    </tr>
+                                    <tr class="highlight">
+                                        <td contenteditable="true">TOTAL INVESTASI YANG HANGUS</td>
+                                        <td contenteditable="true">Rp 143.000.000</td>
+                                        <td contenteditable="true">Rp 111.000.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Kerugian Non-Finansial (B2C) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">04 / 06</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">RISIKO PSIKOLOGIS</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Yang Hilang Selain Uang</h2>
+                        <div class="grid-columns reveal delay-2">
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Waktu Emas Anak Terbuang</h3>
+                                    <p contenteditable="true">Kehilangan 2-4 tahun waktu muda untuk mengulang kuliah dari awal sementara temannya sudah lulus.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Depresi & Burnout Akademik</h3>
+                                    <p contenteditable="true">Mempelajari materi yang dibenci merusak kesehatan mental dan mematahkan rasa percaya diri anak.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Kehilangan Keharmonisan Rumah</h3>
+                                    <p contenteditable="true">Pertengkaran konstan di meja makan karena nilai turun, memicu tuduhan anak malas belajar.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Kehilangan Gengsi Keluarga</h3>
+                                    <p contenteditable="true">Rasa malu sosial menghadapi penghakiman kerabat/tetangga saat kumpul arisan atau hari raya.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Metode 19-Faktor Better Future (B2C) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">05 / 06</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">SOLUSI ILMIAH</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Mengintegrasikan 5 Alat Ukur Terbaik Dunia</h2>
+                        <div class="grid-columns reveal delay-2" style="margin-top: 30px;">
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Kombinasi 19-Faktor Asesmen</h3>
+                                    <p contenteditable="true">Menyatukan RIASEC, MBTI, DISC, 16PF, dan Gaya Belajar (VAK) untuk akurasi rekomendasi jurusan tertinggi.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Tervalidasi Akademis</h3>
+                                    <p contenteditable="true">Ditinjau dan divalidasi oleh tim Psikolog Pendidikan berlisensi HIMPSI.</p>
+                                </div>
+                            </div>
+                            <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); padding: 40px; border-radius: 8px; text-align: center;">
+                                <h3 style="font-family: var(--font-display); font-size: 40px; margin-bottom: 20px;" contenteditable="true">Laporan 19 Halaman</h3>
+                                <p style="font-size: 22px; color: var(--text-secondary); margin-bottom: 30px;" contenteditable="true">Cetak biru potensi lengkap dan peta aktivitas aksi 180 hari siap pakai.</p>
+                                <div style="font-size: 48px; font-weight: 700; color: var(--accent);" contenteditable="true">Rp 149.000</div>
+                                <p style="font-size: 18px; color: var(--text-secondary); margin-top: 10px;" contenteditable="true">Dilengkapi AI Counselor 24/7 di Aplikasi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: Kesimpulan & Hubungi WA (B2C) -->
+            <section class="slide" style="background-color: #faf8f5;">
+                <div class="slide-content" style="justify-content: center; align-items: center; text-align: center;">
+                    <span class="tag reveal" contenteditable="true">TINDAKAN SEKARANG</span>
+                    <h2 class="title-huge reveal delay-1" style="font-size: 68px; max-width: 1200px; margin: 0 auto 30px auto;" contenteditable="true">Jangan Jadikan Masa Depan Anak Bahan Eksperimen</h2>
+                    <p class="subtitle-large reveal delay-2" style="max-width: 900px; margin: 0 auto 50px auto;" contenteditable="true">Cegah denda ratusan juta rupiah sekarang juga. Kunjungi booth kami untuk uji coba gratis 2 menit, atau langsung scan QR Code untuk terhubung ke WhatsApp Konselor Pendidikan kami.</p>
+                    <div class="reveal delay-3" style="font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--text-primary);" contenteditable="true">
+                        Hubungi WhatsApp: 0812-3456-789
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Navigation Chrome Controls -->
+    <div class="deck-controls">
+        <button class="control-btn" id="prevBtn">Prev</button>
+        <button class="control-btn" id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        /* ===========================================
+           SLIDE PRESENTATION CONTROLLER
+           =========================================== */
+        class SlidePresentation {
+            constructor() {
+                this.slides = document.querySelectorAll('.slide');
+                this.currentSlide = 0;
+                this.stage = document.getElementById('deckStage');
+                this.setupStageScale();
+                this.setupKeyboardNav();
+                this.setupTouchNav();
+                this.setupEditor();
+                this.showSlide(0);
+
+                document.getElementById('prevBtn').addEventListener('click', () => this.prevSlide());
+                document.getElementById('nextBtn').addEventListener('click', () => this.nextSlide());
+            }
+
+            setupStageScale() {
+                const scale = () => {
+                    const factor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+                    const x = (window.innerWidth - 1920 * factor) / 2;
+                    const y = (window.innerHeight - 1080 * factor) / 2;
+                    this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
+                };
+                scale();
+                window.addEventListener('resize', scale);
+            }
+
+            setupKeyboardNav() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.getAttribute('contenteditable')) return; // skip when editing
+                    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                        this.nextSlide();
+                    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                        this.prevSlide();
+                    }
+                });
+            }
+
+            setupTouchNav() {
+                let startX = 0;
+                document.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                document.addEventListener('touchend', (e) => {
+                    const diffX = e.changedTouches[0].clientX - startX;
+                    if (diffX < -50) this.nextSlide();
+                    else if (diffX > 50) this.prevSlide();
+                });
+            }
+
+            showSlide(index) {
+                this.currentSlide = Math.max(0, Math.min(index, this.slides.length - 1));
+                this.slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === this.currentSlide);
+                    // Slight delay for animation reveal to trigger properly
+                    setTimeout(() => {
+                        slide.classList.toggle('visible', i === this.currentSlide);
+                    }, 50);
+                });
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.slides.length - 1) {
+                    this.showSlide(this.currentSlide + 1);
+                }
+            }
+
+            prevSlide() {
+                if (this.currentSlide > 0) {
+                    this.showSlide(this.currentSlide - 1);
+                }
+            }
+
+            setupEditor() {
+                const hotzone = document.querySelector('.edit-hotzone');
+                const editToggle = document.getElementById('editToggle');
+                this.isActive = false;
+
+                const toggle = () => {
+                    this.isActive = !this.isActive;
+                    editToggle.classList.toggle('active', this.isActive);
+                    document.querySelectorAll('[contenteditable]').forEach(el => {
+                        el.setAttribute('contenteditable', this.isActive ? 'true' : 'false');
+                    });
+                    if (this.isActive) {
+                        editToggle.innerHTML = '💾';
+                        editToggle.title = 'Save text edits';
+                    } else {
+                        editToggle.innerHTML = '✏️';
+                        editToggle.title = 'Edit mode (E)';
+                        // Save edits to localStorage
+                        const editableData = {};
+                        document.querySelectorAll('[contenteditable]').forEach((el, index) => {
+                            editableData[index] = el.innerHTML;
+                        });
+                        localStorage.setItem('better_future_b2c_seminar_edits', JSON.stringify(editableData));
+                    }
+                };
+
+                // Load saved edits if any
+                const saved = localStorage.getItem('better_future_b2c_seminar_edits');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    document.querySelectorAll('[contenteditable]').forEach((el, index) => {
+                        if (data[index]) el.innerHTML = data[index];
+                    });
+                }
+
+                // JS hover delay setup to prevent mouseout breaking pointer-events
+                let hideTimeout = null;
+                hotzone.addEventListener('mouseenter', () => {
+                    clearTimeout(hideTimeout);
+                    editToggle.classList.add('show');
+                });
+                hotzone.addEventListener('mouseleave', () => {
+                    hideTimeout = setTimeout(() => {
+                        if (!this.isActive) editToggle.classList.remove('show');
+                    }, 400);
+                });
+                editToggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+                editToggle.addEventListener('mouseleave', () => {
+                    hideTimeout = setTimeout(() => {
+                        if (!this.isActive) editToggle.classList.remove('show');
+                    }, 400);
+                });
+
+                editToggle.addEventListener('click', toggle);
+                hotzone.addEventListener('click', toggle);
+                document.addEventListener('keydown', (e) => {
+                    if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+                        toggle();
+                    }
+                });
+            }
+        }
+
+        new SlidePresentation();
+    </script>
+</body>
+</html>

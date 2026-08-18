@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "appRoot": "c:\\MARCHEL FILES\\ANTIGRAVITY\\MARKETING AGENT",
+  "repoRoot": "c:\\MARCHEL FILES\\ANTIGRAVITY\\MARKETING AGENT",
+  "contextRoot": "c:\\MARCHEL FILES\\ANTIGRAVITY\\MARKETING AGENT",
+  "sessionRoot": "c:\\MARCHEL FILES\\ANTIGRAVITY\\MARKETING AGENT\\.impeccable\\live",
+  "productPath": "c:\\MARCHEL FILES\\ANTIGRAVITY\\MARKETING AGENT\\PRODUCT.md",
+  "designPath": "c:\\MARCHEL FILES\\ANTIGRAVITY\\MARKETING AGENT\\DESIGN.md",
+  "resolvedFrom": "target:index_wireframe.html"
+}

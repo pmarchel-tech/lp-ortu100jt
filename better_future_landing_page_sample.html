@@ -1,0 +1,3065 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Future (ISCA) - Proteksi Pendidikan & Karir Anak</title>
+    <meta name="description" content="Hindari kerugian finansial Rp100 Juta+ akibat salah jurusan kuliah. Petakan potensi 19-Faktor secara gratis bersama Dr. Teguh, M.Psi., Psikolog.">
+    
+    <!-- Google Fonts: Lora (Editorial Serif), Plus Jakarta Sans (Modern Sans), Caveat (Signature Script) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+
+        /* PIXEL-PERFECT OBSIDIAN HEADER (NO OVERFLOW) */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 72px;
+            background: rgba(5, 8, 17, 0.88) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .header-inner {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            height: 100% !important;
+            max-width: 1280px !important;
+            margin: 0 auto !important;
+            padding: 0 24px !important;
+            gap: 20px !important;
+        }
+
+        .logo {
+            font-size: 1.35rem !important;
+            font-weight: 800 !important;
+            color: #FFFFFF !important;
+            text-decoration: none !important;
+            letter-spacing: -0.02em !important;
+            flex-shrink: 0 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+        }
+
+        .logo span {
+            color: #C09846 !important;
+            font-style: italic !important;
+            margin-left: 1px !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            align-items: center !important;
+            gap: 22px !important;
+            flex-wrap: nowrap !important;
+        }
+
+        .nav-link {
+            color: #94A3B8 !important;
+            font-size: 0.82rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.06em !important;
+            text-decoration: none !important;
+            white-space: nowrap !important;
+            transition: all 0.2s ease !important;
+            padding: 6px 0 !important;
+        }
+
+        .nav-link:hover {
+            color: #10B981 !important;
+            transform: translateY(-1px) !important;
+        }
+
+        /* HEADER CTA BUTTON OVERRIDE (FIX OVERFLOW) */
+        .header .bf-btn--action,
+        .header-inner .bf-btn--action {
+            padding: 0 22px !important;
+            height: 42px !important;
+            font-size: 0.82rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.04em !important;
+            text-transform: uppercase !important;
+            border-radius: 9999px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 !important;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.35) !important;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+            color: #040D1A !important;
+            border: none !important;
+        }
+
+        .header .bf-btn--action:hover {
+            transform: translateY(-2px) scale(1.02) !important;
+            box-shadow: 0 0 28px rgba(16, 185, 129, 0.55) !important;
+        }
+
+        @media (max-width: 1080px) {
+            .nav-links {
+                display: none !important; /* Hide links on smaller screens to prevent overlap */
+            }
+        }
+
+        /* DESIGN SYSTEM: EDITORIAL ACADEMIC MAGAZINE & FREE-TO-PREMIUM FUNNEL */
+        :root {
+    /* HIGH-END OBSIDIAN DARK VISUAL DESIGN TOKENS (TASTE SKILL V2) */
+    --bg-page: #050811;          /* Ultra-Deep Space Dark */
+    --bg-surface: #0B0F19;       /* Deep Slate Surface */
+    --bg-dark: #070A12;          /* Pure Dark Container */
+    --bg-card: rgba(30, 41, 59, 0.65); /* Glassmorphism Card Layer */
+    --bg-card-alt: rgba(15, 23, 42, 0.85); /* Deep Glass Card */
+    
+    --text-main: #F8FAFC;        /* High-Contrast Pristine Off-White */
+    --text-muted: #94A3B8;       /* Cool Slate Muted Gray */
+    --text-faint: #475569;       /* Subdued Border Slate */
+    --text-dark: #040D1A;        /* Ultra-Dark Navy for Lime CTAs */
+    
+    --accent-gold: #C09846;      /* Metallic Gold Accent */
+    --accent-gold-light: #F59E0B;/* Bright Warm Gold */
+    --accent-gold-bg: rgba(192, 152, 70, 0.12); /* Gold Glass Tint */
+    --accent-gold-border: rgba(192, 152, 70, 0.35);
+    
+    --accent-lime: #10B981;      /* High-Contrast Action Lime Green (WCAG AAA) */
+    --accent-cyan: #06B6D4;      /* Electric Cyan Accent */
+    --accent-rose: rgba(244, 63, 94, 0.15); /* Soft Warning Rose */
+    --accent-rose-border: rgba(244, 63, 94, 0.3);
+    
+    --urgency-red: #DC2626;      /* Crimson Red Primary Urgency */
+    --urgency-red-dark: #991B1B; /* Dark Crimson Gradient End */
+    --neon-pulse: #FEF08A;       /* Neon Yellow Pulse Dot */
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 32px;
+    
+    --font-display: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-script: 'Caveat', cursive;
+    
+    --dur-base: 350ms;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    --shadow-flat: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-subtle: 0 16px 40px rgba(0, 0, 0, 0.45);
+    --shadow-premium: 0 28px 75px rgba(0, 0, 0, 0.65), 0 0 30px rgba(16, 185, 129, 0.15);
+    --border-glass: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            cursor: none; /* Custom lag cursor active */
+        }
+
+        button, a, input, textarea {
+            cursor: none;
+            font: inherit;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* CUSTOM CURSOR SYSTEM */
+        .bf-cursor-ring {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--text-main);
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform;
+            transition: border-color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out);
+        }
+
+        .bf-cursor-dot {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-gold);
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform;
+        }
+
+        @media (hover: none) or (pointer: coarse) {
+            .bf-cursor-ring, .bf-cursor-dot { display: none; }
+            body, button, a, input, textarea { cursor: auto; }
+        }
+
+        /* SCROLL REVEAL ENGINE */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
+        }
+
+        [data-reveal].is-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-reveal-rise] {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 960ms var(--ease-out), transform 960ms var(--ease-out);
+        }
+
+        [data-reveal-rise].is-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HANDWRITTEN SCRIPT OVERLAY */
+        .bf-script {
+            font-family: var(--font-script);
+            font-size: 1.3em;
+            color: var(--accent-gold);
+            display: inline-block;
+            transform: rotate(-3deg);
+            line-height: 0.8;
+            margin-left: 6px;
+        }
+
+        /* BUTTONS */
+        .bf-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 38px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 13.5px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all var(--dur-base) var(--ease-out);
+        }
+
+        .bf-btn--primary {
+            background-color: var(--text-main);
+            color: var(--bg-page);
+            border: 1.5px solid var(--text-main);
+        }
+
+        .bf-btn--primary:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--bg-page);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .bf-btn--action {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    color: #040D1A !important;
+    font-weight: 800 !important;
+    font-size: 1.05rem !important;
+    padding: 16px 32px !important;
+    border-radius: 9999px !important;
+    border: none !important;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4), 0 10px 25px rgba(0,0,0,0.3) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-decoration: none !important;
+}
+.bf-btn--action:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.6), 0 15px 30px rgba(0,0,0,0.4) !important;
+    background: linear-gradient(135deg, #34D399 0%, #10B981 100%) !important;
+}
+
+        .bf-btn--action:hover {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
+            color: #FFFFFF !important;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.65);
+        }
+
+        @keyframes cta-pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6), 0 6px 22px rgba(16, 185, 129, 0.45);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(16, 185, 129, 0), 0 10px 30px rgba(16, 185, 129, 0.6);
+            }
+        }
+
+        .bf-btn--outline {
+            border: 1.5px solid var(--text-main);
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .bf-btn--outline:hover {
+            background-color: var(--text-main);
+            color: var(--bg-page);
+            transform: translateY(-2px);
+        }
+
+        /* URGENCY & SCARCITY BADGE (SOLID CRO HIGHLIGHT - 3 SECOND RULE) */
+        .urgency-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.45);
+        }
+
+        .pulse-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: #FEF08A;
+            box-shadow: 0 0 0 0 rgba(254, 240, 138, 0.9);
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 0 rgba(254, 240, 138, 0.9);
+            }
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 10px rgba(254, 240, 138, 0);
+            }
+            100% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 0 rgba(254, 240, 138, 0);
+            }
+        }
+
+        /* HEADER */
+        
+
+        
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        
+
+        
+
+        .nav-link:hover {
+            color: var(--text-main);
+        }
+
+        /* HERO SECTION */
+        .hero {
+    padding-top: 110px !important;
+    padding-bottom: 80px !important;
+    position: relative !important;
+    min-height: 80vh !important;
+    overflow: hidden !important;
+    background: #050811 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 1; /* 100% visible, fully clear */
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(12, 16, 26, 0.85) 0%, rgba(12, 16, 26, 0.45) 45%, rgba(12, 16, 26, 0) 80%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .hero-copy {
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .tag-warning {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-title {
+            font-family: var(--font-body);
+            font-size: clamp(32px, 3.8vw, 48px);
+            font-weight: 500; /* semi-bold */
+            line-height: 1.25;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title span {
+            color: #FFFFFF;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 36px;
+            max-width: 520px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 0;
+        }
+
+        .hero-actions .bf-btn {
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            background: transparent;
+            padding: 14px 28px;
+            font-size: 12.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: var(--radius-sm);
+        }
+
+        .hero-actions .bf-btn:hover {
+            background: rgba(30, 41, 59, 0.55); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); color: #F8FAFC;
+            color: #0c101a;
+            transform: translateY(-2px);
+        }
+
+        .hero-guarantee {
+            display: none; /* hidden to match design template */
+        }
+
+        /* HERO ART: Real Image Overlapping Stylized Graph */
+        .hero-art {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .visual-container {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 16/9; /* widescreen video ratio */
+        }
+
+        .art-video-frame {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            border: 1.5px solid rgba(0, 0, 0, 0.08);
+            z-index: 2;
+            transition: transform var(--dur-base) var(--ease-pop);
+        }
+
+        .art-video-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-right-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(12, 16, 26, 0.82);
+            color: #FAF9F6;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 700;
+            z-index: 5;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #E02424;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(224, 36, 36, 0.7);
+            animation: pulse-red 1.8s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(224, 36, 36, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(224, 36, 36, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(224, 36, 36, 0);
+            }
+        }
+
+        /* INFINITE MARQUEE BANNER */
+        .marquee-strip {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            background-color: var(--bg-dark);
+            padding: 22px 0;
+            overflow: hidden;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 24s linear infinite;
+        }
+
+        .marquee-row {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            padding-right: 48px;
+        }
+
+        .marquee-word {
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--bg-page);
+            white-space: nowrap;
+        }
+
+        .marquee-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--accent-gold);
+        }
+
+        /* INTERACTIVE REGRET CALCULATOR */
+        .calculator {
+            padding: 120px 0;
+        }
+
+        .calc-card {
+            background-color: var(--bg-surface);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-xl);
+            padding: 60px;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        .calc-inputs {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calc-heading h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .calc-heading p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* University Preset Buttons */
+        .univ-btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            grid-auto-flow: column;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .univ-btn {
+            padding: 18px 12px;
+            min-height: 64px;
+            border: 1.5px solid rgba(0, 0, 0, 0.12);
+            border-radius: var(--radius-sm);
+            background: var(--bg-page);
+            color: var(--text-main);
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            cursor: pointer;
+            transition: all var(--dur-base) var(--ease-out);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .univ-btn:hover {
+            border-color: var(--text-main);
+            background: var(--text-main);
+            color: var(--bg-page);
+            transform: translateY(-2px);
+        }
+
+        .univ-btn.is-active {
+            border-color: var(--text-main);
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+
+        /* Cost breakdown table */
+        .calc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .calc-table thead th {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            color: var(--text-muted);
+            padding: 0 0 12px;
+            text-align: left;
+            border-bottom: 1.5px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .calc-table thead th:not(:first-child) {
+            text-align: right;
+        }
+
+        .calc-table tbody td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            color: var(--text-muted);
+            vertical-align: middle;
+            font-size: 13px;
+        }
+
+        .calc-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .calc-table tbody td:not(:first-child) {
+            text-align: right;
+            font-family: var(--font-display);
+            font-variant-numeric: tabular-nums;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .calc-table tfoot td {
+            padding: 14px 0 0;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            border-top: 2px solid var(--text-main);
+            color: var(--text-main);
+        }
+
+        .calc-table tfoot td:not(:first-child) {
+            text-align: right;
+            font-family: var(--font-display);
+            font-size: 16px;
+            color: #C0392B;
+        }
+
+        /* Right panel */
+        .calc-display {
+            background-color: #FAF5F5;
+            border: 1.5px solid var(--accent-rose-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            position: sticky;
+            top: 120px;
+        }
+
+        .display-caption {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .display-univ-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .display-value {
+            font-family: var(--font-display);
+            font-size: 44px;
+            font-weight: 700;
+            color: #C0392B;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .display-semester-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .display-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(0, 0, 0, 0.07);
+            padding-top: 20px;
+            line-height: 1.6;
+        }
+
+        .display-desc span {
+            color: #27AE60;
+            font-weight: 700;
+        }
+
+        .display-insurance {
+            margin-top: 20px;
+            background: #F0FAF4;
+            border: 1px solid #A7F3D0;
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            font-size: 12.5px;
+            color: #065F46;
+            line-height: 1.5;
+        }
+
+        .display-insurance strong {
+            display: block;
+            font-size: 18px;
+            color: #065F46;
+            margin-top: 4px;
+        }
+
+        .display-pct {
+            font-size: 11px;
+            color: #065F46;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        /* Mini breakdown table inside right panel */
+        .calc-table-mini {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 24px;
+            text-align: left;
+        }
+
+        .calc-table-mini td {
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            color: var(--text-muted);
+            text-align: left;
+        }
+
+        .calc-table-mini tr:last-child td {
+            border-bottom: none;
+        }
+
+        .calc-table-mini td:last-child {
+            text-align: right;
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        /* CTA inside right panel */
+        .display-cta-wrap {
+            margin-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .display-cta-msg {
+            font-size: 13.5px;
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.5;
+            background: rgba(37, 99, 235, 0.05);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        .display-cta-msg strong {
+            color: #1E40AF;
+        }
+
+        .display-cta-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 16px 24px;
+            font-size: 15px;
+            font-weight: 900;
+            color: #040D1A !important;
+            background: #10B981 !important;
+            border: none !important;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            letter-spacing: 0.4px;
+            animation: cta-pulse-glow 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        .display-cta-btn:hover {
+            background: #059669 !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 10px 28px rgba(5, 150, 105, 0.6);
+        }
+
+        /* PAS PROBLEM CARD BLOCKS */
+        .problems {
+            padding: 120px 0;
+            background: rgba(30, 41, 59, 0.55); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); color: #F8FAFC;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .problem-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 44px 36px;
+            transition: all var(--dur-base) var(--ease-out);
+        }
+
+        .problem-card.card-1 { background-color: var(--accent-gold-bg); border-color: var(--accent-gold-border); }
+        .problem-card.card-2 { background-color: var(--accent-rose); border-color: var(--accent-rose-border); }
+        .problem-card.card-3 { background-color: var(--accent-teal); border-color: rgba(94, 234, 212, 0.25); }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .problem-card-bg-icon {
+            position: absolute;
+            top: -12px;
+            right: -15px;
+            width: 155px;
+            height: 155px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.7;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .problem-card:hover .problem-card-bg-icon {
+            transform: scale(1.06) rotate(-3deg);
+            opacity: 0.85;
+        }
+
+        .problem-num,
+        .problem-card h3,
+        .problem-card p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .problem-num {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-style: italic;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .problem-card.card-1 .problem-num { color: var(--accent-gold); }
+        .problem-card.card-2 .problem-num { color: #E02424; }
+        .problem-card.card-3 .problem-num { color: #0D9488; }
+
+        .problem-card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.2px;
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* 5-METHODOLOGY INTEGRATION SECTION */
+        .methodology {
+            padding: 120px 0;
+            background-color: var(--bg-surface);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .method-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .method-card {
+            background-color: var(--bg-page);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-md);
+            padding: 22px 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-card:hover {
+            transform: translateX(6px);
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .method-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .method-card-title {
+            font-family: var(--font-display);
+            font-size: 16.5px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .method-tag {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .method-tag.what { background: rgba(37, 99, 235, 0.1); color: #2563EB; }
+        .method-tag.how { background: rgba(147, 51, 234, 0.1); color: #9333EA; }
+        .method-tag.behavior { background: rgba(245, 158, 11, 0.1); color: #D97706; }
+        .method-tag.stability { background: rgba(225, 29, 72, 0.1); color: #E11D48; }
+        .method-tag.process { background: rgba(16, 185, 129, 0.1); color: #059669; }
+
+        .method-card p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* RADAR CHART MOCKUP CARD */
+        .radar-preview-card {
+            background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
+            color: #FFFFFF;
+            border-radius: var(--radius-xl);
+            padding: 40px 36px;
+            box-shadow: var(--shadow-premium);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .radar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .radar-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .radar-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #10B981;
+            background: rgba(16, 185, 129, 0.15);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .radar-chart-svg {
+            width: 100%;
+            height: auto;
+            max-height: 240px;
+            margin: 10px 0;
+        }
+
+        .radar-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .radar-metric-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .metric-val {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent-gold);
+        }
+
+        .metric-lbl {
+            font-size: 10.5px;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        .cross-valid-banner {
+            margin-top: 20px;
+            background: rgba(192, 152, 70, 0.12);
+            border: 1px dashed rgba(192, 152, 70, 0.4);
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            font-size: 12.5px;
+            color: #E2E8F0;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* EXPERT AUTHORITY SECTION (DR. TEGUH) */
+        .expert-section {
+            padding: 100px 0;
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .expert-card {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border-radius: var(--radius-xl);
+            padding: 56px 48px;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expert-card::before {
+            content: '"';
+            position: absolute;
+            right: 40px;
+            top: -20px;
+            font-family: var(--font-display);
+            font-size: 240px;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .expert-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .expert-photo-col {
+            display: flex;
+            justify-content: center;
+        }
+
+        .expert-photo-wrapper {
+            position: relative;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .expert-img {
+            width: 230px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent-gold);
+            outline: 2px dashed rgba(192, 152, 70, 0.5);
+            outline-offset: 6px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease;
+        }
+
+        .expert-card:hover .expert-img {
+            transform: scale(1.03);
+        }
+
+        .expert-verified-badge {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10B981;
+            color: #040D1A;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            letter-spacing: 0.3px;
+        }
+
+        .expert-quote {
+            font-family: var(--font-display);
+            font-size: 19.5px;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #F8FAFC;
+            margin: 16px 0 24px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .expert-name {
+            font-family: var(--font-display);
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 4px;
+        }
+
+        .expert-role {
+            font-size: 13.5px;
+            color: #94A3B8;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .expert-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .expert-credential-pill {
+            font-size: 11.5px;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #CBD5E1;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* 3-STEP SOLUTION WORKFLOW */
+        .workflow {
+            padding: 120px 0;
+        }
+
+        .flow-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .flow-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            width: 1px;
+            height: calc(100% - 20px);
+            background: linear-gradient(180deg, var(--accent-gold) 0%, rgba(0, 0, 0, 0.02) 100%);
+        }
+
+        .flow-step {
+            background-color: var(--bg-surface);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow-flat);
+            transition: transform var(--dur-base) var(--ease-out);
+        }
+
+        .flow-step:hover {
+            transform: translateX(4px);
+        }
+
+        .flow-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .flow-step::before {
+            content: '';
+            position: absolute;
+            left: -46px;
+            top: 36px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--bg-page);
+            border: 3px solid var(--accent-gold);
+            z-index: 10;
+        }
+
+        .flow-step-num {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .flow-step h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .flow-step p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            padding: 120px 0;
+            background-color: var(--bg-page);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .testimonial-header-wrapper {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .testimonial-header-wrapper .section-header {
+            margin-bottom: 0;
+        }
+
+        .slider-controls {
+            display: flex;
+            gap: 12px;
+        }
+
+        .slider-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid var(--text-main);
+            background: transparent;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all var(--dur-base) var(--ease-out);
+        }
+
+        .slider-btn:hover {
+            background-color: var(--text-main);
+            color: var(--bg-page);
+            transform: scale(1.05);
+        }
+
+        .slider-btn:disabled {
+            opacity: 0.3;
+            border-color: rgba(0, 0, 0, 0.15);
+            color: rgba(0, 0, 0, 0.15);
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .testimonial-slider-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-slider-track {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 100%;
+        }
+
+        .testimonial-card {
+            flex: 0 0 calc(33.333% - 20px);
+            background-color: var(--bg-surface);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-flat);
+            transition: all var(--dur-base) var(--ease-out);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card.is-hidden {
+            display: none !important;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .testi-header-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .testi-stars {
+            color: #F59E0B;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .testi-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            background: rgba(192, 152, 70, 0.12);
+            color: var(--accent-gold);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .testimonial-quote {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--accent-gold);
+        }
+
+        .author-info h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .author-info span {
+            font-size: 11px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Filter Tabs */
+        .testimonial-filter-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+
+        .testi-tab {
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1.5px solid rgba(0, 0, 0, 0.12);
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .testi-tab:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        .testi-tab.is-active {
+            background-color: var(--text-main);
+            color: #FFFFFF;
+            border-color: var(--text-main);
+        }
+
+        /* SAAS SIDE-BY-SIDE COMPARISON TABLE */
+        .report-types {
+            padding: 120px 0;
+            background-color: var(--bg-surface);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .report-comparison-wrapper {
+            margin-top: 50px;
+            background: var(--bg-surface);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .report-comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            table-layout: fixed;
+        }
+
+        .report-comp-table th,
+        .report-comp-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .comp-feature-head {
+            width: 44%;
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            vertical-align: bottom !important;
+            padding-bottom: 24px;
+            text-align: left;
+        }
+
+        .comp-col-free,
+        .comp-col-premium {
+            width: 28%;
+            text-align: center;
+            vertical-align: bottom !important;
+            position: relative;
+            padding-top: 32px;
+            padding-bottom: 24px;
+        }
+
+        .comp-col-premium.highlighted {
+            background-color: var(--accent-gold-bg);
+            border-left: 2px solid var(--accent-gold);
+            border-right: 2px solid var(--accent-gold);
+        }
+
+        .comp-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+
+        .comp-badge.free {
+            background: rgba(0, 0, 0, 0.08);
+            color: var(--text-muted);
+        }
+
+        .comp-badge.premium {
+            background: #10B981;
+            color: #040D1A;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .comp-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .comp-price {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .comp-price-sub {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .report-comp-table tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.015);
+        }
+
+        .report-comp-table td.check {
+            text-align: center;
+            color: #10B981;
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        .report-comp-table td.cross {
+            text-align: center;
+            color: var(--text-faint);
+            font-size: 16px;
+        }
+
+        .report-comp-table tfoot td {
+            padding: 24px;
+            border-bottom: none;
+            text-align: center;
+        }
+
+        .comp-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+        }
+
+        /* 2-COLUMN DOWNSELL E-BOOK CARD */
+        .downsell {
+            padding: 120px 0;
+        }
+
+        .downsell-box-2col {
+            background: var(--bg-dark);
+            color: #FFFFFF;
+            border-radius: var(--radius-xl);
+            padding: 60px 48px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            align-items: center;
+            box-shadow: var(--shadow-premium);
+            text-align: left;
+        }
+
+        .ebook-card-3d {
+            position: relative;
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 28px 22px;
+            box-shadow: -12px 16px 30px rgba(0, 0, 0, 0.5), inset 4px 0 0 var(--accent-gold);
+            transform: perspective(600px) rotateY(-8deg);
+            transition: transform 0.4s ease;
+        }
+
+        .ebook-card-3d:hover {
+            transform: perspective(600px) rotateY(0deg) scale(1.03);
+        }
+
+        .ebook-badge {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .ebook-title {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+        }
+
+        .ebook-author {
+            font-size: 12px;
+            color: var(--text-faint);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .downsell-copy h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+            line-height: 1.25;
+        }
+
+        .downsell-copy p {
+            font-size: 14.5px;
+            color: #94A3B8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .downsell-checklist {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .downsell-checklist li {
+            font-size: 13.5px;
+            color: #CBD5E1;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .downsell-checklist li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: 800;
+        }
+
+        .downsell-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+        }
+
+        .form-input {
+            flex-grow: 1;
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.06);
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        /* FAQ ACCORDION OBJECTION LIST */
+        .faq {
+            padding: 120px 0;
+            background-color: var(--bg-surface);
+        }
+
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 24px 0;
+        }
+
+        .faq-title {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-title::after {
+            content: '＋';
+            color: var(--accent-gold);
+            font-size: 18px;
+            transition: transform var(--dur-base);
+        }
+
+        .faq-item.is-open .faq-title::after {
+            content: '－';
+        }
+
+        .faq-content {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 14px;
+            display: none;
+            padding-right: 40px;
+            line-height: 1.6;
+        }
+
+        /* RESPONSIVE LAYOUT */
+        @media (max-width: 968px) {
+            body { cursor: auto; }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            .hero-text {
+                margin: 0 auto 36px;
+            }
+            .hero-actions {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .hero-guarantee {
+                justify-content: center;
+            }
+            .hero-art {
+                order: -1;
+            }
+            .calc-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .univ-btn-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .calc-card {
+                padding: 32px 24px;
+            }
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-header-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .testimonial-card {
+                flex: 0 0 100%;
+            }
+            .report-comparison-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .report-comp-table {
+                min-width: 650px;
+            }
+            .expert-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                text-align: center;
+            }
+            .expert-card {
+                padding: 40px 24px;
+            }
+            .expert-badges {
+                justify-content: center;
+            }
+            .expert-quote {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            .section-title {
+                font-size: 26px;
+            }
+            .calc-card {
+                padding: 30px;
+            }
+            .report-card {
+                padding: 30px;
+            }
+            .downsell-form {
+                flex-direction: column;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 0. HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">better<span>future</span></a>
+            <nav class="nav-links">
+                <a href="#kalkulator" class="nav-link">Kalkulator</a>
+                <a href="#masalah" class="nav-link">Risiko</a>
+                <a href="#metode" class="nav-link">Metode Tes</a>
+                <a href="#psikolog" class="nav-link">Dr. Teguh</a>
+                <a href="#alur" class="nav-link">Alur Tes</a>
+                <a href="#testimoni" class="nav-link">Testimoni</a>
+                <a href="#laporan" class="nav-link">Hasil Laporan</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+            <a href="https://kuis.betterfuture.id/start" class="bf-btn bf-btn--action" style="padding: 10px 20px; font-size: 11px;">Mulai Tes Gratis</a>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION (Loss Aversion + Rp0 Free Test Solution) -->
+    <section class="hero">
+        <video autoplay loop muted playsinline class="hero-video-bg">
+            <source src="headache_woman.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container hero-grid">
+            <div class="hero-copy" data-reveal>
+                <div class="urgency-pill">
+                    <span class="pulse-dot"></span>
+                    <span>⚡ Kuota Tes Gratis Hari Ini: Sisa 78 / 100 &bull; 14.280+ Siswa Terpetakan</span>
+                </div>
+                <h1 class="hero-title">
+                    Sebelum Menyerahkan Rp 100 Juta Uang Pangkal, Yakin Pilihan Jurusan Anak Sudah Tepat?
+                </h1>
+                <p class="hero-text">
+                    87% mahasiswa Indonesia merasa salah memilih jurusan kuliah. Petakan potensi 19-Faktor secara ilmiah lewat tes online 20 menit secara GRATIS (Rp0) sekarang sebelum Anda terlanjur mendaftar.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://kuis.betterfuture.id/start" class="bf-btn bf-btn--action">Mulai Pemetaan Gratis &rarr;</a>
+                    <a href="#kalkulator" class="bf-btn bf-btn--outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);">Kalkulator Risiko</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. INFINITE MARQUEE STRIP -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <div class="marquee-row">
+                <span class="marquee-word">⚡ 87% Mahasiswa Salah Jurusan</span><span class="marquee-dot"></span>
+                <span class="marquee-word">🎓 Pemetaan 19-Faktor Ilmiah (Rp0)</span><span class="marquee-dot"></span>
+                <span class="marquee-word">🛡️ Cegah Kerugian Rp 100M+ Uang Pangkal</span><span class="marquee-dot"></span>
+                <span class="marquee-word">⭐ 14.280+ Siswa Sudah Terpetakan</span><span class="marquee-dot"></span>
+                <span class="marquee-word">👨‍⚕️ Supervisi Psikolog Dr. Teguh</span><span class="marquee-dot"></span>
+                <span class="marquee-word">🎯 Rekomendasi Karir & Kampus Presisi</span><span class="marquee-dot"></span>
+            </div>
+            <div class="marquee-row">
+                <span class="marquee-word">⚡ 87% Mahasiswa Salah Jurusan</span><span class="marquee-dot"></span>
+                <span class="marquee-word">🎓 Pemetaan 19-Faktor Ilmiah (Rp0)</span><span class="marquee-dot"></span>
+                <span class="marquee-word">🛡️ Cegah Kerugian Rp 100M+ Uang Pangkal</span><span class="marquee-dot"></span>
+                <span class="marquee-word">⭐ 14.280+ Siswa Sudah Terpetakan</span><span class="marquee-dot"></span>
+                <span class="marquee-word">👨‍⚕️ Supervisi Psikolog Dr. Teguh</span><span class="marquee-dot"></span>
+                <span class="marquee-word">🎯 Rekomendasi Karir & Kampus Presisi</span><span class="marquee-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. INTERACTIVE REGRET CALCULATOR -->
+    <section id="kalkulator" class="calculator">
+        <div class="container">
+            <div class="calc-card" data-reveal-rise>
+                <div class="calc-grid">
+                    <!-- Left: Inputs -->
+                    <div class="calc-inputs">
+                        <div class="calc-heading">
+                            <span class="section-tag">Kalkulator Risiko Pendidikan</span>
+                            <h2>Berapa Dana yang Anda Pertaruhkan Jika Anak Salah Jurusan?</h2>
+                            <p>Pilih universitas yang Anda pertimbangkan. Kami tampilkan estimasi total kerugian finansial 4 semester jika harus berhenti di tengah jalan.</p>
+                        </div>
+
+                        <div class="univ-btn-grid">
+                            <!-- PTN Favorit -->
+                            <button class="univ-btn is-active" data-univ="ui"
+                                data-pangkal="20000000" data-ukt="28000000" data-buku="8000000" data-kos="48000000"
+                                data-name="Universitas Indonesia — Jalur Mandiri">
+                                UI
+                            </button>
+                            <button class="univ-btn" data-univ="itb"
+                                data-pangkal="55000000" data-ukt="48000000" data-buku="10000000" data-kos="54000000"
+                                data-name="ITB — Jalur Mandiri">
+                                ITB
+                            </button>
+                            <button class="univ-btn" data-univ="ugm"
+                                data-pangkal="25000000" data-ukt="30000000" data-buku="8000000" data-kos="42000000"
+                                data-name="Universitas Gadjah Mada — Jalur Mandiri">
+                                UGM
+                            </button>
+                            <button class="univ-btn" data-univ="ipb"
+                                data-pangkal="15000000" data-ukt="24000000" data-buku="7000000" data-kos="36000000"
+                                data-name="IPB University — Jalur Mandiri">
+                                IPB
+                            </button>
+                            <!-- PTS Papan Atas -->
+                            <button class="univ-btn" data-univ="uph"
+                                data-pangkal="50000000" data-ukt="72000000" data-buku="10000000" data-kos="64000000"
+                                data-name="Universitas Pelita Harapan (UPH)">
+                                UPH
+                            </button>
+                            <button class="univ-btn" data-univ="binus"
+                                data-pangkal="42000000" data-ukt="60000000" data-buku="9000000" data-kos="70000000"
+                                data-name="BINUS University">
+                                BINUS
+                            </button>
+                            <button class="univ-btn" data-univ="umy"
+                                data-pangkal="10000000" data-ukt="22000000" data-buku="6000000" data-kos="38000000"
+                                data-name="Univ. Muhammadiyah Yogyakarta (UMY)">
+                                UMY
+                            </button>
+                            <button class="univ-btn" data-univ="uii"
+                                data-pangkal="15000000" data-ukt="26000000" data-buku="7000000" data-kos="40000000"
+                                data-name="Universitas Islam Indonesia (UII)">
+                                UII
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Display -->
+                    <div class="calc-display">
+                        <div class="display-caption">Estimasi Tabungan yang Berisiko Hangus</div>
+                        <div class="display-univ-name" id="display-univ-name">Universitas Indonesia — Jalur Mandiri</div>
+                        <div class="display-value" id="display-total">Rp 104.000.000</div>
+                        <div class="display-semester-note">jika drop-out di semester 4</div>
+
+                        <!-- Detail breakdown di kanan -->
+                        <table class="calc-table-mini">
+                            <tbody>
+                                <tr>
+                                    <td>Uang Pangkal / SPI</td>
+                                    <td id="mini-pangkal">Rp 45.000.000</td>
+                                </tr>
+                                <tr>
+                                    <td>UKT / Uang Semester</td>
+                                    <td id="mini-ukt">Rp 60.000.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Buku, Laptop & Peralatan</td>
+                                    <td id="mini-buku">Rp 9.000.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Kos & Uang Saku (24 Bln)</td>
+                                    <td id="mini-kos">Rp 72.000.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="display-cta-wrap">
+                            <div class="display-cta-msg" id="display-pct">
+                                Laporan premium hanya <strong>0,12%</strong> dari total risiko kerugian ini — <strong>Mulai dengan Pemetaan Gratis (Rp 0)</strong>.
+                            </div>
+                            <a href="https://kuis.betterfuture.id/start" class="display-cta-btn">Mulai Tes Gratis &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. THE PAS PROBLEM SECTION -->
+    <section id="masalah" class="problems">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Risiko Nyata</span>
+                <h2 class="section-title">Konsekuensi Fatal Salah Pilih Jurusan</h2>
+            </div>
+            
+            <div class="problem-grid">
+                <!-- Card 01: Piggy Bank & Coins -->
+                <div class="problem-card card-1" data-reveal>
+                    <svg class="problem-card-bg-icon" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M108 78c0-21-17-38-38-38-21 0-38 17-38 38 0 11 4.7 20.8 12.2 27.7L38 124h15.2l4.8-11.6c3.2.9 6.7 1.5 10.4 1.5 3.7 0 7.2-.6 10.4-1.5l4.8 11.6h15.2l-4.6-17.9C103.3 98.8 108 89 108 78z" fill="#FFFFFF" fill-opacity="0.75"/>
+                        <ellipse cx="114" cy="74" rx="9.5" ry="12" fill="#FFFFFF" fill-opacity="0.9"/>
+                        <circle cx="111" cy="74" r="2.2" fill="#D6C4AD"/>
+                        <circle cx="117" cy="74" r="2.2" fill="#D6C4AD"/>
+                        <path d="M45 51L35 33l19 10z" fill="#FFFFFF" fill-opacity="0.85"/>
+                        <circle cx="94" cy="63" r="2.8" fill="#C9B7A0"/>
+                        <text x="70" y="87" font-family="Segoe UI, sans-serif" font-size="26" font-weight="bold" fill="#D4C2A5" fill-opacity="0.75" text-anchor="middle">$</text>
+                        <g fill="#FFFFFF" fill-opacity="0.85">
+                            <rect x="108" y="102" width="25" height="6.5" rx="3.2"/>
+                            <rect x="108" y="93.5" width="25" height="6.5" rx="3.2"/>
+                            <rect x="108" y="85" width="25" height="6.5" rx="3.2"/>
+                            <rect x="129" y="107" width="23" height="6.5" rx="3.2"/>
+                            <rect x="129" y="98.5" width="23" height="6.5" rx="3.2"/>
+                        </g>
+                    </svg>
+                    <span class="problem-num">01.</span>
+                    <h3>Tabungan Keluarga Hangus</h3>
+                    <p>Uang pangkal kuliah puluhan hingga ratusan juta rupiah yang dikumpulkan bertahun-tahun langsung hangus jika anak drop-out di semester ketiga.</p>
+                </div>
+
+                <!-- Card 02: Brain + Lightning + Warning -->
+                <div class="problem-card card-2" data-reveal>
+                    <svg class="problem-card-bg-icon" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M58 20l6 14-10-2 12 18" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.75"/>
+                        <path d="M98 16l-4 15 9-3-10 18" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.75"/>
+                        <path d="M125 32l-12 10 7 4-14 12" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.75"/>
+                        <path d="M54 66c-4.2 0-7.6-3.4-7.6-7.6 0-6.3 5.1-11.4 11.4-11.4 2.1 0 4.1.6 5.8 1.6C66.4 43.2 72.7 39.5 80.1 39.5c8.4 0 15.4 4.6 18.8 11.3 2-1.1 4.4-1.8 6.8-1.8 7.3 0 13.3 6 13.3 13.3 0 1.4-.2 2.8-.7 4.2 4.8 2.4 8.3 7.3 8.3 12.9 0 7.9-6.4 14.3-14.3 14.3-1 0-2.1-.1-3.1-.4-2.4 5.2-7.7 8.9-14 8.9-3.3 0-6.4-1-8.9-2.8-3 4.1-8 6.6-13.4 6.6-6.8 0-12.6-4.1-15.2-9.9-1.7.8-3.7 1.3-5.8 1.3-7.3 0-13.3-6-13.3-13.3 0-5 2.8-9.4 7-11.6-.5-1.6-.9-3.3-.9-5.1z" fill="#FFFFFF" fill-opacity="0.7"/>
+                        <path d="M80.1 39.5v58M66 51c3.8 3.8 3.8 11.4 0 15.2M94 51c-3.8 3.8-3.8 11.4 0 15.2M60 72c5.7 1.9 5.7 9.5 0 13.3M100 72c-5.7 1.9-5.7 9.5 0 13.3" stroke="#E5A0A0" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.45"/>
+                        <path d="M52 120L26 75h52L52 120z" fill="#FFFFFF" fill-opacity="0.95"/>
+                        <path d="M52 115L31 79h42L52 115z" fill="#FFF5F5" fill-opacity="0.9"/>
+                        <text x="52" y="104" font-family="Segoe UI, sans-serif" font-size="20" font-weight="900" fill="#E02424" fill-opacity="0.75" text-anchor="middle">!</text>
+                    </svg>
+                    <span class="problem-num">02.</span>
+                    <h3>Tekanan Mental Anak</h3>
+                    <p>Mempelajari bidang studi yang bertolak belakang dengan minat asli memicu depresi akademik, frustrasi, dan hilangnya rasa percaya diri anak.</p>
+                </div>
+
+                <!-- Card 03: Certificate + Seal Medal -->
+                <div class="problem-card card-3" data-reveal>
+                    <svg class="problem-card-bg-icon" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="42" y="28" width="92" height="72" rx="6" fill="#FFFFFF" fill-opacity="0.75"/>
+                        <rect x="48" y="34" width="80" height="60" rx="3" stroke="#B2E0DB" stroke-width="2" stroke-opacity="0.6" fill="none"/>
+                        <line x1="58" y1="46" x2="114" y2="46" stroke="#90D5CD" stroke-width="3.5" stroke-linecap="round"/>
+                        <line x1="58" y1="56" x2="104" y2="56" stroke="#B5E4DF" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="58" y1="64" x2="108" y2="64" stroke="#B5E4DF" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="58" y1="72" x2="94" y2="72" stroke="#B5E4DF" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="108" cy="82" r="16" fill="#FFFFFF" fill-opacity="0.95"/>
+                        <circle cx="108" cy="82" r="12.5" fill="#5EEAD4" fill-opacity="0.35"/>
+                        <path d="M108 74.5l2.4 4.8 5.3.8-3.8 3.7 1 5.3-4.9-2.5-4.8 2.5 1-5.3-3.9-3.7 5.3-.8z" fill="#0D9488" fill-opacity="0.65"/>
+                        <path d="M101 95l7-6 7 6v15l-7-4-7 4V95z" fill="#FFFFFF" fill-opacity="0.9"/>
+                    </svg>
+                    <span class="problem-num">03.</span>
+                    <h3>Ijazah yang Menganggur</h3>
+                    <p>Memasuki pasar industri kerja modern dengan keahlian yang salah membuat lulusan kesulitan bersaing dan rentan tergantikan oleh otomasi AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.5 5-METHODOLOGY INTEGRATION SECTION -->
+    <section id="metode" class="methodology">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Metodologi Psikologi Ilmiah</span>
+                <h2 class="section-title">Mengapa Pemetaan 19-Faktor Lebih Akurat dari Tes Biasa?</h2>
+                <p style="max-width: 720px; margin: 12px auto 0; font-size: 15px; color: var(--text-muted);">
+                    Satu metodologi saja mudah memicu bias. Better Future mengintegrasikan <strong>5 instrumen psikologi internasional</strong> yang saling memvalidasi (<em>Cross-Validation</em>) untuk menjamin presisi rekomendasi karir & jurusan anak Anda.
+                </p>
+            </div>
+
+            <div class="method-grid">
+                <!-- Left: 5 Method Cards -->
+                <div class="method-cards" data-reveal>
+                    <div class="method-card">
+                        <div class="method-card-header">
+                            <h3 class="method-card-title">1. RIASEC (Holland Codes)</h3>
+                            <span class="method-tag what">WHAT — Bidang Minat</span>
+                        </div>
+                        <p>Mengidentifikasi minat karier alami dan kelompok pekerjaan yang paling membuat anak bersemangat saat menjalaninya.</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-card-header">
+                            <h3 class="method-card-title">2. MBTI (Myers-Briggs)</h3>
+                            <span class="method-tag how">HOW — Cara Berpikir</span>
+                        </div>
+                        <p>Memetakan proses kognitif anak dalam menyerap informasi, memproses fakta, dan mengambil keputusan akademik.</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-card-header">
+                            <h3 class="method-card-title">3. DISC Profiling</h3>
+                            <span class="method-tag behavior">BEHAVIOR — Aksi Lapangan</span>
+                        </div>
+                        <p>Memetakan perilaku kerja, gaya komunikasi, pola kepemimpinan, dan adaptasi sosial anak saat menghadapi tekanan.</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-card-header">
+                            <h3 class="method-card-title">4. 16PF (Cattell Factors)</h3>
+                            <span class="method-tag stability">STABILITY — Kesiapan Mental</span>
+                        </div>
+                        <p>Menganalisis ketahanan mental, stabilitas emosi, tingkat kecemasan, dan kemandirian anak jauh dari keluarga.</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-card-header">
+                            <h3 class="method-card-title">5. Learning Styles (VAK)</h3>
+                            <span class="method-tag process">PROCESS — Metode Belajar</span>
+                        </div>
+                        <p>Mengidentifikasi apakah anak tipe Visual, Auditori, atau Kinestetik agar metode belajar kuliahnya efektif dan maksimal.</p>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Radar Chart Mockup Card -->
+                <div class="radar-preview-card" data-reveal-rise>
+                    <div class="radar-header">
+                        <div>
+                            <span style="font-size: 10px; font-weight: 800; letter-spacing: 1px; color: var(--accent-gold); text-transform: uppercase;">Preview Laporan Pemetaan</span>
+                            <h3 class="radar-title">Grafik 19-Faktor Cross-Validation</h3>
+                        </div>
+                        <div class="radar-status">
+                            <span>●</span> Cross-Validated
+                        </div>
+                    </div>
+
+                    <svg class="radar-chart-svg" viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="160,30 270,90 240,210 80,210 50,90" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+                        <polygon points="160,60 235,105 215,185 105,185 85,105" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
+                        <polygon points="160,90 200,120 190,160 130,160 120,120" stroke="rgba(255,255,255,0.16)" stroke-width="1.5" fill="none"/>
+                        <line x1="160" y1="140" x2="160" y2="30" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 3"/>
+                        <line x1="160" y1="140" x2="270" y2="90" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 3"/>
+                        <line x1="160" y1="140" x2="240" y2="210" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 3"/>
+                        <line x1="160" y1="140" x2="80" y2="210" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 3"/>
+                        <line x1="160" y1="140" x2="50" y2="90" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 3"/>
+                        <polygon points="160,45 250,98 220,195 95,190 68,96" fill="url(#radarGrad)" fill-opacity="0.35" stroke="#C09846" stroke-width="2.5"/>
+                        <polygon points="160,52 240,104 210,188 102,182 75,100" fill="none" stroke="#5EEAD4" stroke-width="1.8" stroke-dasharray="4 4"/>
+                        <circle cx="160" cy="45" r="4" fill="#C09846"/>
+                        <circle cx="250" cy="98" r="4" fill="#C09846"/>
+                        <circle cx="220" cy="195" r="4" fill="#C09846"/>
+                        <circle cx="95" cy="190" r="4" fill="#C09846"/>
+                        <circle cx="68" cy="96" r="4" fill="#C09846"/>
+                        <defs>
+                            <linearGradient id="radarGrad" x1="160" y1="30" x2="160" y2="210" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#C09846" stop-opacity="0.6"/>
+                                <stop offset="1" stop-color="#5EEAD4" stop-opacity="0.1"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+                    <div class="radar-metrics">
+                        <div class="radar-metric-box">
+                            <div class="metric-val">98,4%</div>
+                            <div class="metric-lbl">Akurasi Validasi</div>
+                        </div>
+                        <div class="radar-metric-box">
+                            <div class="metric-val">19</div>
+                            <div class="metric-lbl">Faktor Analisis</div>
+                        </div>
+                        <div class="radar-metric-box">
+                            <div class="metric-val">0 Bias</div>
+                            <div class="metric-lbl">Multi-Instrumen</div>
+                        </div>
+                    </div>
+
+                    <div class="cross-valid-banner">
+                        <span>🛡️</span>
+                        <div>
+                            <strong>Supervisi Psikolog Ilmiah:</strong> Dikembangkan di bawah bimbingan Dr. Teguh, M.Psi., Psikolog untuk memastikan hasil presisi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.8 EXPERT AUTHORITY & FOUNDER QUOTE SECTION (Dr. Teguh) -->
+    <section id="psikolog" class="expert-section">
+        <div class="container">
+            <div class="expert-card" data-reveal-rise>
+                <div class="expert-grid">
+                    <!-- Left: Photo Column with Verified Badge -->
+                    <div class="expert-photo-col">
+                        <div class="expert-photo-wrapper">
+                            <img src="dr_teguh_profile.png" alt="Dr. Teguh Lesmana, M.Psi., Psi" class="expert-img">
+                            <div class="expert-verified-badge">
+                                <span>✓ Verified Psychologist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content & Personal Quote Column -->
+                    <div class="expert-content-col">
+                        <span class="section-tag" style="background: rgba(192, 152, 70, 0.15); color: var(--accent-gold); display: inline-block; margin-bottom: 12px;">Pakar Psikologi Pendidikan</span>
+                        
+                        <blockquote class="expert-quote">
+                            "Setiap anak lahir dengan bakat unik. Tugas kita sebagai orang tua dan pendidik bukan memaksakan kehendak, melainkan membantu mereka menemukan kompas hidupnya sejak awal."
+                        </blockquote>
+
+                        <div class="expert-meta">
+                            <h3 class="expert-name">Dr. Teguh Lesmana, M.Psi., Psi</h3>
+                            <p class="expert-role">Pakar Psikologi Pendidikan & Konsultan Pemetaan Karir Anak</p>
+                        </div>
+
+                        <div class="expert-badges">
+                            <span class="expert-credential-pill">🎓 Magister & Doktor Psikologi</span>
+                            <span class="expert-credential-pill">📜 Psikolog Terlisensi HIMPIS</span>
+                            <span class="expert-credential-pill">👨‍🏫 15+ Tahun Bimbingan Ortu & Anak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 3-STEP SOLUTION WORKFLOW -->
+    <section id="alur" class="workflow">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Alur Kuis</span>
+                <h2 class="section-title">3 Langkah Mudah Pemetaan Karir</h2>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-step" data-reveal>
+                    <span class="flow-step-num">LANGKAH 01</span>
+                    <h3>Isi Tes Minat Bakat (20 Menit)</h3>
+                    <p>Siswa mengisi kuesioner interaktif secara langsung di website tanpa perlu melakukan pendaftaran atau login di awal.</p>
+                </div>
+
+                <div class="flow-step" data-reveal>
+                    <span class="flow-step-num">LANGKAH 02</span>
+                    <h3>Lengkapi Data & Minat Studi (Pasca Tes)</h3>
+                    <p>Setelah menjawab seluruh kuesioner, isi data nama, nomor WhatsApp, sekolah, kelas, preferensi studi, serta ketertarikan beasiswa untuk memproses laporan.</p>
+                </div>
+
+                <div class="flow-step" data-reveal>
+                    <span class="flow-step-num">LANGKAH 03</span>
+                    <h3>Terima Laporan & Opsi Upgrade</h3>
+                    <p>Laporan Kepribadian, Kekuatan, Tantangan, dan Tips Pengembangan diri langsung dikirim otomatis ke WhatsApp. Dapatkan penawaran upgrade premium jika Anda butuh bimbingan lebih lanjut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.5 TESTIMONIALS SECTION -->
+    <section id="testimoni" class="testimonials">
+        <div class="container">
+            <div class="testimonial-header-wrapper">
+                <div class="section-header" data-reveal>
+                    <span class="section-tag">Testimoni & Bukti Sosial</span>
+                    <h2 class="section-title">Apa Kata Mereka yang Telah Menggunakan Better Future?</h2>
+                </div>
+                <div class="slider-controls" data-reveal>
+                    <button class="slider-btn" id="slider-prev" aria-label="Previous testimonials">&larr;</button>
+                    <button class="slider-btn" id="slider-next" aria-label="Next testimonials">&rarr;</button>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="testimonial-filter-tabs" data-reveal>
+                <button class="testi-tab is-active" data-filter="all">Semua (15)</button>
+                <button class="testi-tab" data-filter="parent">👨‍👩‍👧 Orang Tua (5)</button>
+                <button class="testi-tab" data-filter="student">🎓 Siswa SMA (7)</button>
+                <button class="testi-tab" data-filter="educator">🏫 Guru & Kepsek (3)</button>
+            </div>
+            
+            <div class="testimonial-slider-container">
+                <div class="testimonial-slider-track" id="testimonial-track">
+                    <!-- 1. Hijab Parent 1 -->
+                    <div class="testimonial-card" data-category="parent">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Orang Tua</span>
+                        </div>
+                        <p class="testimonial-quote">"Jujur, awalnya saya cemas sekali karena anak mau ambil DKV tapi ayahnya mau Akuntansi. Uang pangkal Rp45 juta dipertaruhkan. Hasil tes di HP sangat membuka mata sekeluarga. Sekarang dia kuliah Desain dan lulusan terbaik!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" alt="Bunda Rahma">
+                            <div class="author-info">
+                                <h4>Bunda Rahma</h4>
+                                <span>Orang Tua Murid (Jakarta)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Chindo Parent 1 -->
+                    <div class="testimonial-card" data-category="parent">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Orang Tua</span>
+                        </div>
+                        <p class="testimonial-quote">"Uang kuliah itu investasi jangka panjang. Daripada rugi ratusan juta rupiah gara-gara anak pindah jurusan di semester 3, lebih baik tes pemetaan 19-faktor dulu. Laporannya detail dan sangat presisi!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" alt="Ko Hendra">
+                            <div class="author-info">
+                                <h4>Ko Hendra</h4>
+                                <span>Orang Tua Murid (Surabaya)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Mother 2 -->
+                    <div class="testimonial-card" data-category="parent">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Orang Tua</span>
+                        </div>
+                        <p class="testimonial-quote">"Anak saya sempat mogok belajar kelas 12 karena pusing pilih jurusan. Setelah ikutan kuis Better Future, kami paham dia tipe Artistik-Sosial. Dia mantap ambil Komunikasi dan semangat banget kuliah."</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200&auto=format&fit=crop&q=80" alt="Bunda Shanti">
+                            <div class="author-info">
+                                <h4>Bunda Shanti</h4>
+                                <span>Orang Tua Murid (Balikpapan)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Chindo Parent 2 -->
+                    <div class="testimonial-card" data-category="parent">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Orang Tua</span>
+                        </div>
+                        <p class="testimonial-quote">"Investasi Rp120 ribu untuk laporan premium Better Future menghemat Rp150 juta dana kuliah yang hampir salah alamat. Sangat direkomendasikan untuk ortu yang peduli masa depan anak."</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" alt="Ko Albert">
+                            <div class="author-info">
+                                <h4>Ko Albert</h4>
+                                <span>Orang Tua Murid (Medan)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Mother 3 -->
+                    <div class="testimonial-card" data-category="parent">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Orang Tua</span>
+                        </div>
+                        <p class="testimonial-quote">"Sebagai ibu rumah tangga, saya sering bingung kalau anak tanya soal prospek kerja jurusan kuliah modern. Laporan PDF 19 halaman Better Future menjelaskan segalanya dengan bahasa yang gampang dipahami!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" alt="Ibu Nurul">
+                            <div class="author-info">
+                                <h4>Ibu Nurul</h4>
+                                <span>Orang Tua Murid (Makassar)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. SMA Student 1 -->
+                    <div class="testimonial-card" data-category="student">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Siswa Kelas 12</span>
+                        </div>
+                        <p class="testimonial-quote">"Sempat galau parah antara ikut pilihan teman atau kemauan sendiri. Pas lihat laporan grafik radar di HP, kelihatan jelas kekuatan aku di analytical & research. Akhirnya mantap pilih Statistika!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" alt="Bagas">
+                            <div class="author-info">
+                                <h4>Bagas</h4>
+                                <span>Siswa Kelas 12 (Medan)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. SMA Student 2 -->
+                    <div class="testimonial-card" data-category="student">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Siswi Kelas 11</span>
+                        </div>
+                        <p class="testimonial-quote">"Kuisnya seru banget dan instan! Laporan dasar langsung masuk ke WhatsApp. Aku jadi tahu tipe belajar ideal aku dan dikasih matriks jurusan yang sesuai minat masa depan."</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=200&auto=format&fit=crop&q=80" alt="Alya">
+                            <div class="author-info">
+                                <h4>Alya</h4>
+                                <span>Siswi Kelas 11 (Tangerang)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. SMA Student 3 -->
+                    <div class="testimonial-card" data-category="student">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Siswa Kelas 12</span>
+                        </div>
+                        <p class="testimonial-quote">"Dulu disuruh ortu masuk Kedokteran padahal passion di IT. Laporan 19-faktor Better Future bantu mediasi dengan data ilmiah. Sekarang kuliah Sistem Informasi Medis, solusi win-win yang pas!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80" alt="Rian">
+                            <div class="author-info">
+                                <h4>Rian</h4>
+                                <span>Siswa Kelas 12 (Jakarta)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. SMA Student 4 -->
+                    <div class="testimonial-card" data-category="student">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Siswi Kelas 10</span>
+                        </div>
+                        <p class="testimonial-quote">"Seneng banget bisa tahu gaya belajar aku yang Kinestetik dari awal SMA. Dikasih panduan eksplorasi jurusan dari kelas 10 bikin aku nggak panik persiapan SNBP/SNBT nanti!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80" alt="Nadia">
+                            <div class="author-info">
+                                <h4>Nadia</h4>
+                                <span>Siswi Kelas 10 (Surabaya)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. SMA Student 5 -->
+                    <div class="testimonial-card" data-category="student">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Siswa Kelas 12</span>
+                        </div>
+                        <p class="testimonial-quote">"Pernah nyobain tes minat bakat biasa di internet tapi hasilnya abstrak cuma berupa 3 huruf. Di Better Future dikasih breakdown 19 faktor lengkap dengan skor ketahanan mental di bawah tekanan!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" alt="Diki">
+                            <div class="author-info">
+                                <h4>Diki</h4>
+                                <span>Siswa Kelas 12 (Bandung)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. SMA Student 6 -->
+                    <div class="testimonial-card" data-category="student">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Siswi Kelas 12</span>
+                        </div>
+                        <p class="testimonial-quote">"Aku orangnya pemalu dan sering ragu buat ngomong ke ortu tentang cita-citaku di Seni Digital. Laporan cetak Better Future aku tunjukin ke mama dan mama langsung paham dan mendukung 100%!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&auto=format&fit=crop&q=80" alt="Farah">
+                            <div class="author-info">
+                                <h4>Farah</h4>
+                                <span>Siswi Kelas 12 (Yogyakarta)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12. SMA Student 7 -->
+                    <div class="testimonial-card" data-category="student">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Siswa Kelas 11</span>
+                        </div>
+                        <p class="testimonial-quote">"Fitur Tanya Jawab AI Counselor di Laporan Premium itu gokil banget! Aku bisa nanya detail silabus matkul & peluang karir jurusan Agribisnis 24 jam nonstop!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop&q=80" alt="Kevin">
+                            <div class="author-info">
+                                <h4>Kevin</h4>
+                                <span>Siswa Kelas 11 (Semarang)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13. Teacher BK 1 -->
+                    <div class="testimonial-card" data-category="educator">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Guru BK</span>
+                        </div>
+                        <p class="testimonial-quote">"Membimbing ratusan siswa cari jurusan itu tantangan besar. Talent mapping Better Future ini ringkas, ilmiah, dan laporannya gampang dibaca orang tua murid. Alat bantu terbaik BK sekolah kami!"</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1580894732444-8febeb28a3e8?w=200&auto=format&fit=crop&q=80" alt="Ibu Retno">
+                            <div class="author-info">
+                                <h4>Ibu Retno, S.Pd.</h4>
+                                <span>Guru BK SMA (Semarang)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 14. School Principal -->
+                    <div class="testimonial-card" data-category="educator">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Kepala Sekolah</span>
+                        </div>
+                        <p class="testimonial-quote">"Kami integrasikan kuis pemetaan ini ke asesmen PPDB murid baru. Orang tua sangat terkesan karena sekolah menawarkan bimbingan bakat berbasis AI sejak hari pertama pendaftaran."</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format&fit=crop&q=80" alt="Drs. M. Wahyudi">
+                            <div class="author-info">
+                                <h4>Drs. M. Wahyudi</h4>
+                                <span>Kepala Sekolah (Bandung)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 15. Teacher BK 2 -->
+                    <div class="testimonial-card" data-category="educator">
+                        <div class="testi-header-meta">
+                            <span class="testi-stars">★★★★★</span>
+                            <span class="testi-badge">Guru BK</span>
+                        </div>
+                        <p class="testimonial-quote">"Dashboard pemetaan membuat kami bisa memantau potensi bakat satu angkatan secara kolektif. Sangat mempermudah tugas sekolah menyalurkan siswa ke jalur SNBP/SNBT secara akurat."</p>
+                        <div class="testimonial-author">
+                            <img class="author-img" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&auto=format&fit=crop&q=80" alt="Pak Budi">
+                            <div class="author-info">
+                                <h4>Pak Budi, S.Pd.</h4>
+                                <span>Guru BK SMA (Makassar)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SAAS SIDE-BY-SIDE COMPARISON TABLE FOR REPORT OUTPUT -->
+    <section id="laporan" class="report-types">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Output Tes & Nilai Tambah</span>
+                <h2 class="section-title">Perbandingan Laporan Gratis vs Laporan Lengkap</h2>
+            </div>
+
+            <div class="report-comparison-wrapper" data-reveal>
+                <table class="report-comp-table">
+                    <thead>
+                        <tr>
+                            <th class="comp-feature-head">Fitur & Matriks Pemetaan Bakat</th>
+                            <th class="comp-col-free">
+                                <span class="comp-badge free">100% GRATIS</span>
+                                <div class="comp-title">Laporan Dasar</div>
+                                <div class="comp-price">Rp 0</div>
+                            </th>
+                            <th class="comp-col-premium highlighted">
+                                <span class="comp-badge premium">REKOMENDASI UTAMA</span>
+                                <div class="comp-title">Laporan Lengkap & AI</div>
+                                <div class="comp-price">Rp 120.000 <span class="comp-price-sub">sekali bayar</span></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rangkuman Kepribadian Utama (RIASEC / MBTI)</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Analisis Kekuatan & Kelemahan Karakter Anak</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Tips Improvement & Orientasi Karir Awal</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>PDF Laporan Peta Potensi 19-Faktor (19 Halaman)</td>
+                            <td class="cross">-</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Matriks 50+ Rekomendasi Jurusan & Kampus Presisi</td>
+                            <td class="cross">-</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Akses Chat Tanya Jawab AI Counselor 24/7 (Tanpa Batas)</td>
+                            <td class="cross">-</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Voucher Konsultasi Privat Dr. Teguh Rp100.000</td>
+                            <td class="cross">-</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>English Placement Test IELTS Gratis (Reading & Writing)</td>
+                            <td class="cross">-</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Bundel 3 E-Book: Diplomasi Ortu-Anak & Beasiswa</td>
+                            <td class="cross">-</td>
+                            <td class="check">✓</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a href="https://kuis.betterfuture.id/start" class="bf-btn bf-btn--outline comp-btn">Ambil Laporan Gratis</a>
+                            </td>
+                            <td>
+                                <a href="https://kuis.betterfuture.id/start" class="bf-btn bf-btn--action comp-btn">Mulai Pemetaan Lengkap &rarr;</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQ ACCORDION -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">FAQ & Kejelasan Layanan</span>
+                <h2 class="section-title">Menjawab Seluruh Keraguan Anda</h2>
+            </div>
+
+            <div class="faq-wrapper">
+                <!-- FAQ 1 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Apakah kuis pemetaan ini benar-benar 100% gratis di awal?</div>
+                    <div class="faq-content">Ya, 100% gratis tanpa biaya terselubung dan tanpa perlu mendaftarkan kartu kredit. Anda atau anak Anda dapat langsung menyelesaikan tes online 20 menit dan menerima Rangkuman Kepribadian & Potensi Dasar secara cuma-cuma.</div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Apa saja isi dari Laporan Gratis Dasar (Rp0)?</div>
+                    <div class="faq-content">Laporan gratis mencakup rangkuman tipe kepribadian utama anak (RIASEC & MBTI), peta kekuatan karakter paling menonjol, analisis tantangan pribadi, serta tips perbaikan awal untuk persiapan dunia perkuliahan.</div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Bagaimana saya bisa mendapatkan Laporan Lengkap 19 Halaman & AI Counselor?</div>
+                    <div class="faq-content">Setelah kuis selesai dan laporan dasar terbit, sistem aplikasi kami akan menawarkan opsi upgrade fleksibel (Paket Lengkap Rp120.000 sekali bayar) secara langsung di aplikasi untuk membuka dokumen PDF 19 Halaman, peta 50+ rekomendasi jurusan presisi, dan akses chat 24/7 dengan AI Counselor.</div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Bagaimana jika anak saya belum tahu sama sekali ingin masuk jurusan atau universitas mana?</div>
+                    <div class="faq-content">Justru tes ini dirancang khusus untuk kondisi tersebut! Sistem pemetaan 19-Faktor kami mengintegrasikan 5 instrumen psikologi (RIASEC, MBTI, DISC, 16PF, dan VAK) untuk memetakan bakat alami anak dari nol hingga menghasilkan rekomendasi rumpun ilmu dan program studi paling cocok.</div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Siapa sosok psikolog di balik metodologi ilmiah Better Future?</div>
+                    <div class="faq-content">Seluruh instrumen pemetaan dikembangkan di bawah supervisi langsung Dr. Teguh Lesmana, M.Psi., Psikolog, pakar psikologi pendidikan yang berpengalaman lebih dari 15 tahun mendampingi ribuan orang tua dan siswa SMA di Indonesia.</div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Bagaimana jika ada perbedaan pendapat antara keinginan orang tua dan pilihan anak?</div>
+                    <div class="faq-content">Laporan Better Future bertindak sebagai mediator ilmiah yang netral dan objektif. Laporan kami dilengkapi panduan diplomasi keluarga sehingga orang tua dan anak bisa berdiskusi secara sejuk berbasis data valid tanpa memicu konflik.</div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Melalui media apa laporan hasil tes akan dikirimkan?</div>
+                    <div class="faq-content">Hasil pemetaan instan dikirimkan langsung ke nomor WhatsApp yang Anda daftarkan pasca-tes, sehingga sangat mudah diakses, disimpan dalam bentuk PDF, dan dibaca bersama keluarga di smartphone kapan saja.</div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item" data-reveal>
+                    <div class="faq-title">Apakah privasi data pribadi dan hasil tes anak saya dijamin aman?</div>
+                    <div class="faq-content">Kami menjamin kerahasiaan dan privasi 100%. Data diri serta hasil tes hanya digunakan untuk penerbitan laporan pemetaan Anda dan tidak akan pernah dijual atau disebarluaskan ke pihak manapun.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. DOWNSELL LEAD MAGNET WITH 3D E-BOOK MOCKUP -->
+    <section class="downsell">
+        <div class="container">
+            <div class="downsell-box-2col" data-reveal-rise>
+                <!-- Left: 3D E-Book Cover Mockup -->
+                <div class="ebook-card-3d">
+                    <span class="ebook-badge">E-Book PDF Gratis</span>
+                    <div class="ebook-title">Panduan Diplomasi Karir Anak & Orang Tua</div>
+                    <p style="font-size: 11.5px; color: #94A3B8; margin-bottom: 16px; line-height: 1.4;">"Cara Bicara dengan Anak Tanpa Perdebatan Mengenai Masa Depan & Pilihan Kampus"</p>
+                    <div class="ebook-author">
+                        <span>👨‍⚕️ Dr. Teguh, M.Psi.</span>
+                        <span style="opacity: 0.5;">&bull; 48 Hal</span>
+                    </div>
+                </div>
+
+                <!-- Right: Opt-in Form -->
+                <div class="downsell-copy">
+                    <h3>Belum Siap Mengisi Tes Hari Ini?</h3>
+                    <p>Unduh E-Book gratis ini terlebih dahulu. Pelajari metode komunikasi efektif antara orang tua dan anak dalam menentukan masa depan tanpa perdebatan.</p>
+                    
+                    <ul class="downsell-checklist">
+                        <li>Metode diplomasi orang tua-anak tanpa memicu konflik</li>
+                        <li>5 Mitos berbahaya salah pilih jurusan yang jarang disadari</li>
+                        <li>Checklist persiapan dana & pemilihan program studi</li>
+                    </ul>
+
+                    <div class="downsell-form" style="margin: 0; max-width: 100%;">
+                        <input type="text" class="form-input" placeholder="Masukkan Nomor WhatsApp Anda">
+                        <button class="bf-btn bf-btn--action" style="white-space: nowrap; padding: 16px 28px;">Kirim E-Book ke WA &rarr;</button>
+                    </div>
+                    <p style="font-size: 11px; color: #64748B; margin-top: 10px; margin-bottom: 0;">🔒 Privasi terjamin. Tanpa spam. Dikirim otomatis lewat WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-row">
+            <p>&copy; 2026 Better Future. Hak Cipta Dilindungi.</p>
+            <div class="footer-links">
+                <a href="https://wa.me/628123456789">Hubungi Tim Kami (WhatsApp)</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CUSTOM CURSOR DOM STYLES -->
+    <div id="bf-cursor-ring" class="bf-cursor-ring"></div>
+    <div id="bf-cursor-dot" class="bf-cursor-dot"></div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. CUSTOM LAG CURSOR INTERACTION
+        const ring = document.getElementById('bf-cursor-ring');
+        const dot = document.getElementById('bf-cursor-dot');
+        let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+        let rx = mx, ry = my, scale = 1, targetScale = 1;
+
+        if (!window.matchMedia('(hover:none), (pointer:coarse)').matches) {
+            window.addEventListener('pointermove', e => {
+                mx = e.clientX;
+                my = e.clientY;
+                dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+            }, { passive: true });
+
+            window.addEventListener('pointerover', e => {
+                const isHoverable = e.target.closest('a, button, input, range, [data-cursor]');
+                targetScale = isHoverable ? 1.6 : 1;
+                ring.style.borderColor = isHoverable ? 'var(--accent-gold)' : 'var(--text-main)';
+                ring.style.backgroundColor = isHoverable ? 'rgba(204, 162, 82, 0.08)' : 'transparent';
+            }, { passive: true });
+
+            const updateCursor = () => {
+                rx += (mx - rx) * 0.16;
+                ry += (my - ry) * 0.16;
+                scale += (targetScale - scale) * 0.12;
+                ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) scale(${scale})`;
+                requestAnimationFrame(updateCursor);
+            };
+            updateCursor();
+        }
+
+        // 2. SCROLL REVEAL STAGGER ENGINE
+        let observer;
+        const initReveal = () => {
+            observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+
+            document.querySelectorAll('[data-reveal], [data-reveal-rise]').forEach((el, index) => {
+                el.style.transitionDelay = `${Math.min(index % 4, 3) * 60}ms`;
+                const bounds = el.getBoundingClientRect();
+                if (bounds.top < window.innerHeight * 0.95) {
+                    el.classList.add('is-in');
+                } else {
+                    observer.observe(el);
+                }
+            });
+        };
+        document.addEventListener('DOMContentLoaded', initReveal);
+
+        // 3. UNIVERSITY PRESET CALCULATOR ENGINE
+        const formatRp = (val) => {
+            return 'Rp ' + val.toLocaleString('id-ID');
+        };
+
+        const calcPct = (total) => {
+            const premium = 120000;
+            const pct = ((premium / total) * 100).toFixed(2);
+            return `Laporan premium hanya <strong>${pct}%</strong> dari total risiko kerugian ini — <strong>Mulai dengan Pemetaan Gratis (Rp 0)</strong>.`;
+        };
+
+        const updateCalcDisplay = (btn) => {
+            const pangkal = parseInt(btn.dataset.pangkal);
+            const ukt     = parseInt(btn.dataset.ukt);
+            const buku    = parseInt(btn.dataset.buku);
+            const kos     = parseInt(btn.dataset.kos);
+            const name    = btn.dataset.name;
+            const total   = pangkal + ukt + buku + kos;
+
+            // Update mini breakdown table (right panel)
+            document.getElementById('mini-pangkal').textContent = formatRp(pangkal);
+            document.getElementById('mini-ukt').textContent     = formatRp(ukt);
+            document.getElementById('mini-buku').textContent    = formatRp(buku);
+            document.getElementById('mini-kos').textContent     = formatRp(kos);
+
+            // Animate total number
+            const displayTotal = document.getElementById('display-total');
+            const displayName  = document.getElementById('display-univ-name');
+            const displayPct   = document.getElementById('display-pct');
+
+            displayTotal.style.transition = 'none';
+            displayTotal.style.opacity = '0';
+            displayTotal.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+                displayName.textContent = name;
+                displayTotal.textContent = formatRp(total);
+                displayPct.innerHTML = calcPct(total);
+                displayTotal.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                displayTotal.style.opacity = '1';
+                displayTotal.style.transform = 'translateY(0)';
+            }, 150);
+        };
+
+
+        const univBtns = document.querySelectorAll('.univ-btn');
+        univBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                univBtns.forEach(b => b.classList.remove('is-active'));
+                btn.classList.add('is-active');
+                updateCalcDisplay(btn);
+            });
+        });
+
+        // Init with first active button
+        const firstActiveBtn = document.querySelector('.univ-btn.is-active');
+        if (firstActiveBtn) updateCalcDisplay(firstActiveBtn);
+
+
+        // 4. FAQ ACCORDION ENGINE
+        document.querySelectorAll('.faq-title').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const content = item.nextElementSibling;
+                const isOpen = parent.classList.contains('is-open');
+
+                document.querySelectorAll('.faq-item').forEach(el => {
+                    el.classList.remove('is-open');
+                    el.querySelector('.faq-content').style.display = 'none';
+                });
+
+                if (!isOpen) {
+                    parent.classList.add('is-open');
+                    content.style.display = 'block';
+                }
+            });
+        });
+
+        // 5. TESTIMONIAL SLIDER ENGINE WITH CATEGORY FILTER
+        (function() {
+            const track = document.getElementById('testimonial-track');
+            const btnPrev = document.getElementById('slider-prev');
+            const btnNext = document.getElementById('slider-next');
+            const filterTabs = document.querySelectorAll('.testi-tab');
+            if (!track || !btnPrev || !btnNext) return;
+            
+            let currentIndex = 0;
+            let currentFilter = 'all';
+
+            const getVisibleCards = () => {
+                return Array.from(track.querySelectorAll('.testimonial-card')).filter(card => {
+                    return !card.classList.contains('is-hidden');
+                });
+            };
+            
+            const getCardsPerSlide = () => {
+                return window.innerWidth <= 968 ? 1 : 3;
+            };
+
+            const updateSlider = () => {
+                const visibleCards = getVisibleCards();
+                if (visibleCards.length === 0) return;
+                const totalCards = visibleCards.length;
+                const cardsPerSlide = getCardsPerSlide();
+                const maxIndex = Math.max(0, totalCards - cardsPerSlide);
+                
+                if (currentIndex < 0) currentIndex = 0;
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+                const cardWidth = visibleCards[0].offsetWidth;
+                const gap = 30;
+                const translateVal = currentIndex * (cardWidth + gap);
+                
+                track.style.transform = `translate3d(-${translateVal}px, 0, 0)`;
+
+                btnPrev.disabled = currentIndex === 0;
+                btnNext.disabled = currentIndex >= maxIndex;
+            };
+
+            // Filter Tabs Click Event
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    filterTabs.forEach(t => t.classList.remove('is-active'));
+                    tab.classList.add('is-active');
+                    currentFilter = tab.dataset.filter;
+
+                    const allCards = track.querySelectorAll('.testimonial-card');
+                    allCards.forEach(card => {
+                        if (currentFilter === 'all' || card.dataset.category === currentFilter) {
+                            card.classList.remove('is-hidden');
+                        } else {
+                            card.classList.add('is-hidden');
+                        }
+                    });
+
+                    currentIndex = 0;
+                    updateSlider();
+                });
+            });
+
+            btnPrev.addEventListener('click', () => {
+                currentIndex -= getCardsPerSlide();
+                updateSlider();
+            });
+
+            btnNext.addEventListener('click', () => {
+                currentIndex += getCardsPerSlide();
+                updateSlider();
+            });
+
+            window.addEventListener('resize', () => {
+                currentIndex = 0;
+                updateSlider();
+            });
+
+            updateSlider();
+            setTimeout(updateSlider, 250);
+        })();
+    </script>
+</body>
+</html>

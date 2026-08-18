@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hero Option 3 — Glassmorphism Dark Card</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-glass-card {
+            background: rgba(11, 14, 20, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 28px;
+            padding: 28px 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section" style="min-height: 100vh; padding-top: 90px;">
+        <video class="hero-bg-media" autoplay loop muted playsinline poster="hero_bg_poster.jpg">
+            <source src="hero_bg_video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="container" style="position: relative; z-index: 5;">
+            <div class="hero-content">
+                <div class="hero-glass-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                        <div class="brand-motto-handwritten" style="font-size: 1.3rem; color: #FACC15;">"Mapping today, Shaping Tomorrow."</div>
+                        <div style="font-size: 0.72rem; color: #34D399; font-weight: 800; background: rgba(52,211,153,0.15); padding: 4px 10px; border-radius: 99px;">✓ Kuota 78/100</div>
+                    </div>
+                    <h1 class="hero-title-massive" style="font-size: clamp(2rem, 6.5vw, 3.2rem); margin-bottom: 14px;">Yakin siap kehilangan Rp 100 Juta hanya karena anak salah jurusan?</h1>
+                    <p class="hero-subtitle-clean" style="font-size: 0.92rem; margin-bottom: 22px;">87% mahasiswa merasa salah jurusan. Amankan masa depan akademik anak Anda lewat pemetaan online 20 menit secara GRATIS sebelum terlanjur mendaftar.</p>
+                    <a href="https://wa.me/628123456789" class="btn-yellow-pill">Mulai Test Gratis →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

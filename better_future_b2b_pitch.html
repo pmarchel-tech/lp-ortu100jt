@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Future - B2B Pitch: PPDB Booster & Student Mapping</title>
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===========================================
+           CSS CUSTOM PROPERTIES (THEME: B2B PROFESSIONAL)
+           =========================================== */
+        :root {
+            --bg-primary: #fbfaf7;
+            --bg-secondary: #faf8f5;
+            --text-primary: #1a1816;
+            --text-secondary: #57534e;
+            --accent: #1e3a8a; /* Blue/Navy professional accent */
+            --accent-glow: rgba(30, 58, 138, 0.1);
+            --border-color: #e7e2dc;
+
+            /* Typography at 1920x1080 stage */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --title-size: 72px;
+            --subtitle-size: 30px;
+            --body-size: 26px;
+            --slide-padding: 80px;
+        }
+
+        /* Lock browser viewport */
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: #111; /* Letterbox background */
+            color: var(--text-primary);
+            font-family: var(--font-body);
+        }
+
+        /* ===========================================
+           PASTED viewport-base.css STYLES (REQUIRED)
+           =========================================== */
+        .deck-viewport {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            background: #111;
+        }
+        .deck-stage {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            transform-origin: 0 0;
+            background: var(--bg-primary);
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+        }
+        .slide {
+            position: absolute;
+            inset: 0;
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            background: var(--bg-primary);
+            padding: var(--slide-padding);
+            box-sizing: border-box;
+        }
+        .slide.active, .slide.visible {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 1;
+        }
+
+        /* Print formatting */
+        @media print {
+            html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+            .deck-viewport { position: static; overflow: visible; background: #fff; }
+            .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+            .slide { position: relative; display: block !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; width: 1920px; height: 1080px; break-after: page; page-break-after: always; }
+            .slide:last-child { break-after: auto; page-break-after: auto; }
+            .deck-controls, .edit-toggle, .edit-hotzone { display: none !important; }
+        }
+
+        /* ===========================================
+           SLIDE COMPONENT ANIMATIONS & REVEAL SYSTEM
+           =========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide.visible .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal.delay-1 { transition-delay: 0.1s; }
+        .reveal.delay-2 { transition-delay: 0.2s; }
+        .reveal.delay-3 { transition-delay: 0.3s; }
+        .reveal.delay-4 { transition-delay: 0.4s; }
+
+        /* ===========================================
+           LAYOUT CLASSES & TYPOGRAPHY STYLE INDEX
+           =========================================== */
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+        
+        .slide-number {
+            font-size: 20px;
+            color: var(--text-secondary);
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title-huge {
+            font-family: var(--font-display);
+            font-size: var(--title-size);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .subtitle-large {
+            font-size: var(--subtitle-size);
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 1400px;
+        }
+
+        .tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* Grids & Cards */
+        .grid-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .info-card {
+            border-left: 3px solid var(--border-color);
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-card:hover {
+            border-left-color: var(--accent);
+        }
+
+        .info-card h3 {
+            font-family: var(--font-display);
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            font-size: 22px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 22px;
+        }
+
+        .comparison-table th {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        /* Controls Chrome */
+        .deck-controls {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10002;
+            display: flex;
+            gap: 16px;
+        }
+
+        .control-btn {
+            background: rgba(26, 24, 22, 0.9);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .control-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Inline Editor styles */
+        .edit-hotzone {
+            position: fixed; top: 0; left: 0;
+            width: 80px; height: 80px;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        .edit-toggle {
+            position: fixed; top: 20px; left: 20px;
+            background: #fff;
+            border: 1px solid var(--text-primary);
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 10001;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .edit-toggle.show, .edit-toggle.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        [contenteditable="true"] {
+            outline: 2px dashed var(--accent);
+            background: rgba(30, 58, 138, 0.02);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Inline Editor Chrome -->
+    <div class="edit-hotzone" title="Klik di pojok atau tekan tombol E untuk masuk mode edit"></div>
+    <button class="edit-toggle" id="editToggle" title="Toggle Edit Mode (E)">✏️</button>
+
+    <div class="deck-viewport">
+        <main class="deck-stage" id="deckStage">
+
+            <!-- Slide 1: Title (B2B) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future (ISCA)</span>
+                        <span class="slide-number">01 / 07</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">🏆 PROPOSAL KEMITRAAN SEKOLAH</span>
+                        <h1 class="title-huge reveal delay-1" contenteditable="true">Meningkatkan PPDB Sekolah Anda</h1>
+                        <p class="subtitle-large reveal delay-2" contenteditable="true">Ekosistem Pemetaan Bakat Murid & Optimasi Arah Belajar Kelas Menengah.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 2: Tantangan Sekolah (B2B) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">02 / 07</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">TANTANGAN SEKOLAH</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Mengapa Sekolah Kehilangan Calon Murid Baru?</h2>
+                        <div class="grid-columns reveal delay-2" style="margin-top: 30px;">
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Persaingan PPDB Sengit</h3>
+                                    <p contenteditable="true">Orang tua semakin selektif. Kurikulum standar nasional tidak lagi cukup membedakan sekolah Anda dengan kompetitor.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Tuntutan Personalisasi</h3>
+                                    <p contenteditable="true">Orang tua kelas menengah menuntut jaminan agar minat, gaya belajar, dan masa depan anak mereka terarah secara spesifik sejak masuk sekolah.</p>
+                                </div>
+                            </div>
+                            <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); padding: 40px; border-radius: 8px;">
+                                <h3 style="font-family: var(--font-display); font-size: 32px; color: var(--accent); margin-bottom: 20px;" contenteditable="true">Pembeda Kompetitif</h3>
+                                <p style="font-size: 22px; color: var(--text-secondary); line-height: 1.5;" contenteditable="true">"Sekolah kami tidak hanya mendidik anak, tapi memetakan arah karir dan gaya belajar mereka secara ilmiah sejak pendaftaran."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: PPDB Booster (B2B) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">03 / 07</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">FITUR UNGGULAN</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Alat Pendongkrak Pendaftaran: PPDB Booster</h2>
+                        <div class="grid-columns reveal delay-2" style="margin-top: 30px;">
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Pemetaan Instan Murid Baru</h3>
+                                    <p contenteditable="true">Sematkan Better Future kuis dalam proses penerimaan siswa baru. Orang tua langsung mendapatkan draf analisis awal potensi anak mereka.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Magnet Penarik Wali Murid</h3>
+                                    <p contenteditable="true">Memberikan pengalaman pendaftaran yang futuristik, ilmiah, dan berkesan mendalam bagi calon wali murid.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Review Psikolog HIMPSI</h3>
+                                    <p contenteditable="true">Menjaga gengsi akademis sekolah dengan instrumen tes yang divalidasi oleh Psikolog resmi Himpunan Psikologi Indonesia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Dasbor Agregat (B2B) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">04 / 07</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">INTEGRASI MANAJEMEN</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Dasbor Agregat untuk Yayasan & Kepala Sekolah</h2>
+                        <div class="grid-columns reveal delay-2" style="margin-top: 30px;">
+                            <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); padding: 40px; border-radius: 8px;">
+                                <h3 style="font-family: var(--font-display); font-size: 32px; color: var(--accent); margin-bottom: 20px;" contenteditable="true">Tren Satu Angkatan</h3>
+                                <p style="font-size: 20px; color: var(--text-secondary); line-height: 1.5;" contenteditable="true">"35% murid angkatan ini memiliki minat analitis-investigatif, 45% memiliki gaya belajar visual."</p>
+                            </div>
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Tanpa Membebani Detail Granular</h3>
+                                    <p contenteditable="true">Menyajikan profil angkatan secara agregat. Menjaga privasi data personal murid tanpa mengurangi kegunaan pengambilan kebijakan sekolah.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Optimasi Arah Ekstrakurikuler</h3>
+                                    <p contenteditable="true">Membantu sekolah merancang program peminatan kelas, kelas karier, dan jenis ekstrakurikuler yang sesuai dengan bakat alami siswa angkatan tersebut.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Beban Guru Berkurang (B2B) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">05 / 07</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">EFISIENSI OPERASIONAL</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Integrasi EMS & Pengurangan Beban Kerja Guru</h2>
+                        <div class="grid-columns reveal delay-2" style="margin-top: 30px;">
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Integrasi ui-digital.com (EMS)</h3>
+                                    <p contenteditable="true">Data hasil pemetaan siswa langsung terhubung ke sistem operasi sekolah untuk pelacakan perkembangan belajar berkelanjutan.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Mengurangi Burnout Guru</h3>
+                                    <p contenteditable="true">Mengotomatisasi analisis administratif gaya belajar siswa, sehingga guru BK dan wali kelas memiliki cetak biru panduan mengajar tanpa ribet menulis manual.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Fokus Bimbingan Murid</h3>
+                                    <p contenteditable="true">Guru dapat mencurahkan 100% energi mereka untuk berdiskusi secara kualitatif, bukan dipusingkan oleh administrasi data kuesioner.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: Skema Finansial (B2B) -->
+            <section class="slide">
+                <div class="slide-content">
+                    <div class="header">
+                        <span class="logo" contenteditable="true">Better Future</span>
+                        <span class="slide-number">06 / 07</span>
+                    </div>
+                    <div class="main-content">
+                        <span class="tag reveal" contenteditable="true">SKEMA KEMITRAAN</span>
+                        <h2 class="title-huge reveal delay-1" style="font-size: 60px;" contenteditable="true">Implementasi Tanpa Beban Anggaran Sekolah</h2>
+                        <div class="grid-columns reveal delay-2" style="margin-top: 40px;">
+                            <div style="border-right: 1px solid var(--border-color); padding-right: 40px;">
+                                <h3 style="font-family: var(--font-display); font-size: 36px; margin-bottom: 20px;" contenteditable="true">Model Penyerapan Uang Formulir</h3>
+                                <p style="font-size: 22px; color: var(--text-secondary); line-height: 1.6;" contenteditable="true">Sekolah tidak perlu mengalokasikan anggaran khusus (APBS). Biaya pemetaan Better Future massal diserap dari uang pendaftaran murid baru.</p>
+                            </div>
+                            <div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Contoh Kasus</h3>
+                                    <p contenteditable="true">Sekolah menaikkan biaya formulir pendaftaran PPDB dari Rp150.000 menjadi Rp200.000. Selisih Rp50.000 dialokasikan untuk tes Better Future massal calon siswa.</p>
+                                </div>
+                                <div class="info-card">
+                                    <h3 contenteditable="true">Saling Menguntungkan</h3>
+                                    <p contenteditable="true">Sekolah mendapatkan pembeda pendaftaran yang kuat, orang tua menerima manfaat ilmiah instan, dan Better Future menangani operasional sistem.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7: Penutup & Uji Coba Dasbor (B2B) -->
+            <section class="slide" style="background-color: #faf8f5;">
+                <div class="slide-content" style="justify-content: center; align-items: center; text-align: center;">
+                    <span class="tag reveal" contenteditable="true">LANGKAH SELANJUTNYA</span>
+                    <h2 class="title-huge reveal delay-1" style="font-size: 68px; max-width: 1200px; margin: 0 auto 30px auto;" contenteditable="true">Mulai Uji Coba Dasbor Sekolah Gratis</h2>
+                    <p class="subtitle-large reveal delay-2" style="max-width: 900px; margin: 0 auto 50px auto;" contenteditable="true">Mari jadwalkan pertemuan 15 menit bersama tim teknis kami untuk demonstrasi dasbor agregat angkatan dan integrasi sistem PPDB Better Future ke dalam formulir pendaftaran sekolah Anda.</p>
+                    <div class="reveal delay-3" style="font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--accent);" contenteditable="true">
+                        Hubungi Tim Kemitraan: info@betterfuture.id / 0812-3456-789
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Navigation Chrome Controls -->
+    <div class="deck-controls">
+        <button class="control-btn" id="prevBtn">Prev</button>
+        <button class="control-btn" id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        /* ===========================================
+           SLIDE PRESENTATION CONTROLLER
+           =========================================== */
+        class SlidePresentation {
+            constructor() {
+                this.slides = document.querySelectorAll('.slide');
+                this.currentSlide = 0;
+                this.stage = document.getElementById('deckStage');
+                this.setupStageScale();
+                this.setupKeyboardNav();
+                this.setupTouchNav();
+                this.setupEditor();
+                this.showSlide(0);
+
+                document.getElementById('prevBtn').addEventListener('click', () => this.prevSlide());
+                document.getElementById('nextBtn').addEventListener('click', () => this.nextSlide());
+            }
+
+            setupStageScale() {
+                const scale = () => {
+                    const factor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+                    const x = (window.innerWidth - 1920 * factor) / 2;
+                    const y = (window.innerHeight - 1080 * factor) / 2;
+                    this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
+                };
+                scale();
+                window.addEventListener('resize', scale);
+            }
+
+            setupKeyboardNav() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.getAttribute('contenteditable')) return; // skip when editing
+                    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                        this.nextSlide();
+                    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                        this.prevSlide();
+                    }
+                });
+            }
+
+            setupTouchNav() {
+                let startX = 0;
+                document.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                document.addEventListener('touchend', (e) => {
+                    const diffX = e.changedTouches[0].clientX - startX;
+                    if (diffX < -50) this.nextSlide();
+                    else if (diffX > 50) this.prevSlide();
+                });
+            }
+
+            showSlide(index) {
+                this.currentSlide = Math.max(0, Math.min(index, this.slides.length - 1));
+                this.slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === this.currentSlide);
+                    // Slight delay for animation reveal to trigger properly
+                    setTimeout(() => {
+                        slide.classList.toggle('visible', i === this.currentSlide);
+                    }, 50);
+                });
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.slides.length - 1) {
+                    this.showSlide(this.currentSlide + 1);
+                }
+            }
+
+            prevSlide() {
+                if (this.currentSlide > 0) {
+                    this.showSlide(this.currentSlide - 1);
+                }
+            }
+
+            setupEditor() {
+                const hotzone = document.querySelector('.edit-hotzone');
+                const editToggle = document.getElementById('editToggle');
+                this.isActive = false;
+
+                const toggle = () => {
+                    this.isActive = !this.isActive;
+                    editToggle.classList.toggle('active', this.isActive);
+                    document.querySelectorAll('[contenteditable]').forEach(el => {
+                        el.setAttribute('contenteditable', this.isActive ? 'true' : 'false');
+                    });
+                    if (this.isActive) {
+                        editToggle.innerHTML = '💾';
+                        editToggle.title = 'Save text edits';
+                    } else {
+                        editToggle.innerHTML = '✏️';
+                        editToggle.title = 'Edit mode (E)';
+                        // Save edits to localStorage
+                        const editableData = {};
+                        document.querySelectorAll('[contenteditable]').forEach((el, index) => {
+                            editableData[index] = el.innerHTML;
+                        });
+                        localStorage.setItem('better_future_b2b_pitch_edits', JSON.stringify(editableData));
+                    }
+                };
+
+                // Load saved edits if any
+                const saved = localStorage.getItem('better_future_b2b_pitch_edits');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    document.querySelectorAll('[contenteditable]').forEach((el, index) => {
+                        if (data[index]) el.innerHTML = data[index];
+                    });
+                }
+
+                // JS hover delay setup to prevent mouseout breaking pointer-events
+                let hideTimeout = null;
+                hotzone.addEventListener('mouseenter', () => {
+                    clearTimeout(hideTimeout);
+                    editToggle.classList.add('show');
+                });
+                hotzone.addEventListener('mouseleave', () => {
+                    hideTimeout = setTimeout(() => {
+                        if (!this.isActive) editToggle.classList.remove('show');
+                    }, 400);
+                });
+                editToggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+                editToggle.addEventListener('mouseleave', () => {
+                    hideTimeout = setTimeout(() => {
+                        if (!this.isActive) editToggle.classList.remove('show');
+                    }, 400);
+                });
+
+                editToggle.addEventListener('click', toggle);
+                hotzone.addEventListener('click', toggle);
+                document.addEventListener('keydown', (e) => {
+                    if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+                        toggle();
+                    }
+                });
+            }
+        }
+
+        new SlidePresentation();
+    </script>
+</body>
+</html>
