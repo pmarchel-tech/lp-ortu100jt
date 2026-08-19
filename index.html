@@ -142,23 +142,18 @@
 
         <div class="container hero-content-relative" style="position: relative; z-index: 3; width: 100%;">
             <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-                <!-- Brand Motto (Animated Character Fade) -->
-                <div class="brand-motto-handwritten" style="color: #FCD34D; font-family: var(--font-handwritten); font-size: clamp(1.15rem, 3.2vw, 1.45rem); font-weight: 700; margin-bottom: 8px;">
-                    "Mapping today, Shaping Tomorrow."
-                </div>
-
-                <!-- Massive Stacked Loss-Aversion Headline (Animated Character Fade) -->
-                <h1 class="hero-title-massive" style="font-size: clamp(1.55rem, 4.6vw, 2.6rem); line-height: 1.25; margin-bottom: 16px; text-shadow: 0 4px 16px rgba(0,0,0,0.95);">
-                    Yakin Siap Kehilangan Rp 100 Juta Hanya Karena Anak Salah Jurusan?
+                <!-- Massive Stacked Loss-Aversion Headline (Animated Character Fade - Option 3) -->
+                <h1 class="hero-title-massive" style="font-size: clamp(1.55rem, 4.6vw, 2.6rem); line-height: 1.25; margin-bottom: 18px; text-shadow: 0 4px 16px rgba(0,0,0,0.95);">
+                    Rela Uang Kuliah Rp 100 Juta Hangus Hanya Karena Anak Salah Pilih Jurusan?
                 </h1>
                 
                 <!-- Main CTA Button (Animated Rise From Bottom) -->
-                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20dapatkan%20akses%20tes%20gratis%20untuk%20anak%20saya" class="btn-yellow-pill hero-rise-cta" style="display: inline-block; padding: 13px 26px; font-size: clamp(0.88rem, 2.4vw, 1rem); animation-delay: 1.35s;">
-                    Dapatkan Akses Tes Gratis untuk Anak →
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20tes%20sekarang%20gratis%20untuk%20anak%20saya" class="btn-yellow-pill hero-rise-cta" style="display: inline-block; padding: 14px 28px; font-size: clamp(0.92rem, 2.5vw, 1.05rem); animation-delay: 1.0s;">
+                    Tes Sekarang, Gratis →
                 </a>
 
                 <!-- Operational Micro-copy (Animated Rise From Bottom) -->
-                <div class="cta-operational-microcopy hero-rise-microcopy" style="margin-top: 10px; color: #E2E8F0; font-size: clamp(0.72rem, 1.9vw, 0.82rem); text-shadow: 0 2px 8px rgba(0,0,0,0.95); animation-delay: 1.6s;">
+                <div class="cta-operational-microcopy hero-rise-microcopy" style="margin-top: 10px; color: #E2E8F0; font-size: clamp(0.72rem, 1.9vw, 0.82rem); text-shadow: 0 2px 8px rgba(0,0,0,0.95); animation-delay: 1.25s;">
                     Link kuis otomatis dikirimkan langsung ke nomor WhatsApp anak.
                 </div>
             </div>
@@ -766,21 +761,7 @@
 
         // HERO CHARACTER FADE & RISE ANIMATIONS SCRIPT
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Brand motto character fade
-            const mottoEl = document.querySelector('.brand-motto-handwritten');
-            if (mottoEl) {
-                const text = mottoEl.textContent.trim();
-                mottoEl.innerHTML = '';
-                [...text].forEach((char, i) => {
-                    const span = document.createElement('span');
-                    span.className = 'char-anim';
-                    span.style.animationDelay = (0.08 + i * 0.025) + 's';
-                    span.innerHTML = char === ' ' ? '&nbsp;' : char;
-                    mottoEl.appendChild(span);
-                });
-            }
-
-            // 2. Headline character fade (words wrapped cleanly to prevent line breaks)
+            // Headline character fade (words wrapped cleanly to prevent line breaks)
             const headlineEl = document.querySelector('.hero-title-massive');
             if (headlineEl) {
                 const words = headlineEl.innerText.trim().split(' ');
@@ -793,7 +774,7 @@
                     [...word].forEach((char) => {
                         const span = document.createElement('span');
                         span.className = 'char-anim';
-                        span.style.animationDelay = (0.45 + charIndex * 0.018) + 's';
+                        span.style.animationDelay = (0.12 + charIndex * 0.016) + 's';
                         span.textContent = char;
                         wordSpan.appendChild(span);
                         charIndex++;
