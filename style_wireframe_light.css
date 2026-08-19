@@ -465,34 +465,30 @@ body {
 .btn-select-class {
   width: 100%;
   white-space: nowrap;
-  background: #F8FAFC;
-  border: 1.5px solid #E2E8F0;
-  color: #334155;
-  padding: 11px 4px;
+  background: transparent;
+  border: none;
+  color: #475569;
+  padding: 10px 4px;
   border-radius: var(--radius-pill);
-  font-size: clamp(0.74rem, 2.2vw, 0.9rem);
+  font-size: clamp(0.74rem, 2.2vw, 0.88rem);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-align: center;
   min-width: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
 }
 
 .btn-select-class:hover {
   color: #0F172A;
-  background: #F1F5F9;
-  border-color: #CBD5E1;
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .btn-select-class.active {
   background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   color: #FFFFFF !important;
-  border: 1.5px solid #F59E0B;
-  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.4);
+  border: none;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.45);
   font-weight: 800;
-  transform: translateY(-2px) scale(1.02);
 }
 
 .class-segment-card.highlight-selected {
