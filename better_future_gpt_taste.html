@@ -6,562 +6,808 @@
     <title>Better Future (ISCA) — Pemetaan Bakat 19-Faktor & Solusi Kedamaian Diskusi Keluarga</title>
     <meta name="description" content="Bantu anak menemukan jurusan kuliah terbaik secara ilmiah. Supervisi Psikolog Lisensi HIMPSI, 100% online dari HP.">
     
-    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            dark: '#0F172A',
-                            slate: '#1E293B',
-                            cream: '#FAF8F5',
-                            softBorder: '#E2E8F0',
-                            accent: '#D97706',
-                            goldLight: '#FEF3C7',
-                            emerald: '#059669',
-                            emeraldHover: '#047857',
-                            danger: '#DC2626',
-                            warmGray: '#64748B'
-                        }
+                        ink:     '#0F172A',
+                        slate2:  '#1E293B',
+                        cream:   '#FAF8F5',
+                        border:  '#E2E8F0',
+                        gold:    '#D97706',
+                        goldBg:  '#FEF3C7',
+                        teal:    '#059669',
+                        tealHov: '#047857',
+                        red2:    '#DC2626',
+                        muted:   '#64748B'
                     },
                     fontFamily: {
-                        heading: ['Outfit', 'sans-serif'],
+                        head: ['Outfit', 'sans-serif'],
                         body: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    
-    <!-- GSAP & ScrollTrigger CDN -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        /* TASTE-SKILL & SOFT-SKILL: Soft Warmth, True Refraction Glass, Tactile Feedback */
-        .soft-glass-card {
-            background: rgba(255, 255, 255, 0.85);
+        /* ============================================================
+           TASTE-SKILL DIRECTIVES (design-taste-frontend)
+           DESIGN_VARIANCE: 8 | MOTION_INTENSITY: 6 | VISUAL_DENSITY: 4
+           ============================================================ */
+
+        /* 1. ANTI-CENTER BIAS: Hero uses asymmetric grid, never centered column */
+        /* 2. TYPOGRAPHY: Outfit heads (NO Inter), tracking-tight, never 4+ lines */
+        /* 3. LILA BAN: Zero purple neon. Singular accent: Gold #D97706 + Teal CTA */
+        /* 4. LIQUID GLASS REFRACTION: inset 1px border + diffusion shadow */
+        /* 5. ZERO EMOJI POLICY: SVG only */
+        /* 6. VIEWPORT STABILITY: min-h-[100dvh] always */
+        /* 7. TACTILE FEEDBACK: scale(0.98) translateY(1px) on :active */
+
+        .glass {
+            background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.95),
+                0 20px 40px -12px rgba(15,23,42,0.06);
         }
-        
-        .dark-glass-card {
-            background: rgba(30, 41, 59, 0.75);
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.72);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 20px 40px -15px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255,255,255,0.11);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.12),
+                0 20px 40px -12px rgba(0,0,0,0.4);
         }
 
-        .emerald-glow {
-            box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.25);
+        /* CTA: teal glow + tactile push */
+        .cta-primary {
+            background: #059669;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            border-radius: 1rem;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 10px 25px -5px rgba(5,150,105,0.28);
+            transition: background 0.2s cubic-bezier(0.16,1,0.3,1),
+                        transform 0.2s cubic-bezier(0.16,1,0.3,1);
+        }
+        .cta-primary:hover { background: #047857; }
+        .cta-primary:active { transform: scale(0.98) translateY(1px); }
+
+        .cta-ghost {
+            background: rgba(255,255,255,0.85);
+            color: #1E293B;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            border: 1px solid #E2E8F0;
+            border-radius: 1rem;
+            padding: 1rem 1.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .cta-ghost:hover { background: #fff; }
+        .cta-ghost:active { transform: scale(0.98) translateY(1px); }
+
+        /* HERO: full bleed video/image with dark gradient */
+        .hero-media-wrap {
+            position: relative;
+            border-radius: 2.25rem;
+            overflow: hidden;
+            aspect-ratio: 9/14;      /* portrait — feels like phone camera footage */
+            box-shadow: 0 32px 64px -20px rgba(15,23,42,0.22);
         }
 
-        /* Tactile Push Mechanics */
-        .btn-tactile {
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        @media (min-width: 640px) {
+            .hero-media-wrap { aspect-ratio: 3/4; }
         }
 
-        .btn-tactile:active {
-            transform: scale(0.98) translateY(1px);
+        @media (min-width: 1024px) {
+            .hero-media-wrap { aspect-ratio: 4/5; height: 100%; }
         }
 
-        /* Accordion Smooth Transitions */
-        .faq-answer {
+        .hero-media-wrap video,
+        .hero-media-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+        }
+
+        /* Dark cinematic fade at the bottom of media */
+        .hero-media-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(15,23,42,0) 30%,
+                rgba(15,23,42,0.65) 100%
+            );
+        }
+
+        /* Overlay caption inside media */
+        .media-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            padding: 1.5rem;
+        }
+
+        /* Pain point bento */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            grid-auto-flow: dense;
+        }
+
+        @media (min-width: 768px) {
+            .bento-grid { grid-template-columns: repeat(3, 1fr); }
+            .bento-wide  { grid-column: span 2; }
+            .bento-tall  { grid-row: span 2; }
+        }
+
+        /* Accordion */
+        .faq-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease-out;
+            transition: max-height 0.32s cubic-bezier(0.16,1,0.3,1);
+        }
+        .faq-body.open { max-height: 280px; }
+        .faq-chevron  { transition: transform 0.25s ease; }
+        .faq-chevron.open { transform: rotate(180deg); }
+
+        /* Radar chart SVG inside solution section */
+        .radar-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .faq-answer.open {
-            max-height: 300px;
-            padding-top: 12px;
+        /* Shimmer on the preview card badge */
+        @keyframes shimmer {
+            0%   { background-position: -200% center; }
+            100% { background-position:  200% center; }
+        }
+        .badge-shimmer {
+            background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 40%, #FEF3C7 80%);
+            background-size: 200% auto;
+            animation: shimmer 2.5s linear infinite;
         }
     </style>
 </head>
-<body class="bg-[#FAF8F5] text-brand-slate font-body overflow-x-hidden antialiased">
+<body class="bg-cream text-slate2 font-body overflow-x-hidden antialiased">
 
-    <!-- 1. NAVBAR PERSISTEN -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-slate-200/80 py-3.5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-            <a href="#" class="font-heading font-extrabold text-xl sm:text-2xl text-brand-dark tracking-tight">
-                better<span class="text-brand-accent">future</span>
+<!-- ============================================================
+     NAVBAR  — sticky, frosted, no meta labels
+     ============================================================ -->
+<nav class="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-cream/90 backdrop-blur-md py-3.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+
+        <a href="#" class="font-head font-extrabold text-xl tracking-tight text-ink">
+            better<span class="text-gold">future</span>
+        </a>
+
+        <div class="flex items-center gap-3">
+            <span class="hidden sm:block text-xs text-muted font-semibold">Supervisi Dr. Teguh Lesmana · HIMPSI</span>
+            <a href="https://wa.me/628123456789?text=Halo%20Better%20Future" class="cta-primary text-sm py-2.5 px-5 rounded-full">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                <span>Konsultasi Gratis</span>
             </a>
-            
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20konsultasi%20tes%20bakat%20anak" class="btn-tactile inline-flex items-center gap-2 bg-brand-emerald hover:bg-brand-emeraldHover text-white px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm emerald-glow">
-                    <span>Konsultasi Gratis via WA</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO — ASYMMETRIC SPLIT SCREEN (Taste-Skill Rule 3)
+     Left 55%: copy + CTA  |  Right 45%: video/image of target audience
+     ============================================================ -->
+<section class="relative min-h-[100dvh] pt-24 pb-16 md:pt-32 md:pb-24 flex items-center overflow-hidden">
+
+    <!-- Ambient background blobs — fixed to pseudo to avoid GPU repaint on scroll -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-1/4 left-0 w-[560px] h-[560px] bg-amber-200/30 rounded-full blur-[130px]"></div>
+        <div class="absolute bottom-10 right-0 w-[380px] h-[380px] bg-emerald-200/20 rounded-full blur-[110px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+        <!-- LEFT: Text Column (55%) -->
+        <div class="lg:col-span-7 order-2 lg:order-1 hero-copy">
+
+            <!-- Eyebrow -->
+            <div class="inline-flex items-center gap-2 bg-amber-100/90 border border-amber-300/70 text-gold px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider mb-6">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <span>Pendampingan Ilmiah Keluarga Indonesia</span>
+            </div>
+
+            <!-- H1 — max-w-3xl guarantees 2–3 lines (Taste Rule 2) -->
+            <h1 class="font-head font-black text-3xl sm:text-5xl lg:text-[3.4rem] text-ink tracking-tighter leading-[1.1] mb-6 max-w-2xl">
+                Saat Lebaran Tiba, Siapkah Anda Menjawab:
+                <span class="text-red2 underline decoration-red-300/50 underline-offset-8 decoration-[3px]">"Anakmu Kuliah di Mana & Jurusan Apa?"</span>
+            </h1>
+
+            <!-- Subheadline — body font, max 65ch -->
+            <p class="text-base sm:text-lg text-muted leading-relaxed mb-8 max-w-xl">
+                Jangan biarkan anak bingung mati gaya dan jadi bahan bisik-bisik tetangga akibat salah pilih jurusan. Petakan 19 potensi otak & arah karir ilmiah anak dalam 20 menit dari HP — supaya keluarga tenang, bangga, dan mantap menjawab kerabat.
+            </p>
+
+            <!-- Dual CTAs — clear contrast, no invisible text -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-10">
+                <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20bakat%20anak" class="cta-primary text-base">
+                    <span>Mulai Tes Bakat Anak — 20 Menit</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+                <a href="#solusi" class="cta-ghost text-sm">
+                    <span>Lihat Solusi 19-Faktor</span>
+                    <svg class="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </a>
             </div>
+
+            <!-- Trust strip — proof at resistance point (copywriting-psychologist directive) -->
+            <div class="flex flex-wrap gap-5 text-xs sm:text-sm font-semibold text-muted">
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    Psikolog Lisensi HIMPSI
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    100% Online via HP
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    Garansi 14 Hari
+                </span>
+            </div>
+
         </div>
-    </nav>
 
-    <main class="w-full max-w-full overflow-x-hidden">
+        <!-- RIGHT: Target Audience Visual (45%) -->
+        <div class="lg:col-span-5 order-1 lg:order-2 hero-media">
 
-        <!-- 2. HERO SECTION (SOFT-SKILL + TASTE-SKILL: ASYMMETRIC SPLIT SCREEN 60/40, SOFT WARMTH, ZERO EMOJIS) -->
-        <section class="relative min-h-[100dvh] pt-28 pb-16 md:pt-36 md:pb-24 flex items-center overflow-hidden">
-            <!-- Background Ambient Glow Blobs -->
-            <div class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-200/30 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-            <div class="absolute bottom-10 right-10 w-[450px] h-[450px] bg-emerald-200/20 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center hero-anim">
-                
-                <!-- Left Column (60%): Text Content & Low-Friction CTAs -->
-                <div class="lg:col-span-7 text-left">
-                    
-                    <!-- Soft Eyebrow Badge -->
-                    <div class="inline-flex items-center gap-2 bg-amber-100/90 border border-amber-300/80 text-brand-accent px-4 py-1.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wide mb-6">
-                        <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                        <span>Pendampingan Kedamaian Diskusi Ortu & Anak</span>
-                    </div>
+            <div class="hero-media-wrap">
+                <!-- Short cinematic video representing target audience: stressed Indonesian parent -->
+                <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    poster="stressed_parent_college.jpg"
+                    class="w-full h-full object-cover object-center"
+                    style="object-position: center 15%;"
+                >
+                    <source src="headache_woman.mp4" type="video/mp4">
+                    <!-- Fallback image if video doesn't load -->
+                    <img src="stressed_parent_college.jpg" alt="Orang tua cemas menghadapi tekanan sosial tentang masa depan kuliah anak" class="w-full h-full object-cover">
+                </video>
 
-                    <!-- Asymmetric Left-Aligned H1 (2-3 Lines Max Height) -->
-                    <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-brand-dark tracking-tighter leading-[1.12] mb-6">
-                        Saat Kumpul Keluarga Nanti, Siapkah Anda Menjawab: <span class="text-brand-danger underline decoration-brand-danger/30 underline-offset-8">"Anakmu Kuliah di Mana & Jurusan Apa?"</span>
-                    </h1>
-
-                    <!-- Soft Empathy Subheadline -->
-                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed mb-8">
-                        Jangan biarkan anak bingung mati gaya dan jadi bahan bisik-bisik tetangga akibat salah pilih jurusan. Petakan 19 potensi otak & arah karir ilmiah anak dalam 20 menit dari HP dengan tenang dan damai.
-                    </p>
-
-                    <!-- Dual CTAs (Autonomy-Preserving Low-Friction Step) -->
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
-                        <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20ingin%20mulai%20tes%20bakat%20anak" class="btn-tactile inline-flex items-center justify-center gap-3 bg-brand-emerald hover:bg-brand-emeraldHover text-white px-8 py-4 rounded-2xl font-extrabold text-base emerald-glow">
-                            <span>Mulai Tes Bakat Anak (20 Menit)</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                        </a>
-                        <a href="#solusi" class="btn-tactile inline-flex items-center justify-center gap-2 bg-white/80 hover:bg-white text-slate-700 border border-slate-300 px-6 py-4 rounded-2xl font-bold text-base shadow-sm">
-                            <span>Lihat Solusi 19-Faktor</span>
-                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </a>
-                    </div>
-
-                    <!-- Trust & Proof Density Placement -->
-                    <div class="flex flex-wrap items-center gap-6 text-xs sm:text-sm font-semibold text-slate-600">
-                        <div class="flex items-center gap-2">
-                            <svg class="w-4.5 h-4.5 text-brand-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                            <span>Dr. Teguh Lesmana, M.Psi., Psi. (HIMPSI)</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <svg class="w-4.5 h-4.5 text-brand-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                            <span>100% Online via HP</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <svg class="w-4.5 h-4.5 text-brand-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                            <span>Garansi 14 Hari Kedamaian</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Right Column (40%): Refracted Soft Glass Card Showcase -->
-                <div class="lg:col-span-5">
-                    <div class="soft-glass-card rounded-[2.5rem] p-6 sm:p-8 relative border-amber-200/80 shadow-2xl">
-                        <!-- Top Pill Header -->
-                        <div class="flex items-center justify-between border-b border-slate-200/80 pb-4 mb-6">
-                            <div class="flex items-center gap-2">
-                                <span class="w-3 h-3 bg-emerald-500 rounded-full animate-ping"></span>
-                                <span class="font-extrabold text-xs tracking-wider uppercase text-brand-dark">Peta Bakat 19-Faktor</span>
-                            </div>
-                            <span class="text-xs font-bold text-brand-accent bg-amber-100 px-3 py-1 rounded-full">Akurasi 92.7%</span>
-                        </div>
-
-                        <!-- Card Sample Content -->
-                        <div class="space-y-4 text-left">
-                            <div class="bg-white/90 p-4 rounded-2xl border border-slate-200/60 shadow-sm">
-                                <div class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">Status Kognitif & Minat Bawaan</div>
-                                <div class="font-heading font-extrabold text-slate-800 text-base sm:text-lg">Analytical - Investigative (RIASEC)</div>
-                            </div>
-
-                            <div class="bg-emerald-50/90 p-4 rounded-2xl border border-emerald-200/80 shadow-sm">
-                                <div class="text-xs text-emerald-700 font-bold uppercase tracking-wider mb-1">Top 3 Rekomendasi Jurusan</div>
-                                <div class="font-bold text-slate-800 text-sm">1. Data Science & AI Engineering</div>
-                                <div class="font-bold text-slate-800 text-sm">2. Software Engineering</div>
-                                <div class="font-bold text-slate-800 text-sm">3. Cyber Security</div>
-                            </div>
-
-                            <div class="bg-amber-50/90 p-4 rounded-2xl border border-amber-200/80 flex items-center gap-3">
-                                <svg class="w-8 h-8 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                <div class="text-xs text-slate-700 font-medium">
-                                    Memberikan kepastian & data ilmiah objektif saat menjawab pertanyaan kumpul keluarga besar.
-                                </div>
-                            </div>
-                        </div>
-
+                <!-- Cinematic caption overlay at bottom of video -->
+                <div class="media-caption">
+                    <div class="glass rounded-2xl px-4 py-3 inline-block max-w-xs">
+                        <p class="text-xs font-bold text-ink leading-tight">
+                            "Anakmu kuliah di mana? Jurusan apa?"
+                        </p>
+                        <p class="text-xs text-muted mt-0.5">Pertanyaan yang membuat 1 dari 3 orang tua Indonesia cemas setiap momen kumpul keluarga.</p>
                     </div>
                 </div>
-
             </div>
-        </section>
+
+        </div>
+
+    </div>
+</section>
 
 
-        <!-- 3. INTEREST (GAPLESS BENTO 2.0 GRID FOR SOCIAL PRESSURE PAIN POINTS) -->
-        <section class="py-24 bg-white border-y border-slate-200/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                
-                <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
-                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent bg-amber-100/70 px-3.5 py-1 rounded-full border border-amber-200">Kecemasan Sosial Orang Tua</span>
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-brand-dark mt-4 tracking-tight">
-                        Pernahkah Anda Membayangkan Skenario Canggung Ini Terjadi?
-                    </h2>
+<!-- ============================================================
+     PAIN POINTS — Gapless Bento 2.0 (Taste Rule 4)
+     4 cards: 2+1 / 1+2 pattern — zero empty cells
+     ============================================================ -->
+<section class="py-24 bg-white border-y border-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center max-w-2xl mx-auto mb-14 gsap-reveal">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-gold bg-amber-100/70 border border-amber-200 px-3.5 py-1 rounded-full mb-4">Kecemasan Sosial Orang Tua</span>
+            <h2 class="font-head font-extrabold text-2xl sm:text-4xl text-ink tracking-tight">
+                Pernahkah Skenario Canggung Ini Terjadi pada Keluarga Anda?
+            </h2>
+        </div>
+
+        <div class="bento-grid gsap-bento">
+
+            <!-- Card 1 — wide (2 cols) -->
+            <div class="bento-wide glass rounded-[2.25rem] p-8 hover:border-amber-400/50 transition-colors duration-200">
+                <div class="w-11 h-11 bg-amber-100 text-gold rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                 </div>
-
-                <!-- Bento Grid (grid-flow-dense, 0 gaps) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 grid-flow-dense gsap-bento">
-                    
-                    <!-- Card 1 (Span 2) -->
-                    <div class="md:col-span-2 soft-glass-card rounded-[2.5rem] p-8 transition-all duration-300 hover:border-amber-400/60 text-left">
-                        <div class="w-12 h-12 bg-amber-100 text-brand-accent rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-brand-dark mb-3">Mati Gaya saat Kumpul Keluarga</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Saat kerabat asyik memamerkan jurusan & kampus ternama anak mereka di acara Lebaran/Arisan, anak Anda cuma bisa menunduk dan nyengir bingung karena belum punya tujuan kuliah pasti.
-                        </p>
-                    </div>
-
-                    <!-- Card 2 (Span 1) -->
-                    <div class="md:col-span-1 soft-glass-card rounded-[2.5rem] p-8 transition-all duration-300 hover:border-amber-400/60 text-left">
-                        <div class="w-12 h-12 bg-red-100 text-brand-danger rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-brand-dark mb-3">Bisik-Bisik Tetangga</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Mendengar cerita anak tetangga yang drop out di semester 3 karena tidak kuat salah jurusan. Uang UKT Rp 80 Juta lenyap, dan orang tuanya malu keluar rumah.
-                        </p>
-                    </div>
-
-                    <!-- Card 3 (Span 1) -->
-                    <div class="md:col-span-1 soft-glass-card rounded-[2.5rem] p-8 transition-all duration-300 hover:border-amber-400/60 text-left">
-                        <div class="w-12 h-12 bg-amber-100 text-brand-accent rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-brand-dark mb-3">Perang Gengsi Ortu vs Bakat</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Anda ingin anak masuk Kedokteran/Hukum demi gengsi keluarga, tapi anak mogok belajar karena merasa tidak cocok dengan cara kerja otaknya.
-                        </p>
-                    </div>
-
-                    <!-- Card 4 (Span 2) -->
-                    <div class="md:col-span-2 soft-glass-card rounded-[2.5rem] p-8 transition-all duration-300 hover:border-amber-400/60 text-left">
-                        <div class="w-12 h-12 bg-slate-100 text-brand-slate rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-brand-dark mb-3">Gelar Sarjana Tapi Nganggur</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Kuliah 4 tahun habis biaya ratusan juta, tapi pas lulus bingung mau kerja apa karena jurusan yang diambil tidak sesuai bakat bawaan & kebutuhan industri modern.
-                        </p>
-                    </div>
-
-                </div>
-
+                <h3 class="font-head font-bold text-xl text-ink mb-3">Mati Gaya saat Kumpul Lebaran & Arisan</h3>
+                <p class="text-muted text-sm leading-relaxed">Kerabat asyik memamerkan jurusan & kampus favorit anak mereka. Giliran Anda ditanya, anak Anda cuma bisa menunduk dan nyengir bingung karena belum punya arah kuliah yang jelas.</p>
             </div>
-        </section>
 
-
-        <!-- 4. AGITATION (BIAYA MAHAL KELALAIAN ORTU - DARK CINEMATIC SECTION) -->
-        <section class="py-24 bg-brand-dark text-white relative overflow-hidden">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center gsap-reveal">
-                
-                <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-amber-400 max-w-3xl mx-auto mb-6 tracking-tight">
-                    Kerugian Salah Jurusan Bukan Cuma Soal Uang... Tapi Soal Harga Diri Keluarga!
-                </h2>
-                <p class="text-slate-300 text-base max-w-2xl mx-auto mb-12 leading-relaxed">
-                    Membiarkan anak memilih jurusan secara ikut-ikutan atau tebak-tebakan memiliki dampak berantai yang sangat mahal:
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                    <div class="dark-glass-card rounded-[2rem] p-6">
-                        <div class="text-red-400 font-extrabold text-lg mb-2">Kerugian Rp 100 Juta+</div>
-                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            Biaya UKT, pangkal, dan hidup 4 tahun hangus sia-sia jika anak harus mengulang dari semester awal.
-                        </p>
-                    </div>
-                    <div class="dark-glass-card rounded-[2rem] p-6">
-                        <div class="text-amber-400 font-extrabold text-lg mb-2">Rugi 2-4 Tahun Masa Emas</div>
-                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            Anak stres & depresi akademik menempuh mata kuliah yang dibencinya dan membikin burnout.
-                        </p>
-                    </div>
-                    <div class="dark-glass-card rounded-[2rem] p-6">
-                        <div class="text-red-400 font-extrabold text-lg mb-2">Konflik Rumah Tangga</div>
-                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            Perdebatan harian ortu vs anak yang merusak kedamaian rumah dan saling menyalahkan.
-                        </p>
-                    </div>
+            <!-- Card 2 — single col -->
+            <div class="glass rounded-[2.25rem] p-8 hover:border-red-300/50 transition-colors duration-200">
+                <div class="w-11 h-11 bg-red-100 text-red2 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
                 </div>
-
+                <h3 class="font-head font-bold text-xl text-ink mb-3">Bisik-Bisik Tetangga Sebelah</h3>
+                <p class="text-muted text-sm leading-relaxed">Anak tetangga drop out semester 3. Uang UKT Rp 80 Juta lenyap, dan orang tuanya malu keluar rumah. Anda takut hal yang sama menimpa keluarga Anda.</p>
             </div>
-        </section>
 
-
-        <!-- 5. TRANSFORMATION & 19-FACTOR SOLUTION -->
-        <section id="solusi" class="py-24 bg-[#FAF8F5]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                
-                <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
-                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-emerald bg-emerald-100/70 px-3.5 py-1 rounded-full border border-emerald-200">Solusi Ilmiah Better Future (ISCA)</span>
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-brand-dark mt-4 tracking-tight">
-                        Ubah Cemas Jadi Kebanggaan. Berikan Anak "Peta Karir Ilmiah 19-Faktor"!
-                    </h2>
-                    <p class="text-slate-600 text-base mt-4">
-                        Dengan 5 metodologi psikologi terintegrasi (RIASEC, MBTI, DISC, 16PF, VAK) di bawah supervisi <strong>Dr. Teguh Lesmana, M.Psi., Psi.</strong>, anak Anda tidak lagi menebak-nebak.
-                    </p>
+            <!-- Card 3 — single col -->
+            <div class="glass rounded-[2.25rem] p-8 hover:border-amber-400/50 transition-colors duration-200">
+                <div class="w-11 h-11 bg-amber-100 text-gold rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 gsap-reveal text-left">
-                    
-                    <div class="soft-glass-card rounded-[2.5rem] p-8 border-t-4 border-t-brand-accent">
-                        <div class="w-10 h-10 bg-amber-100 text-brand-accent rounded-xl flex items-center justify-center font-black text-lg mb-6">1</div>
-                        <h3 class="font-heading font-bold text-lg text-brand-dark mb-3">Laporan PDF 19 Halaman Siap Cetak</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Pemetaan komprehensif kepribadian, gaya belajar VAK, dan Top 5 Rekomendasi Jurusan yang paling pas dengan potensi kognitif bawaan anak.
-                        </p>
-                    </div>
-
-                    <div class="soft-glass-card rounded-[2.5rem] p-8 border-t-4 border-t-brand-emerald">
-                        <div class="w-10 h-10 bg-emerald-100 text-brand-emerald rounded-xl flex items-center justify-center font-black text-lg mb-6">2</div>
-                        <h3 class="font-heading font-bold text-lg text-brand-dark mb-3">Draf Panduan Diplomasi Ortu-Anak</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Naskah komunikasi siap pakai agar orang tua dan anak bisa berdiskusi secara damai, rasional, dan ilmiah tanpa debat emosi/gengsi.
-                        </p>
-                    </div>
-
-                    <div class="soft-glass-card rounded-[2.5rem] p-8 border-t-4 border-t-brand-slate">
-                        <div class="w-10 h-10 bg-slate-100 text-brand-slate rounded-xl flex items-center justify-center font-black text-lg mb-6">3</div>
-                        <h3 class="font-heading font-bold text-lg text-brand-dark mb-3">Jawaban Pede saat Kumpul Keluarga</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Anak dan orang tua punya pegangan data objektif untuk menjawab setiap pertanyaan kerabat dengan mantap dan membanggakan.
-                        </p>
-                    </div>
-
-                </div>
-
+                <h3 class="font-head font-bold text-xl text-ink mb-3">Perang Gengsi Ortu vs Bakat Anak</h3>
+                <p class="text-muted text-sm leading-relaxed">Anda ingin anak masuk Kedokteran/Hukum, tapi anak mogok belajar karena merasa tidak cocok. Rumah jadi medan debat tanpa akhir setiap malam.</p>
             </div>
-        </section>
+
+            <!-- Card 4 — wide (2 cols) -->
+            <div class="bento-wide glass rounded-[2.25rem] p-8 hover:border-slate-300/60 transition-colors duration-200">
+                <div class="w-11 h-11 bg-slate-100 text-slate2 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                </div>
+                <h3 class="font-head font-bold text-xl text-ink mb-3">Gelar Sarjana Tapi Nganggur / Kerja Serabutan</h3>
+                <p class="text-muted text-sm leading-relaxed">4 tahun kuliah, ratusan juta habis — tapi pas lulus bingung mau kerja apa karena jurusan tidak sesuai bakat bawaan & kebutuhan industri modern. Investasi pendidikan menjadi kerugian.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 
-        <!-- 6. AI COUNSELOR 24/7 WHATSAPP DEMO -->
-        <section class="py-16 bg-white border-t border-slate-200/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                
-                <!-- Simulated WhatsApp Card -->
-                <div class="bg-[#075E54] rounded-[2.5rem] p-6 sm:p-8 text-white shadow-2xl overflow-hidden gsap-reveal text-left">
-                    <div class="flex items-center gap-3 border-b border-white/20 pb-4 mb-6">
-                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold">BF</div>
+<!-- ============================================================
+     AGITATION — Dark Section (Loss Aversion)
+     ============================================================ -->
+<section class="py-24 bg-ink text-white relative overflow-hidden gsap-reveal">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="font-head font-extrabold text-2xl sm:text-4xl text-amber-400 max-w-3xl mx-auto mb-5 tracking-tight">
+            Kerugian Salah Jurusan Bukan Cuma Soal Uang — Tapi Soal Harga Diri Keluarga
+        </h2>
+        <p class="text-slate-300 text-base max-w-xl mx-auto mb-12 leading-relaxed">
+            Membiarkan anak memilih jurusan tanpa peta ilmiah punya dampak berantai yang jauh lebih mahal dari yang Anda bayangkan:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+            <div class="glass-dark rounded-[1.75rem] p-6">
+                <p class="text-red-400 font-extrabold text-base mb-2">Kerugian Finansial Rp 100 Juta+</p>
+                <p class="text-slate-300 text-sm leading-relaxed">UKT, uang pangkal, kos, dan biaya hidup 4 tahun hangus jika anak harus mengulang dari semester satu.</p>
+            </div>
+            <div class="glass-dark rounded-[1.75rem] p-6">
+                <p class="text-amber-400 font-extrabold text-base mb-2">Rugi 2–4 Tahun Masa Emas</p>
+                <p class="text-slate-300 text-sm leading-relaxed">Anak stres & depresi akademik menempuh mata kuliah yang dibenci — merusak kepercayaan diri seumur hidup.</p>
+            </div>
+            <div class="glass-dark rounded-[1.75rem] p-6">
+                <p class="text-red-400 font-extrabold text-base mb-2">Konflik & Keretakan Keluarga</p>
+                <p class="text-slate-300 text-sm leading-relaxed">Debat harian ortu vs anak yang menguras energi emosional dan merusak kedamaian rumah tangga.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SOLUTION — 19-Factor Map + Radar Chart SVG
+     ============================================================ -->
+<section id="solusi" class="py-24 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-teal bg-emerald-100/70 border border-emerald-200 px-3.5 py-1 rounded-full mb-4">Solusi Ilmiah Better Future (ISCA)</span>
+            <h2 class="font-head font-extrabold text-2xl sm:text-4xl text-ink tracking-tight">
+                Ubah Cemas Jadi Kebanggaan — Berikan Anak Peta Karir Ilmiah 19-Faktor
+            </h2>
+            <p class="text-muted text-base mt-4 leading-relaxed max-w-2xl mx-auto">
+                5 instrumen psikologi terintegrasi (RIASEC · MBTI · DISC · 16PF · VAK) di bawah supervisi <strong class="text-ink">Dr. Teguh Lesmana, M.Psi., Psi.</strong> menghasilkan peta karir ilmiah yang tidak bisa diperdebatkan.
+            </p>
+        </div>
+
+        <!-- Asymmetric Solution Layout: Radar left, Features right -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center gsap-reveal">
+
+            <!-- Radar Chart SVG Mockup -->
+            <div class="lg:col-span-5 radar-container">
+                <div class="glass rounded-[2.25rem] p-8 w-full max-w-sm mx-auto">
+                    <p class="text-xs font-extrabold uppercase tracking-widest text-muted mb-4 text-center">Profil Bakat 19-Faktor Ananda</p>
+                    <svg viewBox="0 0 300 300" class="w-full max-w-xs mx-auto" aria-label="Radar chart pemetaan bakat 19 faktor Better Future">
+                        <!-- Pentagon grid lines -->
+                        <g stroke="#E2E8F0" stroke-width="1" fill="none">
+                            <polygon points="150,30 250,105 215,215 85,215 50,105"/>
+                            <polygon points="150,62 222,118 196,198 104,198 78,118"/>
+                            <polygon points="150,94 194,131 177,181 123,181 106,131"/>
+                            <polygon points="150,126 166,144 158,164 142,164 134,144"/>
+                        </g>
+                        <!-- Axis lines -->
+                        <g stroke="#E2E8F0" stroke-width="1">
+                            <line x1="150" y1="30" x2="150" y2="215"/>
+                            <line x1="150" y1="30" x2="250" y2="105"/>
+                            <line x1="150" y1="30" x2="215" y2="215"/>
+                            <line x1="150" y1="30" x2="85" y2="215"/>
+                            <line x1="150" y1="30" x2="50" y2="105"/>
+                        </g>
+                        <!-- Filled data polygon — representing student's score -->
+                        <polygon
+                            points="150,48 236,110 200,205 100,205 64,110"
+                            fill="rgba(5,150,105,0.18)"
+                            stroke="#059669"
+                            stroke-width="2"
+                            stroke-linejoin="round"
+                        />
+                        <!-- Data points -->
+                        <g fill="#059669">
+                            <circle cx="150" cy="48" r="4"/>
+                            <circle cx="236" cy="110" r="4"/>
+                            <circle cx="200" cy="205" r="4"/>
+                            <circle cx="100" cy="205" r="4"/>
+                            <circle cx="64" cy="110" r="4"/>
+                        </g>
+                        <!-- Labels -->
+                        <g font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">
+                            <text x="150" y="20">RIASEC</text>
+                            <text x="265" y="110">MBTI</text>
+                            <text x="222" y="228">DISC</text>
+                            <text x="78" y="228">16PF</text>
+                            <text x="35" y="110">VAK</text>
+                        </g>
+                    </svg>
+                    <!-- Accuracy badge -->
+                    <div class="mt-5 badge-shimmer rounded-xl px-4 py-2 text-center">
+                        <p class="text-xs font-extrabold text-amber-800">Akurasi Tervalidasi 92.7% · Lisensi HIMPSI</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Feature pillars -->
+            <div class="lg:col-span-7 space-y-5">
+
+                <div class="glass rounded-[2rem] p-7 border-l-4 border-l-gold">
+                    <div class="flex items-start gap-5">
+                        <div class="w-10 h-10 bg-amber-100 text-gold rounded-xl flex items-center justify-center font-head font-black text-base flex-shrink-0">1</div>
                         <div>
-                            <div class="font-bold text-sm">AI Career Counselor 24/7 Better Future</div>
-                            <div class="text-xs text-emerald-200">Online • Supervisi HIMPSI</div>
+                            <h3 class="font-head font-bold text-lg text-ink mb-2">Laporan PDF 19 Halaman Siap Cetak</h3>
+                            <p class="text-muted text-sm leading-relaxed">Pemetaan komprehensif kepribadian, gaya belajar VAK, dan Top 5 Rekomendasi Jurusan yang paling pas dengan potensi kognitif bawaan anak — data konkret untuk menjawab setiap pertanyaan kerabat.</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="space-y-4 text-xs sm:text-sm">
-                        <div class="bg-white text-slate-800 p-4 rounded-2xl rounded-tl-none max-w-[85%] shadow-md">
-                            Bunda, hasil tes bakat Ananda menunjukkan tipe kognitif Analytical-Investigative dengan akurasi 94%. Top 3 jurusannya: Data Science, Software Engineering, & Cyber Security.
+                <div class="glass rounded-[2rem] p-7 border-l-4 border-l-teal">
+                    <div class="flex items-start gap-5">
+                        <div class="w-10 h-10 bg-emerald-100 text-teal rounded-xl flex items-center justify-center font-head font-black text-base flex-shrink-0">2</div>
+                        <div>
+                            <h3 class="font-head font-bold text-lg text-ink mb-2">Draf Panduan Diplomasi Ortu-Anak</h3>
+                            <p class="text-muted text-sm leading-relaxed">Naskah komunikasi siap pakai agar diskusi jurusan berjalan damai, rasional, dan tanpa debat emosi — mengubah perdebatan menjadi keputusan keluarga bersama.</p>
                         </div>
-                        <div class="bg-[#DCF8C6] text-slate-900 p-4 rounded-2xl rounded-tr-none max-w-[85%] ml-auto shadow-md">
-                            Wah lega banget! Pas kumpul keluarga kemarin sepupu sempat nanya-nanya, sekarang kami punya laporan ilmiahnya. Makasih Better Future!
+                    </div>
+                </div>
+
+                <div class="glass rounded-[2rem] p-7 border-l-4 border-l-slate-300">
+                    <div class="flex items-start gap-5">
+                        <div class="w-10 h-10 bg-slate-100 text-slate2 rounded-xl flex items-center justify-center font-head font-black text-base flex-shrink-0">3</div>
+                        <div>
+                            <h3 class="font-head font-bold text-lg text-ink mb-2">Jawaban Pede & Berkelas saat Kumpul Keluarga</h3>
+                            <p class="text-muted text-sm leading-relaxed">Anak dan orang tua punya pegangan data ilmiah yang tidak dapat dibantah. Tidak lagi mati gaya saat ditanya kerabat — malah jadi buah bibir positif di keluarga besar.</p>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </section>
 
-
-        <!-- 7. TESTIMONIALS (SOCIAL PROOF KEHORMATAN KELUARGA) -->
-        <section class="py-24 bg-[#FAF8F5]">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6">
-                
-                <div class="text-center max-w-2xl mx-auto mb-16 gsap-reveal">
-                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-accent bg-amber-100/70 px-3.5 py-1 rounded-full border border-amber-200">Kisah Kehormatan Keluarga</span>
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-brand-dark mt-4 tracking-tight">
-                        Kini Mereka Pede & Tenang Menjawab Keluarga
-                    </h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 gsap-reveal text-left">
-                    
-                    <div class="soft-glass-card rounded-[2.5rem] p-8">
-                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">
-                            "Kemarin pas kumpul keluarga Lebaran, saudara-saudara pada nanya anakku mau kuliah di mana. Berkat Laporan Better Future, anakku bisa jelaskan Peta Bakat 19-Faktornya dengan sangat pede. Sepupu-sepupunya malah takjub!"
-                        </p>
-                        <div class="font-bold text-sm text-brand-dark">— Bunda Murni (Surabaya, Ortu Siswa Kelas 12)</div>
-                    </div>
-
-                    <div class="soft-glass-card rounded-[2.5rem] p-8">
-                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">
-                            "Anak tetangga saya drop out semester 3 karena salah jurusan, habis Rp 85 Juta dan ibunya malu banget. Beruntung saya dapat tes Better Future sebelum pendaftaran SNBT. Sekarang anak saya fokus & tenang."
-                        </p>
-                        <div class="font-bold text-sm text-brand-dark">— Pak Hendra (Jakarta Selatan, Ortu Siswa Kelas 11)</div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- 8. ACTION (PRICING & SPECIAL INVESTMENT PACKAGE) -->
-        <section class="py-24 bg-white border-t border-slate-200/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                
-                <div class="soft-glass-card rounded-[3rem] p-8 sm:p-12 text-center border-2 border-brand-emerald shadow-2xl gsap-reveal">
-                    <span class="inline-block bg-emerald-100 text-brand-emerald text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">
-                        Penawaran Spesial Penyelamat Masa Depan
-                    </span>
-                    <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-brand-dark mb-2 tracking-tight">
-                        Paket Pemetaan Bakat 19-Faktor Lengkap
-                    </h2>
-                    <p class="text-slate-500 text-xs sm:text-sm mb-6">(Tes 20 Menit + Laporan PDF 19 Halaman + Draf Diplomasi + 24/7 AI Counselor)</p>
-
-                    <div class="line-through text-slate-400 font-semibold text-base">Total Real Value: Rp 1.100.000</div>
-                    <div class="font-heading font-black text-4xl sm:text-6xl text-brand-emerald my-3">Rp 149.000</div>
-                    <p class="text-xs sm:text-sm font-bold text-brand-accent mb-8">*Sekali bayar untuk kepastian masa depan anak seumur hidup</p>
-
-                    <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20mau%20ambil%20Paket%20Pemetaan%20Bakat%20Rp149ribu" class="btn-tactile inline-flex items-center justify-center gap-3 bg-brand-emerald hover:bg-brand-emeraldHover text-white px-8 py-4 rounded-2xl font-extrabold text-base emerald-glow w-full sm:w-auto">
-                        <span>Amankan Paket Penyelamat Rp 149.000 Sekarang</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                    </a>
-                </div>
-
-                <!-- Guarantee Box -->
-                <div class="mt-8 border-2 border-dashed border-brand-accent bg-amber-50/80 rounded-[2.5rem] p-6 text-center gsap-reveal">
-                    <div class="font-extrabold text-brand-accent text-sm mb-2 flex items-center justify-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        <span>100% GARANSI KEDAMAIAN DISKUSI KELUARGA (14 HARI)</span>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-700 max-w-2xl mx-auto leading-relaxed">
-                        Jika dalam 14 hari laporan ini tidak memberikan kepastian jurusan dan kedamaian diskusi antara Anda dan anak Anda, kami kembalikan uang Anda 100% tanpa pertanyaan.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- 9. FAQ ACCORDION -->
-        <section class="py-24 bg-[#FAF8F5]">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6">
-                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-brand-dark text-center mb-10 tracking-tight">
-                    Pertanyaan Sering Diajukan Orang Tua
-                </h2>
-
-                <div class="space-y-4 text-left">
-                    
-                    <div class="soft-glass-card rounded-2xl p-5 cursor-pointer faq-item" onclick="toggleFaq(this)">
-                        <div class="flex items-center justify-between font-bold text-sm sm:text-base text-brand-dark">
-                            <span>Apakah tes ini bisa dipercaya secara ilmiah?</span>
-                            <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </div>
-                        <div class="faq-answer text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            Sangat bisa. Tes disupervisi langsung oleh psikolog lisensi HIMPSI (Dr. Teguh Lesmana, M.Psi., Psi.) menggabungkan 5 metodologi teruji (RIASEC, MBTI, DISC, 16PF, VAK) dengan garansi akurasi 92.7%.
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-5 cursor-pointer faq-item" onclick="toggleFaq(this)">
-                        <div class="flex items-center justify-between font-bold text-sm sm:text-base text-brand-dark">
-                            <span>Bagaimana jika anak saya susah diajak tes atau ngambek?</span>
-                            <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </div>
-                        <div class="faq-answer text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            Tes Better Future dirancang interaktif & menyenangkan di browser HP seperti kuis kepribadian modern. Hanya butuh 20 menit tanpa pusing.
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-5 cursor-pointer faq-item" onclick="toggleFaq(this)">
-                        <div class="flex items-center justify-between font-bold text-sm sm:text-base text-brand-dark">
-                            <span>Apakah laporan ini bisa dipakai untuk meyakinkan keluarga besar/suami?</span>
-                            <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </div>
-                        <div class="faq-answer text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            Tentu! Kami menyediakan Draf Diplomasi Ortu-Anak & Resume Ringkas yang siap ditunjukkan ke keluarga besar sebagai bukti pilihan jurusan ilmiah berbasis data.
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-brand-dark text-slate-400 py-12 border-t border-slate-800 text-center text-xs">
-        <div class="max-w-6xl mx-auto px-4">
-            <p class="text-slate-300 font-semibold mb-2">Better Future (ISCA) — Pemetaan Bakat & Minat 19-Faktor Terpadu di Indonesia</p>
-            <p>© 2026 Better Future. All rights reserved. Supervisi Lisensi HIMPSI.</p>
         </div>
-    </footer>
 
-    <!-- INTERACTIVE SCRIPTS & GSAP ANIMATIONS -->
-    <script>
-        // GSAP ScrollTrigger Animations
-        gsap.registerPlugin(ScrollTrigger);
+    </div>
+</section>
 
-        // Hero Load Animation
-        gsap.from(".hero-anim > *", {
-            y: 30,
+
+<!-- ============================================================
+     AI COUNSELOR DEMO — WhatsApp Mockup
+     ============================================================ -->
+<section class="py-16 bg-white border-y border-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 gsap-reveal">
+
+        <div class="text-center mb-10">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-teal bg-emerald-100/70 border border-emerald-200 px-3.5 py-1 rounded-full mb-4">Konsultan Karir 24/7 di Saku HP Anda</span>
+            <h2 class="font-head font-extrabold text-2xl sm:text-3xl text-ink tracking-tight">AI Career Counselor — Jawaban Kapan Saja, Tanpa Menghakimi</h2>
+        </div>
+
+        <div class="bg-[#075E54] rounded-[2.25rem] p-6 sm:p-8 text-white shadow-2xl">
+            <div class="flex items-center gap-3 border-b border-white/20 pb-4 mb-6">
+                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-head font-bold text-sm">BF</div>
+                <div>
+                    <p class="font-bold text-sm">AI Career Counselor · Better Future</p>
+                    <p class="text-xs text-emerald-200">Online · Supervisi Dr. Teguh Lesmana, M.Psi., Psi.</p>
+                </div>
+                <div class="ml-auto w-2.5 h-2.5 bg-emerald-400 rounded-full"></div>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm">
+                <div class="bg-white text-slate2 p-4 rounded-2xl rounded-tl-none max-w-[82%] shadow-sm leading-relaxed">
+                    Bunda, hasil pemetaan 19-faktor Ananda menunjukkan profil Analytical-Investigative (RIASEC) dengan akurasi 94%. Top 3 rekomendasi jurusan: Data Science, Software Engineering, & Cyber Security.
+                </div>
+                <div class="bg-[#DCF8C6] text-ink p-4 rounded-2xl rounded-tr-none max-w-[82%] ml-auto shadow-sm leading-relaxed">
+                    Alhamdulillah, lega banget Kak! Pas kumpul keluarga Lebaran kemarin sepupu pada nanya terus. Sekarang saya punya laporan ilmiah 19 halamannya. Terima kasih Better Future!
+                </div>
+                <div class="bg-white text-slate2 p-4 rounded-2xl rounded-tl-none max-w-[82%] shadow-sm leading-relaxed">
+                    Sama-sama, Bunda. Laporan & Draf Diplomasi Ortu-Anak-nya sudah siap ya. Kapan pun ada pertanyaan keluarga, tunjukkan saja datanya — biar diskusinya tetap damai dan berbasis fakta.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS — Social Proof
+     ============================================================ -->
+<section class="py-24 bg-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-14 gsap-reveal">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-gold bg-amber-100/70 border border-amber-200 px-3.5 py-1 rounded-full mb-4">Kisah Kehormatan Keluarga</span>
+            <h2 class="font-head font-extrabold text-2xl sm:text-3xl text-ink tracking-tight">Kini Mereka Pede & Tenang Menjawab Keluarga</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 gsap-reveal">
+
+            <div class="glass rounded-[2.25rem] p-8">
+                <p class="text-slate2 italic text-sm leading-relaxed mb-5">
+                    "Pas kumpul keluarga Lebaran, saudara-saudara nanya anakku mau kuliah di mana. Berkat Laporan Better Future, anakku bisa jelasin Peta Bakatnya dengan sangat pede. Sepupu-sepupunya malah minta ikut tes juga!"
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-amber-200 rounded-full flex items-center justify-center font-head font-black text-sm text-amber-800">BM</div>
+                    <p class="font-bold text-sm text-ink">Bunda Murni — Surabaya, Ortu Siswa Kelas 12</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-[2.25rem] p-8">
+                <p class="text-slate2 italic text-sm leading-relaxed mb-5">
+                    "Anak tetangga drop out semester 3, habis Rp 85 Juta dan ibunya malu banget. Beruntung saya dapat rekomendasi Better Future sebelum SNBT. Sekarang anak saya tenang dan fokus di Teknik Informatika."
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-slate-200 rounded-full flex items-center justify-center font-head font-black text-sm text-slate-700">PH</div>
+                    <p class="font-bold text-sm text-ink">Pak Hendra — Jakarta Selatan, Ortu Siswa Kelas 11</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-[2.25rem] p-8">
+                <p class="text-slate2 italic text-sm leading-relaxed mb-5">
+                    "Dulu hampir tiap malam debat karena saya minta anak masuk Akuntansi. Setelah lihat laporan ilmiah Better Future, ternyata ia lebih cocok di Desain Komunikasi Visual. Diskusinya langsung adem, nilainya justru melejit."
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-emerald-200 rounded-full flex items-center justify-center font-head font-black text-sm text-emerald-800">ID</div>
+                    <p class="font-bold text-sm text-ink">Ibu Dian — Bandung, Ortu Siswa Kelas 11</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-[2.25rem] p-8">
+                <p class="text-slate2 italic text-sm leading-relaxed mb-5">
+                    "Saya kira anak saya malas dan tidak serius. Ternyata dia hanya belum menemukan jurusan yang sesuai cara kerja otaknya. Laporan 19 halaman itu buka mata saya. Sekarang ia belajar sendiri tanpa perlu dipaksa."
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-amber-100 rounded-full flex items-center justify-center font-head font-black text-sm text-amber-700">BR</div>
+                    <p class="font-bold text-sm text-ink">Bunda Reni — Yogyakarta, Ortu Siswa Kelas 10</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PRICING — Offer + Risk Reversal
+     ============================================================ -->
+<section class="py-24 bg-white border-y border-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+        <div class="glass rounded-[3rem] p-8 sm:p-12 text-center border-2 border-teal shadow-2xl gsap-reveal">
+            <span class="inline-block bg-emerald-100 text-teal text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider mb-5">Penawaran Penyelamat Masa Depan Anak</span>
+            <h2 class="font-head font-extrabold text-2xl sm:text-4xl text-ink mb-2 tracking-tight">Paket Pemetaan Bakat 19-Faktor Lengkap</h2>
+            <p class="text-muted text-xs sm:text-sm mb-7">Tes 20 Menit · Laporan PDF 19 Halaman · Draf Diplomasi · AI Career Counselor 24/7</p>
+
+            <!-- Value Stack -->
+            <div class="max-w-xs mx-auto text-left space-y-2 mb-8">
+                <div class="flex justify-between text-sm text-muted"><span>Tes Pemetaan 19-Faktor Online</span><span class="text-muted line-through">Rp 350.000</span></div>
+                <div class="flex justify-between text-sm text-muted"><span>Laporan Analisis PDF 19 Halaman</span><span class="text-muted line-through">Rp 300.000</span></div>
+                <div class="flex justify-between text-sm text-muted"><span>Akses 24/7 AI Career Counselor</span><span class="text-muted line-through">Rp 250.000</span></div>
+                <div class="flex justify-between text-sm text-muted"><span>Draf Diplomasi Ortu-Anak</span><span class="text-muted line-through">Rp 200.000</span></div>
+                <div class="border-t border-border/60 pt-2 flex justify-between font-bold text-sm text-ink"><span>Total Real Value</span><span class="line-through">Rp 1.100.000</span></div>
+            </div>
+
+            <p class="text-muted text-sm font-semibold mb-1">Harga Investasi Hari Ini</p>
+            <div class="font-head font-black text-5xl sm:text-6xl text-teal mb-1">Rp 149.000</div>
+            <p class="text-xs font-bold text-gold mb-8">*Sekali bayar · Seumur hidup akses</p>
+
+            <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20mau%20ambil%20Paket%20Pemetaan%20Bakat%20Rp149ribu" class="cta-primary text-base mx-auto">
+                <span>Amankan Paket Penyelamat Rp 149.000 Sekarang</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="mt-8 border-2 border-dashed border-gold bg-amber-50/80 rounded-[2.25rem] p-7 text-center gsap-reveal">
+            <div class="flex items-center justify-center gap-2 font-extrabold text-gold text-sm mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <span>100% Garansi Kedamaian Diskusi Keluarga — 14 Hari</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate2 max-w-2xl mx-auto leading-relaxed">
+                Jika dalam 14 hari laporan ini tidak memberikan kepastian jurusan dan kedamaian diskusi antara Anda dan anak Anda, kami kembalikan uang Anda 100% — tanpa pertanyaan, tanpa syarat.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ ACCORDION
+     ============================================================ -->
+<section class="py-24 bg-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+        <h2 class="font-head font-extrabold text-2xl sm:text-3xl text-ink tracking-tight text-center mb-10">Pertanyaan Sering Diajukan Orang Tua</h2>
+
+        <div class="space-y-3">
+
+            <div class="glass rounded-2xl px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-sm sm:text-base text-ink">Apakah tes ini bisa dipercaya secara ilmiah?</span>
+                    <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-body text-sm text-muted leading-relaxed">
+                    <p class="pt-4">Sangat bisa. Tes disupervisi langsung oleh psikolog lisensi HIMPSI (Dr. Teguh Lesmana, M.Psi., Psi.) dengan 5 metodologi teruji internasional — RIASEC, MBTI, DISC, 16PF, dan VAK — dengan garansi akurasi 92.7%.</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-sm sm:text-base text-ink">Bagaimana jika anak saya susah diajak tes?</span>
+                    <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-body text-sm text-muted leading-relaxed">
+                    <p class="pt-4">Tes Better Future dirancang interaktif & menyenangkan seperti kuis kepribadian modern di HP — hanya butuh 20 menit, tanpa app tambahan, dan bisa dikerjakan kapan saja.</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-sm sm:text-base text-ink">Bisa dipakai untuk meyakinkan suami atau keluarga besar?</span>
+                    <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-body text-sm text-muted leading-relaxed">
+                    <p class="pt-4">Tentu. Kami menyertakan Draf Diplomasi Ortu-Anak yang dirancang untuk ditunjukkan ke keluarga besar, suami, atau kerabat sebagai bukti bahwa pilihan jurusan anak didasarkan pada data ilmiah yang bisa dipertanggungjawabkan.</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl px-6 py-5 cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-sm sm:text-base text-ink">Apakah ada garansi uang kembali?</span>
+                    <svg class="faq-chevron w-5 h-5 text-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-body text-sm text-muted leading-relaxed">
+                    <p class="pt-4">Ya. Kami memberikan Garansi 100% Kedamaian Diskusi Keluarga selama 14 Hari. Jika Anda tidak puas, uang kembali penuh — tanpa pertanyaan, tanpa birokrasi.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================================
+     FINAL CTA BANNER
+     ============================================================ -->
+<section class="py-20 bg-ink gsap-reveal">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="font-head font-extrabold text-2xl sm:text-4xl text-white tracking-tight mb-4">
+            Jangan Tunggu Ditanya Keluarga Baru Kebingungan
+        </h2>
+        <p class="text-slate-300 text-base mb-8 leading-relaxed">
+            Berikan arah karir terbaik untuk anak hari ini — sebelum momen kumpul keluarga berikutnya tiba.
+        </p>
+        <a href="https://wa.me/628123456789?text=Halo%20Better%20Future,%20saya%20mau%20mulai%20tes%20bakat%20anak%20sekarang" class="cta-primary text-base mx-auto">
+            <span>Amankan Tes Bakat Anak Rp 149.000 Sekarang</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="bg-ink border-t border-slate-800 py-10 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4">
+        <p class="text-slate-300 font-semibold mb-1">Better Future (ISCA) — Pemetaan Bakat & Minat 19-Faktor Terpadu di Indonesia</p>
+        <p>Mapping Today, Shaping Tomorrow. · © 2026 Better Future. All rights reserved. Supervisi Lisensi HIMPSI.</p>
+    </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS: GSAP + FAQ
+     ============================================================ -->
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero stagger load
+    gsap.from(".hero-copy > *", {
+        y: 32,
+        opacity: 0,
+        duration: 0.85,
+        stagger: 0.12,
+        ease: "power3.out",
+        delay: 0.1
+    });
+    gsap.from(".hero-media", {
+        y: 24,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.25
+    });
+
+    // Bento stagger reveal
+    gsap.from(".gsap-bento > *", {
+        scrollTrigger: { trigger: ".gsap-bento", start: "top 82%" },
+        y: 36,
+        opacity: 0,
+        duration: 0.65,
+        stagger: 0.1,
+        ease: "power2.out"
+    });
+
+    // Section reveals
+    gsap.utils.toArray(".gsap-reveal").forEach(el => {
+        gsap.from(el, {
+            scrollTrigger: { trigger: el, start: "top 86%" },
+            y: 28,
             opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out"
-        });
-
-        // Bento Grid Stagger Reveal
-        gsap.from(".gsap-bento > *", {
-            scrollTrigger: {
-                trigger: ".gsap-bento",
-                start: "top 80%"
-            },
-            y: 40,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.12,
+            duration: 0.65,
             ease: "power2.out"
         });
+    });
 
-        // General Section Reveals
-        gsap.utils.toArray(".gsap-reveal").forEach(function(elem) {
-            gsap.from(elem, {
-                scrollTrigger: {
-                    trigger: elem,
-                    start: "top 85%"
-                },
-                y: 30,
-                opacity: 0,
-                duration: 0.7,
-                ease: "power2.out"
-            });
-        });
+    // FAQ accordion
+    function toggleFaq(el) {
+        const body    = el.querySelector('.faq-body');
+        const chevron = el.querySelector('.faq-chevron');
+        const isOpen  = body.classList.contains('open');
 
-        // FAQ Toggle Function
-        function toggleFaq(element) {
-            const answer = element.querySelector('.faq-answer');
-            const icon = element.querySelector('.faq-icon');
-            
-            const isOpen = answer.classList.contains('open');
-            
-            // Close all
-            document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
-            document.querySelectorAll('.faq-icon').forEach(el => el.classList.remove('rotate-180'));
+        document.querySelectorAll('.faq-body').forEach(b => b.classList.remove('open'));
+        document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('open'));
 
-            if (!isOpen) {
-                answer.classList.add('open');
-                icon.classList.add('rotate-180');
-            }
+        if (!isOpen) {
+            body.classList.add('open');
+            chevron.classList.add('open');
         }
-    </script>
+    }
+</script>
 </body>
 </html>
