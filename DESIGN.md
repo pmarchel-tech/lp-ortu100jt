@@ -102,7 +102,7 @@ graph TD
 6. **Profil Otoritas Pakar (`#psikolog`)**:
    - Foto Dr. Teguh Lesmana, M.Psi., Psi (`dr_teguh_profile.png`) berbingkai emas ganda dengan floating badge `✓ Verified Psychologist`.
    - Kutipan Personal: *"Setiap anak lahir dengan bakat unik. Tugas kita sebagai orang tua dan pendidik bukan memaksakan kehendak, melainkan membantu mereka menemukan kompas hidupnya sejak awal."*
-   - 3 Badge Kredensial: Magister & Doktor Psikologi, Psikolog Terlisensi HIMPIS, 15+ Tahun Bimbingan Ortu & Anak.
+   - 3 Badge Kredensial: Magister & Doktor Psikologi, Psikolog Terlisensi HIMPSI, 15+ Tahun Bimbingan Ortu & Anak.
 
 7. **Alur Kuis 3 Langkah Mudah (`#alur`)**:
    - Langkah 1: Isi Tes Minat Bakat (20 Menit).
