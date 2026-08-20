@@ -441,32 +441,35 @@
                 </div>
 
                 <!-- Social Proof & Bukti Chat WhatsApp Ortu (Light Theme) -->
-                    <!-- WHATSAPP CHAT CAROUSEL (5 BUKTI PERCAKAPAN ORTU REAL) -->
+                    <!-- WHATSAPP CHAT CAROUSEL (6 BUKTI PERCAKAPAN ORTU REAL BARU) -->
                     <div style="margin-top: 18px;">
                         <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px; text-align: center;">
                             Bukti Nyata Percakapan Orang Tua di WhatsApp:
                         </h3>
                         <div id="waCarouselCaption" style="font-size: 0.8rem; font-weight: 700; color: #D97706; text-align: center; margin-bottom: 12px;">
-                            💬 Geser / Klik Panah untuk Melihat Bukti Chat Lainnya (1/5)
+                            💬 Geser / Klik Panah untuk Melihat Bukti Chat Lainnya (1/6)
                         </div>
 
                         <!-- Carousel Container -->
                         <div style="position: relative; max-width: 380px; margin: 0 auto; overflow: hidden; border-radius: 16px; border: 1.5px solid #E2E8F0; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); background: #075E54;">
-                            <div id="waCarouselTrack" style="display: flex; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); width: 500%;">
-                                <div style="width: 20%; flex-shrink: 0;">
-                                    <img src="BF resources/bunda_dian.png" alt="Bukti Chat WA Bunda Dian" style="width: 100%; display: block; height: auto;">
-                                </div>
-                                <div style="width: 20%; flex-shrink: 0;">
+                            <div id="waCarouselTrack" style="display: flex; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); width: 600%;">
+                                <div style="width: 16.6666%; flex-shrink: 0;">
                                     <img src="BF resources/20 menit.png" alt="Bukti Chat WA 20 Menit" style="width: 100%; display: block; height: auto;">
                                 </div>
-                                <div style="width: 20%; flex-shrink: 0;">
-                                    <img src="BF resources/DKV.png" alt="Bukti Chat WA Jurusan DKV" style="width: 100%; display: block; height: auto;">
+                                <div style="width: 16.6666%; flex-shrink: 0;">
+                                    <img src="BF resources/3 digit.png" alt="Bukti Chat WA Rincian Laporan" style="width: 100%; display: block; height: auto;">
                                 </div>
-                                <div style="width: 20%; flex-shrink: 0;">
+                                <div style="width: 16.6666%; flex-shrink: 0;">
+                                    <img src="BF resources/5.png" alt="Bukti Chat WA Pemetaan Bakat" style="width: 100%; display: block; height: auto;">
+                                </div>
+                                <div style="width: 16.6666%; flex-shrink: 0;">
+                                    <img src="BF resources/6.png" alt="Bukti Chat WA Konsultasi Ortu" style="width: 100%; display: block; height: auto;">
+                                </div>
+                                <div style="width: 16.6666%; flex-shrink: 0;">
                                     <img src="BF resources/dr gigi.png" alt="Bukti Chat WA Dokter Gigi" style="width: 100%; display: block; height: auto;">
                                 </div>
-                                <div style="width: 20%; flex-shrink: 0;">
-                                    <img src="BF resources/Murah.png" alt="Bukti Chat WA Investasi Terjangkau" style="width: 100%; display: block; height: auto;">
+                                <div style="width: 16.6666%; flex-shrink: 0;">
+                                    <img src="BF resources/peta.png" alt="Bukti Chat WA Peta Masa Depan" style="width: 100%; display: block; height: auto;">
                                 </div>
                             </div>
 
@@ -481,13 +484,14 @@
                             </button>
                         </div>
 
-                        <!-- Pagination Dots -->
+                        <!-- Pagination Dots (6 Dots) -->
                         <div id="waCarouselDots" style="display: flex; justify-content: center; gap: 8px; margin-top: 12px;">
                             <span class="wa-dot active" onclick="goToWaSlide(0)" style="width: 10px; height: 10px; border-radius: 50%; background: #D97706; cursor: pointer; transition: all 0.2s;"></span>
                             <span class="wa-dot" onclick="goToWaSlide(1)" style="width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; cursor: pointer; transition: all 0.2s;"></span>
                             <span class="wa-dot" onclick="goToWaSlide(2)" style="width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; cursor: pointer; transition: all 0.2s;"></span>
                             <span class="wa-dot" onclick="goToWaSlide(3)" style="width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; cursor: pointer; transition: all 0.2s;"></span>
                             <span class="wa-dot" onclick="goToWaSlide(4)" style="width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; cursor: pointer; transition: all 0.2s;"></span>
+                            <span class="wa-dot" onclick="goToWaSlide(5)" style="width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; cursor: pointer; transition: all 0.2s;"></span>
                         </div>
                     </div>
             </div>
@@ -800,9 +804,9 @@
             }
         });
 
-        // WHATSAPP CHAT CAROUSEL HANDLER
+        // WHATSAPP CHAT CAROUSEL HANDLER (6 SLIDES)
         let currentWaIndex = 0;
-        const totalWaSlides = 5;
+        const totalWaSlides = 6;
 
         function updateWaCarousel() {
             const track = document.getElementById('waCarouselTrack');
@@ -810,7 +814,8 @@
             const captionText = document.getElementById('waCarouselCaption');
             if (!track) return;
             
-            track.style.transform = `translateX(-${currentWaIndex * 20}%)`;
+            const stepPercent = 100 / totalWaSlides;
+            track.style.transform = `translateX(-${currentWaIndex * stepPercent}%)`;
             if (captionText) {
                 captionText.textContent = `💬 Geser / Klik Panah untuk Melihat Bukti Chat Lainnya (${currentWaIndex + 1}/${totalWaSlides})`;
             }
