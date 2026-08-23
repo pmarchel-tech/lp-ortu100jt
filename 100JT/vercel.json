@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index_wireframe_light.html"
+    },
+    {
+      "source": "/light",
+      "destination": "/index_wireframe_light.html"
+    },
+    {
+      "source": "/dark",
+      "destination": "/index_wireframe.html"
+    }
+  ]
+}
